@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Why from "../components/Why.astro";
+import Features from "../components/Features.astro";
+import HowItWorks from "../components/HowItWorks.astro";
+import Install from "../components/Install.astro";
+import OpenSource from "../components/OpenSource.astro";
+import Footer from "../components/Footer.astro";
+
+// Stars are static for now — the build runs on every deploy, so it's
+// updated when we ship a new version. Wire to the GitHub API later if
+// the count starts moving fast.
+const STARS = 2;
+---
+
+<Layout>
+  <Nav stars={STARS} />
+  <Hero />
+  <Why />
+  <Features />
+  <HowItWorks />
+  <Install />
+  <OpenSource stars={STARS} />
+  <Footer />
+</Layout>

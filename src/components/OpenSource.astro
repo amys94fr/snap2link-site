@@ -1,0 +1,97 @@
+---
+interface Props {
+  stars: number;
+}
+const { stars } = Astro.props;
+---
+
+<section class="section" id="open" data-screen-label="OpenSource">
+  <div class="container-page">
+    <span class="eyebrow">Open source</span>
+    <h2
+      style="font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.025em; line-height: 1.1; font-weight: 700; color: var(--color-slate-100); margin: 16px 0 0; max-width: 720px; text-wrap: balance;"
+    >
+      Free, open source, MIT licensed.
+    </h2>
+    <p
+      style="max-width: 640px; margin-top: 12px; color: var(--color-slate-300); font-size: 16px; line-height: 1.6;"
+    >
+      Tauri + React + Rust. Read the source, file an issue, ship a PR. Early
+      days — every star helps.
+    </p>
+
+    <div class="os-stats">
+      <div class="os-stat">
+        <span class="num"><span class="live"></span>{stars}</span>
+        <span class="lbl">GitHub stars</span>
+      </div>
+      <div class="os-stat">
+        <span class="num">~</span>
+        <span class="lbl">Downloads (early days)</span>
+      </div>
+      <div class="os-stat">
+        <span class="num">1</span>
+        <span class="lbl">Contributor</span>
+      </div>
+    </div>
+
+    <div class="os-cards">
+      <a href="https://github.com/amys94fr/Snap2Link" class="os-card">
+        <h3>
+          Read the source
+          <span class="arrow">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              width="20"
+              height="20"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </h3>
+        <p>
+          Tauri v2, Rust on the back, React + TypeScript on the front. The
+          whole thing is about 4,000 lines.
+        </p>
+      </a>
+      <a
+        href="https://github.com/amys94fr/Snap2Link/blob/main/CONTRIBUTING.md"
+        class="os-card"
+      >
+        <h3>
+          Contribute
+          <span class="arrow">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.75"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              width="20"
+              height="20"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </h3>
+        <p>
+          Good first issues are tagged. CI is fast. Tests run in Vitest. Reviews
+          are friendly.
+        </p>
+      </a>
+    </div>
+
+    <p class="os-footnote">
+      Built with <code>Tauri v2</code> · <code>React 19</code> ·
+      <code>Tailwind 4</code> · <code>Vitest</code>
+    </p>
+  </div>
+</section>

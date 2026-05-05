@@ -1,0 +1,55 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Snap2Link — paste screenshots into Claude Code, Cursor, or any terminal AI",
+  description = "Hotkey → drag a region → public share link lands in your clipboard. One keystroke, on Windows, macOS, and Linux. Free, open source, MIT licensed.",
+} = Astro.props;
+
+const ogImage = new URL("/og.png", Astro.site ?? "https://snap2link.app").toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="icon" href="/assets/logo-app-icon.png" />
+    <link rel="apple-touch-icon" href="/assets/logo-app-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#0F172A" />
+
+    <!-- Preload Geist for the hero so the LCP doesn't shift fonts -->
+    <link
+      rel="preload"
+      href="/_astro/files/geist-sans-latin-700-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

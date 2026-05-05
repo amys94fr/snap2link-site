@@ -1,0 +1,114 @@
+---
+import AnnotatorCard from "./AnnotatorCard.astro";
+
+interface Feature {
+  iconKey: keyof typeof ICONS;
+  title: string;
+  body: string;
+}
+
+// Inline SVGs keyed by name — keeps the markup readable and dodges a
+// runtime icon library.
+const ICONS = {
+  bot: `<rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="11"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/>`,
+  mouse: `<path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="M13 13l6 6"/>`,
+  zap: `<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>`,
+  keyboard: `<rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h0M10 10h0M14 10h0M18 10h0M6 14h0M18 14h0M10 14h4"/>`,
+  monitor: `<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>`,
+  trash: `<polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/>`,
+  refresh: `<path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"/><path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"/>`,
+  shield: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
+} as const;
+
+const TOP: Feature[] = [
+  {
+    iconKey: "bot",
+    title: "Built for AI workflows",
+    body: "Pastes as a markdown image link. Works in Claude Code, Cursor, Aider, ChatGPT, Continue, Zed.",
+  },
+  {
+    iconKey: "mouse",
+    title: "Drag-to-capture overlay",
+    body: "Dimmed scrim, dashed selection, live pixel dimensions. Esc to cancel.",
+  },
+  {
+    iconKey: "zap",
+    title: "Instant share link",
+    body: "Under one second from drag-end to clipboard. Faster than your editor's auto-save.",
+  },
+  {
+    iconKey: "keyboard",
+    title: "Global hotkey",
+    body: "Default ⌃ + PrtSc — rebind to anything. The capture works whether the app's focused or not.",
+  },
+  {
+    iconKey: "monitor",
+    title: "Windows, macOS, Linux",
+    body: "One Tauri binary per platform. About ten megabytes each. No Electron.",
+  },
+];
+
+const BOTTOM: Feature[] = [
+  {
+    iconKey: "trash",
+    title: "Auto-cleanup",
+    body: "Old screenshots evict from Drive on a schedule you set. Default — 30 days.",
+  },
+  {
+    iconKey: "refresh",
+    title: "Built-in auto-updater",
+    body: "Notarised on macOS, signed on Windows. Updates check on launch — opt out anytime.",
+  },
+  {
+    iconKey: "shield",
+    title: "No third-party server",
+    body: "Direct from your machine to your Drive. Drive scope is `drive.file` — Snap2Link only sees what it created.",
+  },
+];
+
+const SVG_PROPS = `viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"`;
+---
+
+<section class="section" id="features" data-screen-label="Features">
+  <div class="container-page">
+    <span class="eyebrow">Features</span>
+    <h2
+      style="font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.025em; line-height: 1.1; font-weight: 700; color: var(--color-slate-100); margin: 16px 0 32px; max-width: 720px; text-wrap: balance;"
+    >
+      Built for the keystroke, not the tour.
+    </h2>
+    <div class="bento">
+      {
+        TOP.map((f) => (
+          <div class="feature-card">
+            <span class="icon">
+              <svg set:html={`<g>${ICONS[f.iconKey]}</g>`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" />
+            </span>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))
+      }
+      <AnnotatorCard />
+      {
+        BOTTOM.map((f) => (
+          <div class="feature-card">
+            <span class="icon">
+              <svg set:html={`<g>${ICONS[f.iconKey]}</g>`} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" />
+            </span>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  /* The svg `set:html` trick wraps in a <g>, which we want to keep. Make
+     sure the inner paths inherit the right size. */
+  .feature-card .icon svg {
+    display: block;
+  }
+</style>

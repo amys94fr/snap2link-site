@@ -1,0 +1,133 @@
+---
+// Animated capture sequence — the same 5-phase loop the prototype shipped:
+// 0 idle → 1 hotkey overlay → 2 selection drawn → 3 toast → 4 terminal paste.
+// Driven by a tiny vanilla JS snippet at the bottom of the file so we don't
+// need to ship React just for one animation.
+---
+
+<div class="demo-wrap">
+  <div class="demo-frame demo" data-phase="0">
+    <div class="demo-chrome">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="url">snap2link · capturing region</div>
+    </div>
+
+    <div class="demo-phases">
+      <span class="phase active">1. idle</span>
+      <span class="phase">2. hotkey</span>
+      <span class="phase">3. drag</span>
+      <span class="phase">4. copy</span>
+      <span class="phase">5. paste</span>
+    </div>
+
+    <div class="demo-stage">
+      <div class="demo-desktop">
+        <div class="demo-sidebar">
+          <div class="item active"><span class="glyph"></span>Inbox</div>
+          <div class="item"><span class="glyph"></span>Projects</div>
+          <div class="item"><span class="glyph"></span>Releases</div>
+          <div class="item"><span class="glyph"></span>Settings</div>
+        </div>
+        <div class="demo-main">
+          <div class="row short"></div>
+          <div class="row long"></div>
+          <div class="row med"></div>
+          <div class="row long"></div>
+          <div class="bug-card">
+            <span class="err"
+              >TypeError: cannot read property of undefined</span
+            >
+            <div class="row med" style="height: 6px;"></div>
+            <div class="row long" style="height: 6px;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-hotkey">
+        <span class="key">Ctrl</span>
+        <span class="plus">+</span>
+        <span class="key">PrtSc</span>
+      </div>
+
+      <div
+        class="demo-selection"
+        style="top: 55%; left: 30%; width: 55%; height: 30%;"
+      >
+        <span class="corner tl"></span><span class="corner tr"></span>
+        <span class="corner bl"></span><span class="corner br"></span>
+        <span class="dim">624 × 184</span>
+      </div>
+
+      <div class="demo-toast">
+        <span class="check">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            width="16"
+            height="16"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </span>
+        <div class="toast-text">
+          <span class="toast-title">Link copied</span>
+          <span class="toast-link">drive.google.com/uc?id=1aBcD…</span>
+        </div>
+      </div>
+
+      <div class="demo-terminal">
+        <div>
+          <span class="prompt">claude $</span>
+          <span class="you"> look at this </span>
+          <span class="url-paste">drive.google.com/uc?id=1aBcD…</span>
+        </div>
+        <div style="margin-top: 6px; color: var(--color-slate-400);">
+          I see the TypeError on line 142 — `user.profile` is read before the
+          fetch resolves<span class="caret"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // 5-phase capture animation. Bails out if the user prefers reduced motion
+  // — we still show the success state (phase 3) so the layout doesn't shift.
+  type Phase = 0 | 1 | 2 | 3 | 4;
+  const SEQUENCE: { p: Phase; t: number }[] = [
+    { p: 0, t: 1200 },
+    { p: 1, t: 900 },
+    { p: 2, t: 1600 },
+    { p: 3, t: 1400 },
+    { p: 4, t: 2200 },
+  ];
+
+  function startDemo(root: HTMLElement) {
+    const phaseLabels = root.querySelectorAll<HTMLElement>(".demo-phases .phase");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      root.dataset.phase = "3";
+      phaseLabels.forEach((el, i) =>
+        el.classList.toggle("active", i === 3),
+      );
+      return;
+    }
+    let i = 0;
+    const tick = () => {
+      const { p } = SEQUENCE[i];
+      root.dataset.phase = String(p);
+      phaseLabels.forEach((el, j) => el.classList.toggle("active", j === p));
+      i = (i + 1) % SEQUENCE.length;
+      window.setTimeout(tick, SEQUENCE[i].t);
+    };
+    tick();
+  }
+
+  document
+    .querySelectorAll<HTMLElement>(".demo")
+    .forEach((el) => startDemo(el));
+</script>

@@ -1,0 +1,37 @@
+---
+const TOOLS = [
+  { name: "Claude", glyph: "C" },
+  { name: "Cursor", glyph: "▶" },
+  { name: "ChatGPT", glyph: "○" },
+  { name: "Aider", glyph: "A" },
+];
+---
+
+<section class="section" data-screen-label="Why">
+  <div class="why">
+    <span class="eyebrow">Built for AI workflows</span>
+    <h2>Stop screenshotting → uploading → copying → pasting.</h2>
+    <p>
+      You're working with Claude Code on a remote VPS. You need to show the
+      model a UI bug, a design mockup, a stack trace. The usual workflow —
+      screenshot, open browser, upload to imgur, copy the URL, paste — is six
+      steps, three apps, and a dozen seconds you'll never get back.
+    </p>
+    <p>
+      Snap2Link collapses it into one keystroke. Uploads to <strong>your</strong>
+      Google Drive with the minimum scope possible. No third-party server, no
+      account to create, no telemetry. The link is on your clipboard before the
+      toast finishes.
+    </p>
+    <div class="tools-row">
+      {
+        TOOLS.map((t) => (
+          <span class="tool-chip">
+            <span class="glyph">{t.glyph}</span>
+            {t.name}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</section>
