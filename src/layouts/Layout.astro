@@ -114,29 +114,59 @@ const softwareLD = {
     <slot />
 
     <script>
-      // Refresh the GitHub star count client-side so the figure stays
-      // accurate between deploys. Falls back silently to the build-time
-      // value rendered into [data-gh-stars] if the API is unreachable
-      // (rate-limited from this IP, offline, etc.).
+      // Refresh GitHub metrics (stars + total downloads) client-side so
+      // the figures stay accurate between deploys. Falls back silently
+      // to the build-time values rendered into [data-gh-*] if the API
+      // is unreachable (rate-limited, offline, etc.).
       (async () => {
-        const targets = document.querySelectorAll<HTMLElement>(
-          "[data-gh-stars]",
-        );
-        if (targets.length === 0) return;
+        const headers = { Accept: "application/vnd.github+json" };
+        const set = (selector: string, value: string | number) => {
+          const text = String(value);
+          document
+            .querySelectorAll<HTMLElement>(selector)
+            .forEach((el) => {
+              if (el.textContent !== text) el.textContent = text;
+            });
+        };
+
+        // 1. Stars — single repo metadata fetch
         try {
-          const res = await fetch(
+          const r = await fetch(
             "https://api.github.com/repos/amys94fr/Snap2Link",
-            { headers: { Accept: "application/vnd.github+json" } },
+            { headers },
           );
-          if (!res.ok) return;
-          const data = (await res.json()) as { stargazers_count?: number };
-          if (typeof data.stargazers_count !== "number") return;
-          const fresh = String(data.stargazers_count);
-          targets.forEach((el) => {
-            if (el.textContent !== fresh) el.textContent = fresh;
-          });
+          if (r.ok) {
+            const data = (await r.json()) as { stargazers_count?: number };
+            if (typeof data.stargazers_count === "number") {
+              set("[data-gh-stars]", data.stargazers_count);
+            }
+          }
         } catch {
-          // API unreachable; keep the build-time value
+          /* keep build-time value */
+        }
+
+        // 2. Downloads — sum across every asset of every release
+        try {
+          const r = await fetch(
+            "https://api.github.com/repos/amys94fr/Snap2Link/releases?per_page=100",
+            { headers },
+          );
+          if (r.ok) {
+            type R = { assets?: Array<{ download_count?: number }> };
+            const releases = (await r.json()) as R[];
+            const total = releases.reduce(
+              (sum, rel) =>
+                sum +
+                (rel.assets ?? []).reduce(
+                  (s, a) => s + (a.download_count ?? 0),
+                  0,
+                ),
+              0,
+            );
+            set("[data-gh-downloads]", total.toLocaleString("en-US"));
+          }
+        } catch {
+          /* keep build-time value */
         }
       })();
     </script>

@@ -10,28 +10,54 @@ import OpenSource from "../components/OpenSource.astro";
 import Footer from "../components/Footer.astro";
 
 /**
- * Star count — fetched at build time so the rendered HTML ships with the
- * current value (no client-side flash on load). A tiny script in Layout
- * also re-fetches client-side to keep the count fresh between deploys.
+ * Repo metrics fetched at build time so the rendered HTML ships with
+ * current values (no client-side flash on load). A tiny script in Layout
+ * also re-fetches client-side to keep them fresh between deploys.
  *
- * Falls back to the last known value if GitHub API rate-limits the
- * Cloudflare build runner (unlikely, but harmless).
+ * - STARS:     stargazers_count from /repos/...
+ * - DOWNLOADS: sum of download_count across every asset of every release.
+ *
+ * Both fall back to last-known values if the GitHub API rate-limits the
+ * Cloudflare build runner (unlikely; harmless if it does).
  */
 const FALLBACK_STARS = 2;
+const FALLBACK_DOWNLOADS = 0;
 let STARS = FALLBACK_STARS;
+let DOWNLOADS = FALLBACK_DOWNLOADS;
+const HEADERS = {
+  Accept: "application/vnd.github+json",
+  "User-Agent": "snap2link-site-build",
+};
 try {
-  const res = await fetch(
+  const repoRes = await fetch(
     "https://api.github.com/repos/amys94fr/Snap2Link",
-    { headers: { "User-Agent": "snap2link-site-build" } },
+    { headers: HEADERS },
   );
-  if (res.ok) {
-    const data = (await res.json()) as { stargazers_count?: number };
-    if (typeof data.stargazers_count === "number") {
-      STARS = data.stargazers_count;
-    }
+  if (repoRes.ok) {
+    const data = (await repoRes.json()) as { stargazers_count?: number };
+    if (typeof data.stargazers_count === "number") STARS = data.stargazers_count;
   }
 } catch {
-  // network / API hiccup at build time — fallback already set
+  /* keep fallback */
+}
+try {
+  const relRes = await fetch(
+    "https://api.github.com/repos/amys94fr/Snap2Link/releases?per_page=100",
+    { headers: HEADERS },
+  );
+  if (relRes.ok) {
+    const releases = (await relRes.json()) as Array<{
+      assets?: Array<{ download_count?: number }>;
+    }>;
+    DOWNLOADS = releases.reduce(
+      (sum, r) =>
+        sum +
+        (r.assets ?? []).reduce((s, a) => s + (a.download_count ?? 0), 0),
+      0,
+    );
+  }
+} catch {
+  /* keep fallback */
 }
 ---
 
@@ -42,6 +68,6 @@ try {
   <Features />
   <HowItWorks />
   <Install />
-  <OpenSource stars={STARS} />
+  <OpenSource stars={STARS} downloads={DOWNLOADS} />
   <Footer />
 </Layout>

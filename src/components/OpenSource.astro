@@ -1,8 +1,10 @@
 ---
 interface Props {
   stars: number;
+  downloads: number;
 }
-const { stars } = Astro.props;
+const { stars, downloads } = Astro.props;
+const downloadsDisplay = downloads.toLocaleString("en-US");
 ---
 
 <section class="section" id="open" data-screen-label="OpenSource">
@@ -28,8 +30,8 @@ const { stars } = Astro.props;
         <span class="lbl">GitHub stars</span>
       </div>
       <div class="os-stat">
-        <span class="num">~</span>
-        <span class="lbl">Downloads (early days)</span>
+        <span class="num"><span data-gh-downloads>{downloadsDisplay}</span></span>
+        <span class="lbl">Downloads</span>
       </div>
       <div class="os-stat">
         <span class="num">1</span>
