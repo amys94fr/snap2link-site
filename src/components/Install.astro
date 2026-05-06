@@ -82,19 +82,36 @@ const PLATFORMS = [
   const tabs = document.querySelectorAll<HTMLButtonElement>(".install-tab");
   const panels = document.querySelectorAll<HTMLElement>(".install-panel");
 
+  function activateTab(id: string) {
+    tabs.forEach((t) => {
+      const active = t.dataset.tab === id;
+      t.classList.toggle("active", active);
+      t.setAttribute("aria-selected", String(active));
+    });
+    panels.forEach((p) => {
+      p.classList.toggle("hidden", p.dataset.panel !== id);
+    });
+  }
+
   tabs.forEach((btn) => {
     btn.addEventListener("click", () => {
       const id = btn.dataset.tab;
-      tabs.forEach((t) => {
-        const active = t.dataset.tab === id;
-        t.classList.toggle("active", active);
-        t.setAttribute("aria-selected", String(active));
-      });
-      panels.forEach((p) => {
-        p.classList.toggle("hidden", p.dataset.panel !== id);
-      });
+      if (id) activateTab(id);
     });
   });
+
+  // Hero CTAs (Windows / macOS / Linux) carry data-install-tab so the
+  // anchor click both scrolls to #install AND switches to the matching
+  // tab — without these the scroll worked but the user always landed
+  // on the Windows tab regardless of which CTA they clicked.
+  document
+    .querySelectorAll<HTMLAnchorElement>("[data-install-tab]")
+    .forEach((link) => {
+      link.addEventListener("click", () => {
+        const id = link.dataset.installTab;
+        if (id) activateTab(id);
+      });
+    });
 
   document.querySelectorAll<HTMLButtonElement>(".codeblock .copy").forEach((btn) => {
     btn.addEventListener("click", async () => {
