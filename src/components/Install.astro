@@ -3,26 +3,26 @@ const PLATFORMS = [
   {
     id: "win",
     label: "Windows",
+    meta: "v1.3.0 · Windows 10+ · 3.6 MB",
     cmd: "winget install amys94fr.Snap2Link",
-    manual: "Download .exe from GitHub releases",
+    manual: "Download .msi from GitHub releases",
     iconPath: `<path d="M3 5.5L11 4.5v7H3zM12 4.4L22 3v8.5H12zM3 12.5h8v7L3 18.5zM12 12.5h10V21l-10-1.4z"/>`,
-    iconFill: true,
   },
   {
     id: "mac",
     label: "macOS",
+    meta: "v1.3.0 · macOS 12+ · 13 MB · Universal",
     cmd: "Download Snap2Link_1.3.0_universal.dmg",
     manual: "Download .dmg from GitHub releases",
     iconPath: `<path d="M16.4 12.5c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.2.9-4 2.4-1.7 3-.4 7.5 1.3 10 .8 1.2 1.7 2.5 3 2.5 1.2 0 1.6-.8 3-.8s1.8.8 3 .8c1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8 0-.1-2.5-1-2.2-3.3zM14 5.2c.6-.8 1.1-1.9 1-3-.9 0-2 .6-2.6 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2-.5 2.6-1.3z"/>`,
-    iconFill: true,
   },
   {
     id: "lin",
     label: "Linux",
+    meta: "v1.3.0 · Debian / Fedora / AppImage",
     cmd: "curl -fsSL https://raw.githubusercontent.com/amys94fr/Snap2Link/main/scripts/install.sh | bash",
     manual: "Download .AppImage / .deb / .rpm",
     iconPath: `<path d="M12.5 2c-2.5 0-4.5 2-4.5 4.5 0 .8.2 1.5.5 2.2C7.4 9.6 6 11.5 6 13.5c0 1.4.6 2.6 1.6 3.5-.4.4-.6 1-.6 1.5 0 1 .5 1.8 1.4 2.4-.3.3-.5.7-.5 1.1 0 .9.7 1.5 2 1.5h4.2c1.3 0 2-.6 2-1.5 0-.4-.2-.8-.5-1.1.9-.6 1.4-1.4 1.4-2.4 0-.5-.2-1.1-.6-1.5 1-.9 1.6-2.1 1.6-3.5 0-2-1.4-3.9-2.5-4.8.3-.7.5-1.4.5-2.2C17 4 15 2 12.5 2z"/>`,
-    iconFill: true,
   },
 ];
 ---
@@ -59,20 +59,10 @@ const PLATFORMS = [
           data-panel={p.id}
           role="tabpanel"
         >
-          <pre class="codeblock">
-            <code><span class="prompt">$ </span>{p.cmd}</code>
-            <button class="copy" data-cmd={p.cmd} aria-label="Copy command">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span class="label">Copy</span>
-            </button>
-          </pre>
+<pre class="codeblock"><code><span class="prompt">$ </span>{p.cmd}</code><button class="copy" data-cmd={p.cmd} aria-label="Copy command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="label">Copy</span></button></pre>
           <div class="meta">
-            <span style="color: var(--color-slate-400);">
-              v1.3.0 · {p.label} · MIT
-            </span>
-            <a href="https://github.com/amys94fr/Snap2Link/releases/latest">
-              {p.manual} →
-            </a>
+            <span style="color: var(--color-slate-400);">{p.meta}</span>
+            <a href="https://github.com/amys94fr/Snap2Link/releases/latest">{p.manual} →</a>
           </div>
         </div>
       ))

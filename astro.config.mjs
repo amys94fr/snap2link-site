@@ -12,4 +12,9 @@ export default defineConfig({
   build: {
     inlineStylesheets: "auto",
   },
+  server: {
+    // Port 4321 is taken by another local agent — use 4322 instead.
+    port: 4322,
+    host: true,
+  },
 });

@@ -8,16 +8,34 @@
 @import "@fontsource/geist-mono/500.css";
 
 /* ============================================================
-   Snap2Link — design tokens (matches docs/DESIGN_SYSTEM.md)
-   Brand is BLUE, anchored on the desktop app's Tailwind palette.
+   Snap2Link marketing site — design tokens.
+   Brand is the Claude Design orange (#D97757). Site lives at
+   snap2link.app and intentionally diverges from the desktop app's
+   blue palette (the app's docs/DESIGN_SYSTEM.md only governs the app).
    ============================================================ */
 @theme {
-  --color-brand: #3b82f6;
-  --color-brand-dark: #2563eb;
+  /* Claude Design brand — orange. Source of truth for this site. */
+  --color-brand: #d97757;
+  --color-brand-dark: #c25e3f;
   --color-success: #22c55e;
   --color-success-dark: #16a34a;
   --color-danger: #ef4444;
   --color-warning: #f59e0b;
+
+  /* Override Tailwind 4's default slate scale to match Claude Design's
+     palette (which predates TW4's slate-950 addition and the resulting
+     one-step shift). Without this, --color-slate-950 resolves to the
+     much-darker #020617 — making the page bg look black instead of the
+     navy-tinted dark we want. Values come from colors_and_type.css. */
+  --color-slate-950: #0f172a;
+  --color-slate-900: #1e293b;
+  --color-slate-800: #334155;
+  --color-slate-700: #475569;
+  --color-slate-400: #94a3b8;
+  --color-slate-300: #cbd5e1;
+  --color-slate-100: #f1f5f9;
+  --color-indigo-400: #818cf8;
+  --color-purple-500: #a855f7;
 
   --font-sans: "Geist Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "Geist Mono", Consolas, Menlo, monospace;
@@ -25,14 +43,14 @@
   --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.10);
   --shadow-card-hover: 0 4px 6px rgba(0, 0, 0, 0.08), 0 10px 20px rgba(0, 0, 0, 0.20);
   --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.50);
-  --shadow-glow: 0 0 32px rgba(59, 130, 246, 0.45);
+  --shadow-glow: 0 0 32px rgba(217, 119, 87, 0.45);
 
   --ease-out-quart: cubic-bezier(0.16, 1, 0.30, 1);
   --ease-in-out-cubic: cubic-bezier(0.65, 0.05, 0.36, 1);
 }
 
 :root {
-  --brand-glow: rgba(59, 130, 246, 0.40);
+  --brand-glow: rgba(217, 119, 87, 0.40);
 }
 
 * {
@@ -493,7 +511,7 @@ button {
   position: absolute;
   inset: 36px 0 0 0;
   background:
-    radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.06), transparent 50%),
+    radial-gradient(circle at 30% 20%, rgba(217, 119, 87, 0.06), transparent 50%),
     var(--color-slate-950);
   overflow: hidden;
 }
@@ -600,7 +618,7 @@ button {
 .demo-selection {
   position: absolute;
   border: 2px dashed var(--color-brand);
-  background: rgba(59, 130, 246, 0.08);
+  background: rgba(217, 119, 87, 0.08);
   pointer-events: none;
   z-index: 5;
   border-radius: 2px;
@@ -944,7 +962,7 @@ button {
 }
 
 .feature-card:hover {
-  border-color: rgba(59, 130, 246, 0.40);
+  border-color: rgba(217, 119, 87, 0.40);
   box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
 }
@@ -956,7 +974,7 @@ button {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  background: rgba(59, 130, 246, 0.10);
+  background: rgba(217, 119, 87, 0.10);
   color: var(--color-brand);
   margin-bottom: 8px;
 }
@@ -1083,7 +1101,7 @@ button {
   position: absolute;
   border: 2px solid var(--color-brand);
   border-radius: 4px;
-  background: rgba(59, 130, 246, 0.10);
+  background: rgba(217, 119, 87, 0.10);
 }
 
 .anno-arrow {
@@ -1125,7 +1143,7 @@ button {
   width: 28px;
   height: 28px;
   border-radius: 9999px;
-  background: rgba(59, 130, 246, 0.10);
+  background: rgba(217, 119, 87, 0.10);
   color: var(--color-brand);
   font-family: var(--font-mono);
   font-size: 12px;
@@ -1364,7 +1382,7 @@ button {
 }
 
 .os-card:hover {
-  border-color: rgba(59, 130, 246, 0.40);
+  border-color: rgba(217, 119, 87, 0.40);
   box-shadow: var(--shadow-glow);
   transform: translateY(-2px);
 }
