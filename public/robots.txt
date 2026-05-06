@@ -1,0 +1,7 @@
+# https://snap2link.app/robots.txt
+# Marketing site for Snap2Link — open to all crawlers.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://snap2link.app/sitemap-index.xml
