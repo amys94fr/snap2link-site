@@ -112,5 +112,33 @@ const softwareLD = {
   </head>
   <body>
     <slot />
+
+    <script>
+      // Refresh the GitHub star count client-side so the figure stays
+      // accurate between deploys. Falls back silently to the build-time
+      // value rendered into [data-gh-stars] if the API is unreachable
+      // (rate-limited from this IP, offline, etc.).
+      (async () => {
+        const targets = document.querySelectorAll<HTMLElement>(
+          "[data-gh-stars]",
+        );
+        if (targets.length === 0) return;
+        try {
+          const res = await fetch(
+            "https://api.github.com/repos/amys94fr/Snap2Link",
+            { headers: { Accept: "application/vnd.github+json" } },
+          );
+          if (!res.ok) return;
+          const data = (await res.json()) as { stargazers_count?: number };
+          if (typeof data.stargazers_count !== "number") return;
+          const fresh = String(data.stargazers_count);
+          targets.forEach((el) => {
+            if (el.textContent !== fresh) el.textContent = fresh;
+          });
+        } catch {
+          // API unreachable; keep the build-time value
+        }
+      })();
+    </script>
   </body>
 </html>

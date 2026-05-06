@@ -22,7 +22,9 @@ const { stars } = Astro.props;
 
     <div class="os-stats">
       <div class="os-stat">
-        <span class="num"><span class="live"></span>{stars}</span>
+        <span class="num"
+          ><span class="live"></span><span data-gh-stars>{stars}</span></span
+        >
         <span class="lbl">GitHub stars</span>
       </div>
       <div class="os-stat">

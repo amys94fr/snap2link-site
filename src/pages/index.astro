@@ -9,10 +9,30 @@ import Install from "../components/Install.astro";
 import OpenSource from "../components/OpenSource.astro";
 import Footer from "../components/Footer.astro";
 
-// Stars are static for now — the build runs on every deploy, so it's
-// updated when we ship a new version. Wire to the GitHub API later if
-// the count starts moving fast.
-const STARS = 2;
+/**
+ * Star count — fetched at build time so the rendered HTML ships with the
+ * current value (no client-side flash on load). A tiny script in Layout
+ * also re-fetches client-side to keep the count fresh between deploys.
+ *
+ * Falls back to the last known value if GitHub API rate-limits the
+ * Cloudflare build runner (unlikely, but harmless).
+ */
+const FALLBACK_STARS = 2;
+let STARS = FALLBACK_STARS;
+try {
+  const res = await fetch(
+    "https://api.github.com/repos/amys94fr/Snap2Link",
+    { headers: { "User-Agent": "snap2link-site-build" } },
+  );
+  if (res.ok) {
+    const data = (await res.json()) as { stargazers_count?: number };
+    if (typeof data.stargazers_count === "number") {
+      STARS = data.stargazers_count;
+    }
+  }
+} catch {
+  // network / API hiccup at build time — fallback already set
+}
 ---
 
 <Layout>
