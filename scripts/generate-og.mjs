@@ -148,7 +148,7 @@ const root = e(
           fontSize: "16px",
           color: slate300,
         },
-        "v1.3.0",
+        "v1.4.0",
       ),
     ),
   ),
