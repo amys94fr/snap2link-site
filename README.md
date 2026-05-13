@@ -17,16 +17,18 @@ in the main app repo.
 ## Local dev
 
 ```bash
-npm install
-npm run dev      # http://localhost:4321
-npm run build    # static site to ./dist
-npm run preview  # serve the built site
+pnpm install
+pnpm dev         # http://localhost:4321
+pnpm build       # static site to ./dist
+pnpm preview     # serve the built site
 ```
 
 ## Deploy
 
-Cloudflare Pages — connected to the `main` branch of this repo, builds
-on push. No custom build command needed (`npm run build`, output `dist/`).
+Cloudflare Workers (Static Assets) — connected to the `main` branch of
+this repo, builds on push. The `packageManager` field in `package.json`
++ the `pnpm-lock.yaml` make Cloudflare auto-detect pnpm via corepack.
+Output `dist/`.
 
 DNS is on Cloudflare too, so the apex `snap2link.app` and `www.` both
 proxy to the Pages project.
