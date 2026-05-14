@@ -1,19 +1,22 @@
 /**
  * Cloudflare Worker entry point for snap2link.app.
  *
- * Purpose: own the SEO-sensitive redirects in code (versioned, predictable,
- * runs at the edge before the static-asset handler) instead of relying on
- * dashboard Page Rules.
+ * Purpose: own the SEO-sensitive canonicalisations in code (versioned,
+ * predictable, runs at the edge before the static-asset handler). Two
+ * non-canonical traits get rewritten in a single 301:
  *
- * Three rules, in this order:
- *   1. apex enforcement: anything on www.snap2link.app, including http://,
- *      301 -> https://snap2link.app + same path + same query.
- *   2. index.html canonicalisation: /index.html 301 -> / (CF's default
- *      static-asset handler does a 307 here, which Google treats as a
- *      separate URL and reports under "Duplicate, Google chose different
- *      canonical").
- *   3. everything else: hand off to env.ASSETS, the Static Assets binding
- *      pointed at the Astro build output (./dist).
+ *   1. Host on www.snap2link.app -> apex.
+ *   2. Path on /index.html -> /.
+ *
+ * Combining them in one rule keeps http://www.snap2link.app/index.html to
+ * at most two hops (CF "Always Use HTTPS" then this Worker), rather than
+ * three (CF, www->apex, then /index.html->/). Google still consolidates
+ * with three hops, but two is cleaner and saves a TLS handshake on
+ * cold cache.
+ *
+ * `assets.run_worker_first` in wrangler.jsonc is what makes CF invoke
+ * this script BEFORE the static-asset handler; without it, /index.html
+ * matches a real file under ./dist and never reaches us.
  */
 
 interface Env {
@@ -24,23 +27,17 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    // 1. www -> apex, always over HTTPS, 301 permanent.
-    //    The bad legacy Page Rule emitted "https://snap2link.app${request.uri}/"
-    //    literally; this replaces it cleanly.
-    if (url.hostname === "www.snap2link.app") {
-      const target = new URL(url.pathname + url.search, "https://snap2link.app");
-      return Response.redirect(target.toString(), 301);
+    const isWww = url.hostname === "www.snap2link.app";
+    const isIndexHtml = url.pathname === "/index.html";
+
+    if (isWww || isIndexHtml) {
+      const path = isIndexHtml ? "/" : url.pathname;
+      return Response.redirect(
+        `https://snap2link.app${path}${url.search}`,
+        301,
+      );
     }
 
-    // 2. /index.html -> / (and preserve any query string).
-    //    Without this, CF Workers Static Assets emits a 307 which leaves
-    //    Google believing /index.html is a separate, lower-quality URL.
-    if (url.pathname === "/index.html") {
-      const target = new URL("/" + url.search, url.origin);
-      return Response.redirect(target.toString(), 301);
-    }
-
-    // 3. Default: serve the static asset (or the 404 page when missing).
     return env.ASSETS.fetch(request);
   },
 };
