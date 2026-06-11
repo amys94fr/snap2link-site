@@ -1,18 +1,21 @@
 /**
  * Cloudflare Worker entry point for snap2link.app.
  *
- * Purpose: own the SEO-sensitive canonicalisations in code (versioned,
- * predictable, runs at the edge before the static-asset handler). Two
- * non-canonical traits get rewritten in a single 301:
+ * Three responsibilities:
  *
- *   1. Host on www.snap2link.app -> apex.
- *   2. Path on /index.html -> /.
+ *   1. SEO canonicalisations: www -> apex and /index.html -> /.
+ *      Both collapsed into a single 301 (saves a hop on the worst
+ *      case http://www.snap2link.app/index.html).
  *
- * Combining them in one rule keeps http://www.snap2link.app/index.html to
- * at most two hops (CF "Always Use HTTPS" then this Worker), rather than
- * three (CF, www->apex, then /index.html->/). Google still consolidates
- * with three hops, but two is cleaner and saves a TLS handshake on
- * cold cache.
+ *   2. Header hygiene on the asset response: ensure HTML carries
+ *      charset=utf-8 in Content-Type (the static-asset handler
+ *      doesn't include it by default, and strict JSON-LD parsers
+ *      use the HTTP header rather than the <meta charset>).
+ *
+ *   3. Sensible Cache-Control: HTML gets 5 min browser cache +
+ *      1 day edge cache. Hashed assets keep their long cache.
+ *      The previous default (max-age=0, must-revalidate) forced
+ *      a revalidation round-trip on every pageview.
  *
  * `assets.run_worker_first` in wrangler.jsonc is what makes CF invoke
  * this script BEFORE the static-asset handler; without it, /index.html
@@ -38,6 +41,25 @@ export default {
       );
     }
 
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    const contentType = response.headers.get("Content-Type") ?? "";
+
+    // Skip rewriting redirects, errors, opaque types.
+    if (response.status !== 200 || !contentType) return response;
+
+    const headers = new Headers(response.headers);
+
+    if (contentType.startsWith("text/html")) {
+      if (!contentType.toLowerCase().includes("charset")) {
+        headers.set("Content-Type", "text/html; charset=utf-8");
+      }
+      headers.set("Cache-Control", "public, max-age=300, s-maxage=86400");
+    }
+
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
   },
 };

@@ -1518,6 +1518,106 @@ button {
 }
 
 /* ============================================================
+   NAV SPONSOR — small heart-icon link next to the GitHub button
+   ============================================================ */
+.nav-sponsor {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-slate-300);
+  text-decoration: none;
+  transition:
+    color 200ms var(--ease-out-quart),
+    background-color 200ms var(--ease-out-quart);
+}
+
+.nav-sponsor:hover {
+  color: var(--color-brand);
+  background: rgba(217, 119, 87, 0.08);
+}
+
+.nav-sponsor svg {
+  color: var(--color-brand);
+}
+
+/* ============================================================
+   FOOTER SPONSOR LINK
+   ============================================================ */
+.footer-sponsor-link {
+  color: var(--color-brand) !important;
+  font-weight: 500;
+}
+
+.footer-sponsor-link:hover {
+  color: var(--color-brand-dark) !important;
+}
+
+/* ============================================================
+   HERO CTA LABELS — extracted from inline styles so the OS swap
+   below can recolour them without fighting !important. The default
+   look matches .btn.primary (white text); the swap below changes
+   it when the button becomes outline-styled for non-Windows OSes.
+   ============================================================ */
+.hero-cta-label {
+  font-family: var(--font-sans);
+  color: inherit;
+  font-weight: 600;
+  margin-right: 4px;
+  opacity: 0.85;
+}
+
+.hero-cta-code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+/* ============================================================
+   HERO CTA — OS-aware emphasis
+   The Hero ships three CTAs (winget, .dmg, curl). A small inline
+   script in Hero.astro sets `data-os` on <html>. The rules below
+   swap which CTA looks primary vs outline based on the detected
+   OS. All three remain clickable in every case; only their visual
+   hierarchy shifts so the visitor sees the relevant install path
+   first.
+   ============================================================ */
+
+/* On macOS: .dmg becomes primary, winget falls back to outline-look. */
+html[data-os="mac"] .hero-ctas .btn[data-os-cta="win"] {
+  background: transparent;
+  color: var(--color-slate-100);
+  border-color: var(--color-slate-700);
+}
+html[data-os="mac"] .hero-ctas .btn[data-os-cta="mac"] {
+  background: var(--color-brand);
+  color: white;
+  border-color: transparent;
+}
+html[data-os="mac"] .hero-ctas .btn[data-os-cta="mac"]:hover {
+  background: var(--color-brand-dark);
+  box-shadow: var(--shadow-glow);
+}
+
+/* On Linux: curl | bash becomes primary, winget falls back to outline. */
+html[data-os="lin"] .hero-ctas .btn[data-os-cta="win"] {
+  background: transparent;
+  color: var(--color-slate-100);
+  border-color: var(--color-slate-700);
+}
+html[data-os="lin"] .hero-ctas .btn[data-os-cta="lin"] {
+  background: var(--color-brand);
+  color: white;
+  border-color: transparent;
+}
+html[data-os="lin"] .hero-ctas .btn[data-os-cta="lin"]:hover {
+  background: var(--color-brand-dark);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ============================================================
    MOTION OFF
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
