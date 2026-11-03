@@ -7,7 +7,7 @@ Static landing page for [Snap2Link](https://github.com/amys94fr/Snap2Link)
 
 - **Astro 6** — static site, zero JS by default, partial hydration only where needed.
 - **Tailwind 4** via the Vite plugin. Tokens declared in `src/styles/global.css` under `@theme`.
-- **Geist Sans + Geist Mono** self-hosted via Fontsource — no Google Fonts call.
+- **Geist Sans + Geist Mono** self-hosted via Fontsource - no Google Fonts call.
 - Per-section components in `src/components/`, composed in `src/pages/index.astro`.
 
 Design system is the source of truth for colours, type, spacing — see
