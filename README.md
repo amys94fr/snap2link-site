@@ -1,4 +1,4 @@
-# snap2link.app — marketing site
+# snap2link.app - marketing site
 
 Static landing page for [Snap2Link](https://github.com/amys94fr/Snap2Link)
 (the desktop screenshot-to-Drive-link app). Lives at <https://snap2link.app>.
