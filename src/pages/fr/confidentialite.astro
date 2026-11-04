@@ -1,0 +1,165 @@
+---
+import LegalLayout from "../../layouts/LegalLayout.astro";
+import { LEGAL, PAGES } from "../../legal";
+---
+
+<LegalLayout
+  lang="fr"
+  page="privacy"
+  title="Politique de confidentialité"
+  description="Ce que Snap2Link fait de vos données : le site, l’application, Google Drive et l’hébergement Snap2Link."
+>
+  <h2>L’essentiel</h2>
+  <ul>
+    <li>Snap2Link n’a ni comptes, ni suivi, ni mesure d’audience, ni publicité.</li>
+    <li>L’application tourne sur votre ordinateur. Vos réglages y restent.</li>
+    <li>Avec Google Drive, les captures vont sur votre propre Drive et ne passent jamais par nous.</li>
+    <li>Avec l’hébergement Snap2Link, une capture est conservée 6 heures au maximum.</li>
+    <li>Nous ne stockons jamais votre adresse IP, et nous ne collectons rien sur votre appareil.</li>
+  </ul>
+
+  <h2>Responsable du traitement</h2>
+  <p>
+    Le responsable des traitements décrits ici est {LEGAL.publisher}, {LEGAL.address}. Pour toute
+    question, écrivez à {LEGAL.contact}.
+  </p>
+
+  <h2>Le site</h2>
+  <p>
+    snap2link.app ne dépose aucun cookie qui lui soit propre et n’utilise aucune mesure d’audience.
+    Cloudflare diffuse le site et traite votre adresse IP pour cela et pour le protéger. Sur la
+    page d’accueil, votre navigateur demande à GitHub le nombre d’étoiles et de téléchargements :
+    GitHub voit donc votre adresse IP.
+  </p>
+
+  <h2>L’application sur votre ordinateur</h2>
+  <p>
+    Les réglages, les raccourcis et les jetons sont stockés sur votre ordinateur. L’application ne
+    nous envoie aucune télémétrie. Elle cherche les mises à jour sur GitHub, qui voit donc votre
+    adresse IP. Les captures sont des fichiers temporaires, supprimés après l’envoi ou au prochain
+    démarrage de l’application.
+  </p>
+
+  <h2>Google Drive</h2>
+  <p>
+    Si vous choisissez Google Drive, l’application se connecte directement à votre compte Google.
+    Elle demande deux autorisations : l’accès aux fichiers qu’elle crée (<code>drive.file</code>) et
+    votre adresse e-mail, affichée dans les paramètres. Votre jeton Google reste sur votre
+    ordinateur. Les captures vont sur votre Drive avec un lien public, et nous ne les recevons
+    jamais. La politique de confidentialité de Google s’applique.
+  </p>
+  <p>
+    L’utilisation et le transfert par Snap2Link des informations reçues des API Google respectent
+    les <a href="https://developers.google.com/terms/api-services-user-data-policy"
+      >règles de Google sur les données utilisateur</a
+    >, y compris les exigences d’utilisation limitée (Limited Use).
+  </p>
+
+  <h2>L’hébergement Snap2Link</h2>
+  <p>Si vous choisissez l’hébergement Snap2Link, qui ne demande aucun compte, nous conservons ce qui suit.</p>
+  <div class="legal-table">
+    <table>
+      <thead>
+        <tr><th scope="col">Donnée</th><th scope="col">Pourquoi</th><th scope="col">Durée</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>La capture, son lien, sa taille et ses dates</td>
+          <td>Pour vous fournir un lien (exécution du service)</td>
+          <td>
+            Le lien s’arrête au bout de 6 heures, ou quand vous appuyez sur Supprimer. Les données
+            sont effacées au nettoyage suivant, qui a lieu toutes les 30 minutes.
+          </td>
+        </tr>
+        <tr>
+          <td>Un code de suppression de la capture, stocké sous forme d’empreinte</td>
+          <td>Pour que vous seul puissiez la supprimer (exécution du service)</td>
+          <td>Comme la capture</td>
+        </tr>
+        <tr>
+          <td>Un jeton invité aléatoire, stocké sous forme d’empreinte</td>
+          <td>Pour appliquer les limites quotidiennes et stopper les abus (intérêt légitime)</td>
+          <td>90 jours. Votre copie reste sur votre ordinateur.</td>
+        </tr>
+        <tr>
+          <td>L’invité qui a envoyé une capture</td>
+          <td>Pour traiter un signalement (intérêt légitime)</td>
+          <td>Comme la capture</td>
+        </tr>
+        <tr>
+          <td>Des compteurs quotidiens, liés à une empreinte secrète de votre bloc d’adresses</td>
+          <td>Pour appliquer les limites quotidiennes (intérêt légitime)</td>
+          <td>Jusqu’au premier nettoyage après minuit UTC. L’empreinte change chaque jour.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Toute personne qui a le lien peut voir la capture. Nous ne regardons pas les captures, sauf si
+    l’une d’elles nous est signalée ou si la loi l’exige.
+  </p>
+
+  <h2>La vérification de sécurité</h2>
+  <p>
+    Avant votre premier envoi vers l’hébergement Snap2Link, et quand votre jeton invité expire, une
+    fenêtre lance Cloudflare Turnstile pour distinguer les personnes des robots. Elle ne demande
+    généralement aucun clic. Turnstile traite des signaux comme votre adresse IP, votre empreinte
+    TLS et l’identifiant de votre navigateur, non pour vous identifier, mais pour détecter les
+    robots. Notre intérêt légitime est de protéger le service contre les abus.
+  </p>
+  <p>
+    Cloudflare agit comme notre sous-traitant pour cette vérification, et comme responsable de
+    traitement quand il utilise ces signaux pour améliorer Turnstile. Voir
+    <a href="https://www.cloudflare.com/turnstile-privacy-policy/" hreflang="en"
+      >l’addendum de confidentialité de Turnstile</a
+    >.
+  </p>
+
+  <h2>Les signalements</h2>
+  <p>
+    Si vous signalez un contenu, nous conservons votre message et vos coordonnées pour le traiter et
+    garder la preuve de ce que nous avons fait, pendant un an au maximum.
+  </p>
+
+  <h2>Le plugin Claude Code</h2>
+  <p>
+    Le plugin tourne sur votre machine et télécharge la capture depuis son lien. Il ne nous envoie
+    rien. Ce que vous faites d’une capture dans un outil d’IA relève de la politique de cet outil.
+  </p>
+
+  <h2>Les autres acteurs</h2>
+  <ul>
+    <li>
+      <a href="https://www.cloudflare.com/privacypolicy/" hreflang="en">Cloudflare</a> : le site,
+      l’hébergement Snap2Link et la vérification de sécurité.
+    </li>
+    <li>
+      <a href="https://policies.google.com/privacy">Google</a> : uniquement si vous choisissez Drive.
+    </li>
+    <li>
+      <a
+        href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement"
+        hreflang="en">GitHub</a
+      > : les téléchargements, les mises à jour et les compteurs de la page d’accueil.
+    </li>
+  </ul>
+  <p>
+    Ces sociétés sont basées aux États-Unis et peuvent traiter des données hors de l’Union
+    européenne, avec les garanties décrites dans leurs politiques. Nous ne vendons aucune donnée.
+  </p>
+
+  <h2>Vos droits</h2>
+  <p>
+    Vous pouvez demander à accéder à vos données, à les corriger, à les supprimer, à en limiter
+    l’usage, vous y opposer, et les recevoir dans un format portable. Écrivez à {LEGAL.contact}. Comme
+    il n’y a pas de comptes, nous ne pouvons généralement pas relier des données à vous, sauf si vous
+    nous donnez le lien concerné. Vous pouvez aussi saisir {LEGAL.authority}.
+  </p>
+
+  <h2>Modifications</h2>
+  <p>
+    Si cette politique change, la date en haut de page change aussi. Voir aussi les
+    <a href={PAGES.fr.terms}>conditions d’utilisation</a> et les
+    <a href={PAGES.fr.legal}>mentions légales</a>.
+  </p>
+</LegalLayout>

@@ -1,0 +1,61 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { LEGAL, PAGES } from "../legal";
+---
+
+<LegalLayout
+  lang="en"
+  page="legal"
+  title="Legal notice"
+  description="Who publishes Snap2Link, who hosts it, and how to report content."
+>
+  <h2>Publisher</h2>
+  <p>
+    {LEGAL.publisher}<br />
+    {LEGAL.address}<br />
+    {LEGAL.registration}<br />
+    {LEGAL.phone}<br />
+    {LEGAL.contact}
+  </p>
+  <p>Publication director: {LEGAL.director}</p>
+
+  <h2>Host</h2>
+  <p>
+    The website and Snap2Link hosting run on the infrastructure of:<br />
+    {LEGAL.host.name}<br />
+    {LEGAL.host.address}<br />
+    {LEGAL.host.phone}
+  </p>
+
+  <h2 id="report">Report content</h2>
+  <p>
+    To report a capture, write to <a href={`mailto:${LEGAL.abuse}`}>{LEGAL.abuse}</a>. This is also
+    our point of contact for authorities and for users of the service. We read messages in French
+    and English. Please include:
+  </p>
+  <ul>
+    <li>the full link to the capture;</li>
+    <li>why you believe it is illegal, or which rule it breaks;</li>
+    <li>your name and email address, unless you are reporting child sexual abuse material;</li>
+    <li>a statement that your report is accurate and made in good faith.</li>
+  </ul>
+  <p>
+    We confirm receipt, act as quickly as we can, and tell you what we decided. Links expire after
+    6 hours, so please write soon, and don't attach the image.
+  </p>
+  <p>
+    For child sexual abuse material or an immediate danger, also contact the police or your
+    national hotline, listed by <a href="https://www.inhope.org/EN">INHOPE</a>.
+  </p>
+
+  <h2>Intellectual property</h2>
+  <p>
+    Snap2Link's source code is under the
+    <a href="https://github.com/amys94fr/Snap2Link/blob/main/LICENSE">MIT license</a>. Google Drive,
+    Cloudflare, GitHub and other names belong to their owners.
+  </p>
+  <p>
+    See also the <a href={PAGES.en.privacy}>privacy policy</a> and the
+    <a href={PAGES.en.terms}>terms of use</a>.
+  </p>
+</LegalLayout>

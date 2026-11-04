@@ -1,0 +1,77 @@
+---
+import Layout from "./Layout.astro";
+import { LEGAL, PAGES } from "../legal";
+
+type Lang = keyof typeof PAGES;
+type Page = keyof (typeof PAGES)["en"];
+
+interface Props {
+  lang: Lang;
+  page: Page;
+  title: string;
+  description: string;
+}
+
+const { lang, page, title, description } = Astro.props;
+const other: Lang = lang === "en" ? "fr" : "en";
+const site = Astro.site ?? new URL("https://snap2link.app");
+
+const labels = {
+  en: {
+    updated: "Last updated:",
+    home: "Back to Snap2Link",
+    switch: "Version française",
+    privacy: "Privacy",
+    terms: "Terms",
+    legal: "Legal notice",
+    nav: "Legal pages",
+  },
+  fr: {
+    updated: "Dernière mise à jour :",
+    home: "Retour à Snap2Link",
+    switch: "English version",
+    privacy: "Confidentialité",
+    terms: "Conditions",
+    legal: "Mentions légales",
+    nav: "Pages légales",
+  },
+}[lang];
+
+const links = [
+  { key: "privacy", label: labels.privacy },
+  { key: "terms", label: labels.terms },
+  { key: "legal", label: labels.legal },
+] as const;
+---
+
+<Layout title={`${title} · Snap2Link`} description={description} lang={lang}>
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href={new URL(PAGES.en[page], site).toString()} />
+    <link rel="alternate" hreflang="fr" href={new URL(PAGES.fr[page], site).toString()} />
+  </Fragment>
+
+  <header class="legal-header">
+    <a href="/" class="nav-brand" aria-label={labels.home}>
+      <img src="/assets/logo-app-icon.png" width="28" height="28" alt="" style="border-radius: 6px;" />
+      <span>Snap<b>2</b>Link</span>
+    </a>
+    <a href={PAGES[other][page]} hreflang={other} lang={other}>{labels.switch}</a>
+  </header>
+
+  <main class="legal">
+    <h1>{title}</h1>
+    <p class="legal-updated">{labels.updated} {LEGAL.updated[lang]}</p>
+    <slot />
+  </main>
+
+  <nav class="legal-nav" aria-label={labels.nav}>
+    {
+      links.map(({ key, label }) => (
+        <a href={PAGES[lang][key]} aria-current={key === page ? "page" : undefined}>
+          {label}
+        </a>
+      ))
+    }
+    <a href="/">{labels.home}</a>
+  </nav>
+</Layout>
