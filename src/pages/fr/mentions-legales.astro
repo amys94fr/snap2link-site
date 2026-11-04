@@ -1,0 +1,57 @@
+---
+import LegalLayout from "../../layouts/LegalLayout.astro";
+import { LEGAL, PAGES } from "../../legal";
+---
+
+<LegalLayout
+  lang="fr"
+  page="legal"
+  title="Mentions légales"
+  description="Qui édite Snap2Link, qui l’héberge, et comment signaler un contenu."
+>
+  <h2>Éditeur</h2>
+  <p>
+    Snap2Link est édité par {LEGAL.publisher}, {LEGAL.based.fr}, également directeur de la
+    publication. Contact : <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>.
+  </p>
+
+  <h2>Hébergeur</h2>
+  <p>
+    Le site et l’hébergement Snap2Link fonctionnent sur l’infrastructure de :<br />
+    {LEGAL.host.name}<br />
+    {LEGAL.host.address}
+  </p>
+
+  <h2 id="signaler">Signaler un contenu</h2>
+  <p>
+    Pour signaler une capture, écrivez à <a href={`mailto:${LEGAL.abuse}`}>{LEGAL.abuse}</a>. C’est
+    aussi notre point de contact pour les autorités et les utilisateurs du service. Nous lisons les
+    messages en français et en anglais. Merci d’indiquer :
+  </p>
+  <ul>
+    <li>le lien complet de la capture ;</li>
+    <li>pourquoi vous la pensez illégale, ou quelle règle elle enfreint ;</li>
+    <li>votre nom et votre adresse e-mail, sauf s’il s’agit de contenus pédopornographiques ;</li>
+    <li>une déclaration attestant que votre signalement est exact et fait de bonne foi.</li>
+  </ul>
+  <p>
+    Nous accusons réception, agissons aussi vite que possible et vous informons de notre décision.
+    Les liens expirent au bout de 6 heures : écrivez-nous rapidement, et ne joignez pas l’image.
+  </p>
+  <p>
+    En cas de contenu pédopornographique ou de danger immédiat, contactez aussi la police ou
+    <a href="https://www.internet-signalement.gouv.fr">PHAROS</a>, la plateforme française de
+    signalement.
+  </p>
+
+  <h2>Propriété intellectuelle</h2>
+  <p>
+    Le code source de Snap2Link est sous
+    <a href="https://github.com/amys94fr/Snap2Link/blob/main/LICENSE" hreflang="en">licence MIT</a>.
+    Google Drive, Cloudflare, GitHub et les autres noms appartiennent à leurs propriétaires.
+  </p>
+  <p>
+    Voir aussi la <a href={PAGES.fr.privacy}>politique de confidentialité</a> et les
+    <a href={PAGES.fr.terms}>conditions d’utilisation</a>.
+  </p>
+</LegalLayout>

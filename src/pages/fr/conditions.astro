@@ -1,0 +1,109 @@
+---
+import LegalLayout from "../../layouts/LegalLayout.astro";
+import { LEGAL, PAGES } from "../../legal";
+---
+
+<LegalLayout
+  lang="fr"
+  page="terms"
+  title="Conditions d’utilisation"
+  description="Les règles d’utilisation de Snap2Link et de l’hébergement Snap2Link."
+>
+  <h2>Ce qu’est Snap2Link</h2>
+  <p>
+    Snap2Link est une application gratuite et open source qui transforme une capture d’écran en
+    lien. Les captures vont sur votre propre Google Drive, ou sur l’hébergement Snap2Link, un
+    service d’hébergement temporaire gratuit qui ne demande aucun compte. Il est exploité par
+    {LEGAL.publisher}, {LEGAL.based.fr}. En utilisant l’hébergement Snap2Link, vous acceptez ces conditions.
+  </p>
+  <p>Vous devez avoir au moins 16 ans, ou l’accord d’un parent ou tuteur.</p>
+
+  <h2>L’hébergement Snap2Link</h2>
+  <ul>
+    <li>Un lien cesse de fonctionner au bout de 6 heures. Appuyez sur Supprimer pour l’arrêter plus tôt.</li>
+    <li>Vous pouvez envoyer jusqu’à 5 captures par jour, de 5 Mo au maximum.</li>
+    <li>D’autres limites peuvent s’appliquer à une adresse ou à tout le service.</li>
+    <li>Une vérification de sécurité est nécessaire avant votre premier envoi.</li>
+    <li>Ce n’est pas une sauvegarde : gardez votre propre copie de ce qui compte.</li>
+  </ul>
+
+  <h2>Les liens sont publics</h2>
+  <p>
+    Toute personne qui a un lien peut voir la capture et la copier tant que le lien fonctionne.
+    Vérifiez ce qui est à l’écran avant de le partager. N’envoyez ni mots de passe, ni données
+    personnelles d’autrui, ni rien de confidentiel.
+  </p>
+
+  <h2>Vos contenus</h2>
+  <p>
+    Vos captures restent les vôtres. Vous nous autorisez à les stocker et à les diffuser tant que le
+    lien fonctionne, et pour rien d’autre. Vous êtes responsable de ce que vous envoyez, et vous
+    devez avoir le droit de le partager.
+  </p>
+
+  <h2>Ce qui est interdit</h2>
+  <p>Vous ne devez pas utiliser l’hébergement Snap2Link pour envoyer ou partager :</p>
+  <ul>
+    <li>des contenus pédopornographiques, ou sexualisant des mineurs ;</li>
+    <li>des images intimes d’une personne sans son consentement ;</li>
+    <li>des contenus illégaux, incitant à la violence ou à la haine, ou harcelant quelqu’un ;</li>
+    <li>des logiciels malveillants, de l’hameçonnage, des arnaques ou une usurpation d’identité ;</li>
+    <li>des contenus portant atteinte aux droits d’autrui ;</li>
+    <li>des fichiers qui ne sont pas des captures, comme stockage de fichiers général.</li>
+  </ul>
+  <p>
+    Vous ne devez pas contourner les limites ou la vérification de sécurité, automatiser des envois
+    en masse, ni perturber le service.
+  </p>
+
+  <h2>Signalements et modération</h2>
+  <p>
+    Nous ne surveillons pas les captures. Chacun peut en signaler une : voir
+    <a href={`${PAGES.fr.legal}#signaler`}>comment signaler un contenu</a>. Si une capture enfreint
+    ces conditions ou la loi, nous pouvons la supprimer, bannir l’invité qui l’a envoyée et
+    transmettre des informations aux autorités quand la loi l’exige.
+  </p>
+  <p>
+    Quand l’application peut l’afficher, un refus en donne la raison. Comme il n’y a pas de comptes,
+    nous n’avons généralement aucun moyen de vous contacter. Si vous pensez qu’une décision est
+    erronée, écrivez à <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a> et nous la réexaminerons.
+  </p>
+
+  <h2>Google Drive</h2>
+  <p>
+    Si vous choisissez Google Drive, vos captures sont stockées sur votre propre compte et les
+    conditions de Google s’appliquent. Nous n’hébergeons rien, et vous décidez de ce qui y reste.
+  </p>
+
+  <h2>Disponibilité</h2>
+  <p>
+    L’hébergement Snap2Link est gratuit et fourni tel quel. Il peut être indisponible, ses limites
+    peuvent changer et il peut s’arrêter à tout moment. Nous ne garantissons pas qu’il réponde à vos
+    besoins, ni qu’une capture reste disponible.
+  </p>
+
+  <h2>Responsabilité</h2>
+  <p>
+    Dans les limites permises par la loi, nous ne sommes pas responsables des dommages indirects, de
+    la perte de données, ni de ce que d’autres font d’un lien. Rien ici ne limite vos droits de
+    consommateur, ni la responsabilité que la loi ne nous permet pas d’exclure.
+  </p>
+
+  <h2>Le logiciel</h2>
+  <p>
+    Le code source de l’application est disponible sous
+    <a href="https://github.com/amys94fr/Snap2Link/blob/main/LICENSE" hreflang="en">licence MIT</a>,
+    qui s’applique au logiciel lui-même.
+  </p>
+
+  <h2>Modifications et droit applicable</h2>
+  <p>
+    Si ces conditions changent, la date en haut de page change aussi, et les nouvelles conditions
+    s’appliquent aux utilisations suivantes. Ces conditions sont soumises à {LEGAL.law.fr}, sans
+    préjudice des droits impératifs des consommateurs du pays où vous vivez.
+  </p>
+  <p>
+    Notre <a href={PAGES.fr.privacy}>politique de confidentialité</a> explique comment les données
+    sont traitées.
+  </p>
+</LegalLayout>

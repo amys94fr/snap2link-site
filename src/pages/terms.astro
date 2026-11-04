@@ -1,0 +1,105 @@
+---
+import LegalLayout from "../layouts/LegalLayout.astro";
+import { LEGAL, PAGES } from "../legal";
+---
+
+<LegalLayout
+  lang="en"
+  page="terms"
+  title="Terms of use"
+  description="The rules for using Snap2Link and Snap2Link hosting."
+>
+  <h2>What Snap2Link is</h2>
+  <p>
+    Snap2Link is a free, open source app that turns a screen capture into a link. Captures go to
+    your own Google Drive, or to Snap2Link hosting, a free temporary hosting service that needs no
+    account. It is run by {LEGAL.publisher}, {LEGAL.based.en}. By using Snap2Link hosting, you accept these terms.
+  </p>
+  <p>You must be at least 16, or have the agreement of a parent or guardian.</p>
+
+  <h2>Snap2Link hosting</h2>
+  <ul>
+    <li>A link stops working after 6 hours. Press Delete to stop it sooner.</li>
+    <li>You can send up to 5 captures a day, of 5 MB at most.</li>
+    <li>Other limits can apply to an address or to the whole service.</li>
+    <li>A security check is needed before your first upload.</li>
+    <li>This is not a backup: keep your own copy of anything that matters.</li>
+  </ul>
+
+  <h2>Links are public</h2>
+  <p>
+    Anyone who has a link can see the capture, and can copy it while the link works. Check what
+    is on your screen before you share it. Don't send passwords, personal data of others, or
+    anything confidential.
+  </p>
+
+  <h2>Your content</h2>
+  <p>
+    Your captures remain yours. You let us store and serve them for as long as the link works, and
+    for nothing else. You are responsible for what you send, and you must have the right to share
+    it.
+  </p>
+
+  <h2>What is not allowed</h2>
+  <p>You must not use Snap2Link hosting to send or share:</p>
+  <ul>
+    <li>child sexual abuse material, or anything that sexualizes minors;</li>
+    <li>intimate images of a person without their consent;</li>
+    <li>content that is illegal, that incites violence or hatred, or that harasses someone;</li>
+    <li>malware, phishing, scams, or content that impersonates someone;</li>
+    <li>content that infringes someone else's rights;</li>
+    <li>files that aren't captures, as general file storage.</li>
+  </ul>
+  <p>
+    You must not get around the limits or the security check, automate uploads in bulk, or disrupt
+    the service.
+  </p>
+
+  <h2>Reports and moderation</h2>
+  <p>
+    We don't monitor captures. Anyone can report one: see
+    <a href={`${PAGES.en.legal}#report`}>how to report content</a>. If a capture breaks these terms
+    or the law, we can delete it, ban the guest that sent it, and pass information to the
+    authorities when the law requires it.
+  </p>
+  <p>
+    When the app can show it, a refusal says why. As there are no accounts, we usually have no way
+    to contact you. If you think a decision is wrong, write to
+    <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a> and we will look at it again.
+  </p>
+
+  <h2>Google Drive</h2>
+  <p>
+    If you choose Google Drive, your captures are stored in your own account and Google's terms
+    apply. We host nothing, and you decide what stays there.
+  </p>
+
+  <h2>Availability</h2>
+  <p>
+    Snap2Link hosting is free and provided as it is. It can be unavailable, its limits can change,
+    and it can stop at any time. We give no guarantee that it will suit your needs or that a
+    capture will stay available.
+  </p>
+
+  <h2>Liability</h2>
+  <p>
+    To the extent the law allows, we are not liable for indirect damage, loss of data, or what
+    other people do with a link. Nothing here limits the rights you have as a consumer, or
+    liability that the law doesn't allow us to exclude.
+  </p>
+
+  <h2>The software</h2>
+  <p>
+    The app's source code is available under the
+    <a href="https://github.com/amys94fr/Snap2Link/blob/main/LICENSE">MIT license</a>, which
+    applies to the software itself.
+  </p>
+
+  <h2>Changes and applicable law</h2>
+  <p>
+    If these terms change, the date at the top changes too, and the new terms apply to later use.
+    These terms are governed by {LEGAL.law.en}, without affecting the mandatory consumer rights of
+    the country where you live.
+  </p>
+  <p>Our <a href={PAGES.en.privacy}>privacy policy</a> explains how data is handled.</p>
+</LegalLayout>
