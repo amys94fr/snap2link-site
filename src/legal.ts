@@ -1,27 +1,21 @@
 /**
- * Facts shared by the legal pages, in both languages.
- *
- * Every [TODO] must be filled in before these pages go live. `abuse@` also has
- * to receive mail first: the zone has no Email Routing yet.
+ * Facts shared by the legal pages, in both languages. `contact@` and `abuse@`
+ * have to receive mail before these pages go live.
  */
 export const LEGAL = {
-  updated: { en: "4 November 2026", fr: "4 novembre 2026" },
-  publisher: "[TODO: full name, or company name and legal form]",
-  address: "[TODO: postal address]",
-  registration: "[TODO: company number and VAT number, or remove if an individual]",
-  phone: "[TODO: phone number]",
-  director: "[TODO: name of the publication director]",
-  contact: "[TODO: contact address for legal and privacy questions]",
+  updated: { en: "5 November 2026", fr: "5 novembre 2026" },
+  publisher: "Steven Abittan",
+  contact: "contact@snap2link.app",
   abuse: "abuse@snap2link.app",
-  authority: "[TODO: data protection authority, CNIL if established in France]",
-  law: {
-    en: "[TODO: governing law, for example French law]",
-    fr: "[TODO : droit applicable, par exemple le droit français]",
+  based: { en: "an individual based in Israel", fr: "un particulier établi en Israël" },
+  authority: {
+    en: "Israel's Privacy Protection Authority, or the data protection authority of the country where you live",
+    fr: "l’autorité israélienne de protection de la vie privée, ou l’autorité de protection des données du pays où vous vivez (la CNIL en France)",
   },
+  law: { en: "the law of Israel", fr: "le droit israélien" },
   host: {
     name: "Cloudflare, Inc.",
     address: "101 Townsend St, San Francisco, CA 94107, USA",
-    phone: "[TODO: check Cloudflare's phone number]",
   },
 } as const;
 

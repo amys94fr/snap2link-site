@@ -20,8 +20,8 @@ import { LEGAL, PAGES } from "../../legal";
 
   <h2>Responsable du traitement</h2>
   <p>
-    Le responsable des traitements décrits ici est {LEGAL.publisher}, {LEGAL.address}. Pour toute
-    question, écrivez à {LEGAL.contact}.
+    Le responsable des traitements décrits ici est {LEGAL.publisher}, {LEGAL.based.fr}. Pour
+    toute question, écrivez à <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>.
   </p>
 
   <h2>Le site</h2>
@@ -151,9 +151,10 @@ import { LEGAL, PAGES } from "../../legal";
   <h2>Vos droits</h2>
   <p>
     Vous pouvez demander à accéder à vos données, à les corriger, à les supprimer, à en limiter
-    l’usage, vous y opposer, et les recevoir dans un format portable. Écrivez à {LEGAL.contact}. Comme
+    l’usage, vous y opposer, et les recevoir dans un format portable. Écrivez à
+    <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>. Comme
     il n’y a pas de comptes, nous ne pouvons généralement pas relier des données à vous, sauf si vous
-    nous donnez le lien concerné. Vous pouvez aussi saisir {LEGAL.authority}.
+    nous donnez le lien concerné. Vous pouvez aussi saisir {LEGAL.authority.fr}.
   </p>
 
   <h2>Modifications</h2>

@@ -11,20 +11,15 @@ import { LEGAL, PAGES } from "../../legal";
 >
   <h2>Éditeur</h2>
   <p>
-    {LEGAL.publisher}<br />
-    {LEGAL.address}<br />
-    {LEGAL.registration}<br />
-    {LEGAL.phone}<br />
-    {LEGAL.contact}
+    Snap2Link est édité par {LEGAL.publisher}, {LEGAL.based.fr}, également directeur de la
+    publication. Contact : <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>.
   </p>
-  <p>Directeur de la publication : {LEGAL.director}</p>
 
   <h2>Hébergeur</h2>
   <p>
     Le site et l’hébergement Snap2Link fonctionnent sur l’infrastructure de :<br />
     {LEGAL.host.name}<br />
-    {LEGAL.host.address}<br />
-    {LEGAL.host.phone}
+    {LEGAL.host.address}
   </p>
 
   <h2 id="signaler">Signaler un contenu</h2>

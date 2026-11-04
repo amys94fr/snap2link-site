@@ -20,8 +20,8 @@ import { LEGAL, PAGES } from "../legal";
 
   <h2>Who is responsible</h2>
   <p>
-    The controller of the data described here is {LEGAL.publisher}, {LEGAL.address}. For any
-    question, write to {LEGAL.contact}.
+    The controller of the data described here is {LEGAL.publisher}, {LEGAL.based.en}. For any
+    question, write to <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>.
   </p>
 
   <h2>The website</h2>
@@ -142,9 +142,10 @@ import { LEGAL, PAGES } from "../legal";
   <h2>Your rights</h2>
   <p>
     You can ask to access, correct or delete your data, to restrict its use, to object to it, and
-    to receive it in a portable format. Write to {LEGAL.contact}. Because there are no accounts, we
+    to receive it in a portable format. Write to
+    <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>. Because there are no accounts, we
     usually can't connect data to you unless you give us the link concerned. You can also
-    complain to {LEGAL.authority}.
+    complain to {LEGAL.authority.en}.
   </p>
 
   <h2>Changes</h2>

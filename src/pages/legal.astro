@@ -11,20 +11,15 @@ import { LEGAL, PAGES } from "../legal";
 >
   <h2>Publisher</h2>
   <p>
-    {LEGAL.publisher}<br />
-    {LEGAL.address}<br />
-    {LEGAL.registration}<br />
-    {LEGAL.phone}<br />
-    {LEGAL.contact}
+    Snap2Link is published by {LEGAL.publisher}, {LEGAL.based.en}, who is also responsible for its
+    content. Contact: <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>.
   </p>
-  <p>Publication director: {LEGAL.director}</p>
 
   <h2>Host</h2>
   <p>
     The website and Snap2Link hosting run on the infrastructure of:<br />
     {LEGAL.host.name}<br />
-    {LEGAL.host.address}<br />
-    {LEGAL.host.phone}
+    {LEGAL.host.address}
   </p>
 
   <h2 id="report">Report content</h2>
