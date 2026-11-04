@@ -25,13 +25,17 @@ pnpm preview     # serve the built site
 
 ## Deploy
 
-Cloudflare Workers (Static Assets) — connected to the `main` branch of
-this repo, builds on push. The `packageManager` field in `package.json`
-+ the `pnpm-lock.yaml` make Cloudflare auto-detect pnpm via corepack.
-Output `dist/`.
+Cloudflare Workers (Static Assets), deployed by GitHub Actions on each push to
+`main` (`.github/workflows/deploy.yml`). `pnpm check` and `pnpm build` run first,
+on pull requests too. Output `dist/`.
 
-DNS is on Cloudflare too, so the apex `snap2link.app` and `www.` both
-proxy to the Pages project.
+The workflow needs the `CLOUDFLARE_API_TOKEN` secret, made in the Cloudflare
+dashboard from the "Edit Cloudflare Workers" template.
+
+TypeScript stays on 6.x: `astro check` can't use TypeScript 7 yet.
+
+DNS is on Cloudflare too, and the apex `snap2link.app` and `www.` are Custom
+Domains of the Worker.
 
 There is no Worker script: requests to static assets are free and unlimited.
 The two redirects (`www` to the apex, `/index.html` to `/`) are Redirect Rules
