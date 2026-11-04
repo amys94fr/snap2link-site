@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import heroFont from "@fontsource/geist-sans/files/geist-sans-latin-700-normal.woff2?url";
 
 interface Props {
   title?: string;
@@ -100,7 +101,7 @@ const softwareLD = {
     <!-- Preload Geist 700 (hero LCP) -->
     <link
       rel="preload"
-      href="/_astro/files/geist-sans-latin-700-normal.woff2"
+      href={heroFont}
       as="font"
       type="font/woff2"
       crossorigin
