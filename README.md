@@ -33,6 +33,10 @@ Output `dist/`.
 DNS is on Cloudflare too, so the apex `snap2link.app` and `www.` both
 proxy to the Pages project.
 
+There is no Worker script: requests to static assets are free and unlimited.
+The two redirects (`www` to the apex, `/index.html` to `/`) are Redirect Rules
+on the zone, in the Cloudflare dashboard. HTML headers are in `public/_headers`.
+
 ## Structure
 
 ```

@@ -2,28 +2,21 @@
 // the new unified "Workers & Pages" flow. Astro builds to ./dist and we
 // hand that whole directory to Cloudflare's edge as static assets.
 //
-// `main` points to a tiny Worker script that owns the SEO-sensitive
-// redirects (www -> apex, /index.html -> /) before falling back to the
-// ASSETS binding. Without it, CF emits 307s for /index.html and any
-// dashboard Page Rule for www becomes the only line of defence (and can
-// silently break, as it did once with a `${request.uri}` template typo).
+// No Worker script on purpose: requests to static assets are free and
+// unlimited, while the Workers quota is shared with the whole account. A flood
+// on another Worker can't take the site down this way.
+//
+// www -> apex and /index.html -> / are Redirect Rules on the snap2link.app zone
+// in the Cloudflare dashboard. HTML headers live in public/_headers.
 //
 // Docs: https://developers.cloudflare.com/workers/static-assets/
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "snap2link-site",
   "compatibility_date": "2026-01-01",
-  "main": "src/worker.ts",
   "assets": {
     "directory": "./dist",
-    "binding": "ASSETS",
-    "not_found_handling": "404-page",
-    // Force the Worker to run before the static-asset handler. Without
-    // this, /index.html matches a real file under ./dist and CF serves
-    // it directly, never invoking our 301 redirect to /. Same for the
-    // root path on www.snap2link.app -- the asset handler short-circuits
-    // the hostname check that lives in src/worker.ts.
-    "run_worker_first": true
+    "not_found_handling": "404-page"
   },
   "observability": {
     "enabled": true
