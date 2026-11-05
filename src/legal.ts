@@ -3,7 +3,7 @@
  * have to receive mail before these pages go live.
  */
 export const LEGAL = {
-  updated: { en: "5 November 2026", fr: "5 novembre 2026" },
+  updated: { en: "6 November 2026", fr: "6 novembre 2026" },
   publisher: "Steven Abittan",
   contact: "contact@snap2link.app",
   abuse: "abuse@snap2link.app",
