@@ -11,7 +11,8 @@ import { LEGAL, PAGES } from "../legal";
 >
   <h2>The short version</h2>
   <ul>
-    <li>Snap2Link has no accounts, no tracking, no analytics and no advertising.</li>
+    <li>Snap2Link has no tracking, no analytics and no advertising.</li>
+    <li>An account is optional, and only asks for your email address.</li>
     <li>The app runs on your computer. Your settings stay there.</li>
     <li>With Google Drive, captures go to your own Drive and never pass through us.</li>
     <li>With Snap2Link hosting, a capture is kept for 6 hours at most.</li>
@@ -53,7 +54,7 @@ import { LEGAL, PAGES } from "../legal";
   </p>
 
   <h2>Snap2Link hosting</h2>
-  <p>If you choose Snap2Link hosting, which needs no account, we keep the following.</p>
+  <p>If you choose Snap2Link hosting, with or without an account, we keep the following.</p>
   <div class="legal-table">
     <table>
       <thead>
@@ -96,9 +97,59 @@ import { LEGAL, PAGES } from "../legal";
     to us or the law requires it.
   </p>
 
+  <h2>The Snap2Link account</h2>
+  <p>
+    A free account raises the limits of Snap2Link hosting. It is optional. If you create one, we
+    also keep the following.
+  </p>
+  <div class="legal-table">
+    <table>
+      <thead>
+        <tr><th scope="col">Data</th><th scope="col">Why</th><th scope="col">How long</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Your email address, your plan and the date the account was created</td>
+          <td>To provide the account and write to you about it (performing the service)</td>
+          <td>
+            Until you delete the account. A free account with no active session is deleted a year
+            after it was created. A banned account is kept so that it can't come back (legitimate
+            interest).
+          </td>
+        </tr>
+        <tr>
+          <td>A sign-in code and a secret hash of your address</td>
+          <td>To check that the address is yours (performing the service)</td>
+          <td>The code works for 10 minutes. It is erased at the next cleanup.</td>
+        </tr>
+        <tr>
+          <td>A session token, stored as a hash</td>
+          <td>To keep you signed in (performing the service)</td>
+          <td>One year, or until you sign out. Your copy stays on your computer.</td>
+        </tr>
+        <tr>
+          <td>Which account sent a capture</td>
+          <td>To limit its active links and handle a report (legitimate interest)</td>
+          <td>Same as the capture</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    We only record your address once the code is used. To send it, we give your address and the code
+    to Resend, which keeps its sending logs for up to 30 days. We use your address for sign-in codes
+    and to write to you about the service, for example if these terms change or if there is a
+    problem with your account. We don't use it for advertising.
+  </p>
+  <p>
+    You can sign out or delete your account from the app. Deleting it erases the account, its
+    sessions and its captures. The day's counters stay until the next cleanup after midnight UTC.
+  </p>
+
   <h2>The security check</h2>
   <p>
-    Before your first upload to Snap2Link hosting, and when your guest token expires, a window
+    Before your first upload to Snap2Link hosting or your first request for a sign-in code, and when
+    your guest token expires, a window
     runs Cloudflare Turnstile to tell people from bots. It usually needs no click. Turnstile
     processes signals such as your IP address, TLS fingerprint and browser user agent, not to
     identify you but to detect bots. Our legitimate interest is to protect the service from abuse.
@@ -133,6 +184,10 @@ import { LEGAL, PAGES } from "../legal";
         >GitHub</a
       >: downloads, updates, and the counters on the home page.
     </li>
+    <li>
+      <a href="https://resend.com/legal/privacy-policy">Resend</a>: sending sign-in codes, only if
+      you create an account.
+    </li>
   </ul>
   <p>
     These companies are based in the United States and may process data outside the European
@@ -143,9 +198,9 @@ import { LEGAL, PAGES } from "../legal";
   <p>
     You can ask to access, correct or delete your data, to restrict its use, to object to it, and
     to receive it in a portable format. Write to
-    <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>. Because there are no accounts, we
-    usually can't connect data to you unless you give us the link concerned. You can also
-    complain to {LEGAL.authority.en}.
+    <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>. If you have an account, write from its
+    address. Without one, we usually can't connect data to you unless you give us the link
+    concerned. You can also complain to {LEGAL.authority.en}.
   </p>
 
   <h2>Changes</h2>

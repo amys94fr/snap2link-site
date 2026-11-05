@@ -11,7 +11,8 @@ import { LEGAL, PAGES } from "../../legal";
 >
   <h2>L’essentiel</h2>
   <ul>
-    <li>Snap2Link n’a ni comptes, ni suivi, ni mesure d’audience, ni publicité.</li>
+    <li>Snap2Link n’a ni suivi, ni mesure d’audience, ni publicité.</li>
+    <li>Un compte est facultatif, et il ne demande que votre adresse e-mail.</li>
     <li>L’application tourne sur votre ordinateur. Vos réglages y restent.</li>
     <li>Avec Google Drive, les captures vont sur votre propre Drive et ne passent jamais par nous.</li>
     <li>Avec l’hébergement Snap2Link, une capture est conservée 6 heures au maximum.</li>
@@ -56,7 +57,7 @@ import { LEGAL, PAGES } from "../../legal";
   </p>
 
   <h2>L’hébergement Snap2Link</h2>
-  <p>Si vous choisissez l’hébergement Snap2Link, qui ne demande aucun compte, nous conservons ce qui suit.</p>
+  <p>Si vous choisissez l’hébergement Snap2Link, avec ou sans compte, nous conservons ce qui suit.</p>
   <div class="legal-table">
     <table>
       <thead>
@@ -99,9 +100,61 @@ import { LEGAL, PAGES } from "../../legal";
     l’une d’elles nous est signalée ou si la loi l’exige.
   </p>
 
+  <h2>Le compte Snap2Link</h2>
+  <p>
+    Un compte gratuit relève les limites de l’hébergement Snap2Link. Il est facultatif. Si vous en
+    créez un, nous conservons aussi ce qui suit.
+  </p>
+  <div class="legal-table">
+    <table>
+      <thead>
+        <tr><th scope="col">Donnée</th><th scope="col">Pourquoi</th><th scope="col">Durée</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Votre adresse e-mail, votre forfait et la date de création du compte</td>
+          <td>Pour fournir le compte et vous écrire à son sujet (exécution du service)</td>
+          <td>
+            Jusqu’à ce que vous supprimiez le compte. Un compte gratuit sans session active est
+            supprimé un an après sa création. Un compte banni est conservé pour empêcher son retour
+            (intérêt légitime).
+          </td>
+        </tr>
+        <tr>
+          <td>Un code de connexion et une empreinte secrète de votre adresse</td>
+          <td>Pour vérifier que l’adresse est la vôtre (exécution du service)</td>
+          <td>Le code fonctionne 10 minutes. Il est effacé au nettoyage suivant.</td>
+        </tr>
+        <tr>
+          <td>Un jeton de session, stocké sous forme d’empreinte</td>
+          <td>Pour vous garder connecté (exécution du service)</td>
+          <td>Un an, ou jusqu’à votre déconnexion. Votre copie reste sur votre ordinateur.</td>
+        </tr>
+        <tr>
+          <td>Le compte qui a envoyé une capture</td>
+          <td>Pour limiter ses liens actifs et traiter un signalement (intérêt légitime)</td>
+          <td>Comme la capture</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Nous n’enregistrons votre adresse qu’une fois le code validé. Pour vous l’envoyer, nous
+    transmettons votre adresse et le code à Resend, qui garde ses journaux d’envoi jusqu’à 30 jours.
+    Nous utilisons votre adresse pour les codes de connexion et pour vous écrire au sujet du
+    service, par exemple si ces conditions changent ou si votre compte pose problème. Nous ne
+    l’utilisons pas pour de la publicité.
+  </p>
+  <p>
+    Vous pouvez vous déconnecter ou supprimer votre compte depuis l’application. La suppression
+    efface le compte, ses sessions et ses captures. Les compteurs du jour restent jusqu’au premier
+    nettoyage après minuit UTC.
+  </p>
+
   <h2>La vérification de sécurité</h2>
   <p>
-    Avant votre premier envoi vers l’hébergement Snap2Link, et quand votre jeton invité expire, une
+    Avant votre premier envoi vers l’hébergement Snap2Link ou votre première demande de code de
+    connexion, et quand votre jeton invité expire, une
     fenêtre lance Cloudflare Turnstile pour distinguer les personnes des robots. Elle ne demande
     généralement aucun clic. Turnstile traite des signaux comme votre adresse IP, votre empreinte
     TLS et l’identifiant de votre navigateur, non pour vous identifier, mais pour détecter les
@@ -142,6 +195,10 @@ import { LEGAL, PAGES } from "../../legal";
         hreflang="en">GitHub</a
       > : les téléchargements, les mises à jour et les compteurs de la page d’accueil.
     </li>
+    <li>
+      <a href="https://resend.com/legal/privacy-policy" hreflang="en">Resend</a> : l’envoi des codes
+      de connexion, uniquement si vous créez un compte.
+    </li>
   </ul>
   <p>
     Ces sociétés sont basées aux États-Unis et peuvent traiter des données hors de l’Union
@@ -152,9 +209,10 @@ import { LEGAL, PAGES } from "../../legal";
   <p>
     Vous pouvez demander à accéder à vos données, à les corriger, à les supprimer, à en limiter
     l’usage, vous y opposer, et les recevoir dans un format portable. Écrivez à
-    <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>. Comme
-    il n’y a pas de comptes, nous ne pouvons généralement pas relier des données à vous, sauf si vous
-    nous donnez le lien concerné. Vous pouvez aussi saisir {LEGAL.authority.fr}.
+    <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>. Si vous
+    avez un compte, écrivez depuis son adresse. Sans compte, nous ne pouvons généralement pas relier
+    des données à vous, sauf si vous nous donnez le lien concerné. Vous pouvez aussi saisir
+    {LEGAL.authority.fr}.
   </p>
 
   <h2>Modifications</h2>
