@@ -13,7 +13,7 @@ import { LEGAL, PAGES } from "../../legal";
   <p>
     Snap2Link est une application gratuite et open source qui transforme une capture d’écran en
     lien. Les captures vont sur votre propre Google Drive, ou sur l’hébergement Snap2Link, un
-    service d’hébergement temporaire gratuit qui ne demande aucun compte. Il est exploité par
+    service d’hébergement temporaire gratuit, utilisable sans compte. Il est exploité par
     {LEGAL.publisher}, {LEGAL.based.fr}. En utilisant l’hébergement Snap2Link, vous acceptez ces conditions.
   </p>
   <p>Vous devez avoir au moins 16 ans, ou l’accord d’un parent ou tuteur.</p>
@@ -21,11 +21,27 @@ import { LEGAL, PAGES } from "../../legal";
   <h2>L’hébergement Snap2Link</h2>
   <ul>
     <li>Un lien cesse de fonctionner au bout de 6 heures. Appuyez sur Supprimer pour l’arrêter plus tôt.</li>
-    <li>Vous pouvez envoyer jusqu’à 5 captures par jour, de 5 Mo au maximum.</li>
+    <li>Une capture fait 5 Mo au maximum.</li>
+    <li>Sans compte, vous pouvez envoyer jusqu’à 5 captures par jour.</li>
+    <li>
+      Avec un compte gratuit, vous pouvez en envoyer jusqu’à 20 par jour, et 6 liens fonctionnent en
+      même temps : une nouvelle capture met fin au lien de la plus ancienne.
+    </li>
     <li>D’autres limites peuvent s’appliquer à une adresse ou à tout le service.</li>
-    <li>Une vérification de sécurité est nécessaire avant votre premier envoi.</li>
+    <li>
+      Une vérification de sécurité est nécessaire avant votre premier envoi ou votre première
+      demande de code de connexion.
+    </li>
     <li>Ce n’est pas une sauvegarde : gardez votre propre copie de ce qui compte.</li>
   </ul>
+
+  <h2>Votre compte</h2>
+  <p>
+    Un compte est facultatif. Il demande une adresse e-mail qui est la vôtre, et vous vous connectez
+    avec un code reçu à cette adresse. Vous êtes responsable de ce qui est envoyé depuis votre
+    compte, et vous n’avez droit qu’à un seul compte. Vous pouvez le supprimer à tout moment depuis
+    l’application.
+  </p>
 
   <h2>Les liens sont publics</h2>
   <p>
@@ -52,20 +68,20 @@ import { LEGAL, PAGES } from "../../legal";
     <li>des fichiers qui ne sont pas des captures, comme stockage de fichiers général.</li>
   </ul>
   <p>
-    Vous ne devez pas contourner les limites ou la vérification de sécurité, automatiser des envois
-    en masse, ni perturber le service.
+    Vous ne devez pas contourner les limites ou la vérification de sécurité, notamment avec
+    plusieurs comptes, automatiser des envois en masse, ni perturber le service.
   </p>
 
   <h2>Signalements et modération</h2>
   <p>
     Nous ne surveillons pas les captures. Chacun peut en signaler une : voir
     <a href={`${PAGES.fr.legal}#signaler`}>comment signaler un contenu</a>. Si une capture enfreint
-    ces conditions ou la loi, nous pouvons la supprimer, bannir l’invité qui l’a envoyée et
-    transmettre des informations aux autorités quand la loi l’exige.
+    ces conditions ou la loi, nous pouvons la supprimer, bannir l’invité ou le compte qui l’a
+    envoyée et transmettre des informations aux autorités quand la loi l’exige.
   </p>
   <p>
-    Quand l’application peut l’afficher, un refus en donne la raison. Comme il n’y a pas de comptes,
-    nous n’avons généralement aucun moyen de vous contacter. Si vous pensez qu’une décision est
+    Quand l’application peut l’afficher, un refus en donne la raison. Sans compte, nous n’avons
+    généralement aucun moyen de vous contacter. Si vous pensez qu’une décision est
     erronée, écrivez à <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a> et nous la réexaminerons.
   </p>
 
