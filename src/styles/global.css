@@ -157,6 +157,8 @@ button {
   font-size: 16px;
   letter-spacing: -0.01em;
   text-decoration: none;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .nav-brand b {
@@ -186,7 +188,8 @@ button {
   align-items: center;
 }
 
-@media (max-width: 860px) {
+/* Brand, links and CTA group need 986px on one line, plus a scrollbar. */
+@media (max-width: 1024px) {
   .nav-links {
     display: none;
   }
@@ -520,7 +523,7 @@ button {
   position: absolute;
   inset: 24px;
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 220px minmax(0, 1fr);
   gap: 12px;
   font-size: 11px;
 }
@@ -708,7 +711,7 @@ button {
   z-index: 15;
   opacity: 0;
   transform: translateY(20px);
-  max-width: 320px;
+  max-width: min(320px, calc(100% - 48px));
 }
 
 .demo-toast .check {
@@ -750,6 +753,7 @@ button {
   left: 24px;
   bottom: 24px;
   width: 380px;
+  max-width: calc(100% - 48px);
   background: var(--color-slate-950);
   border: 1px solid var(--color-slate-700);
   border-radius: 8px;
@@ -848,6 +852,55 @@ button {
 .demo-phases .phase.active {
   color: var(--color-brand);
   border-color: var(--color-brand);
+}
+
+/* Phones: the desktop mock has about 335px to work with, so it drops the
+   sidebar and the URL bar, and only the current phase label stays. */
+@media (max-width: 600px) {
+  .demo-frame {
+    aspect-ratio: 4 / 3;
+  }
+  .demo-chrome .url,
+  .demo-sidebar,
+  .demo-phases .phase:not(.active) {
+    display: none;
+  }
+  .demo-desktop {
+    inset: 12px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .demo-main {
+    padding: 12px;
+    gap: 8px;
+    overflow: hidden;
+  }
+  .demo-main .bug-card {
+    margin-top: 2px;
+    padding: 10px;
+  }
+  .demo-main .bug-card .err {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .demo-main .bug-card .err::before {
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .demo-toast {
+    right: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+  }
+  .demo-terminal {
+    left: 12px;
+    bottom: 12px;
+    max-width: calc(100% - 24px);
+    text-align: left;
+  }
+  /* Toast and terminal share the same spot here, so the toast steps aside. */
+  .demo[data-phase="4"] .demo-toast {
+    opacity: 0;
+  }
 }
 
 /* ============================================================
@@ -1234,6 +1287,16 @@ button {
   border-bottom-color: var(--color-brand);
 }
 
+@media (max-width: 400px) {
+  .install-tabs {
+    gap: 0;
+  }
+  .install-tab {
+    gap: 6px;
+    padding: 12px 8px;
+  }
+}
+
 .install-card {
   background: var(--color-slate-900);
   border: 1px solid var(--color-slate-800);
@@ -1542,6 +1605,53 @@ button {
 
 .nav-sponsor svg {
   color: var(--color-brand);
+}
+
+/* Narrow nav. The CTA group is 364px wide at full size, so it sheds pieces
+   in order of importance. "Get Snap2Link" is never dropped, and the Sponsor
+   and GitHub links stay reachable from the footer. */
+@media (max-width: 600px) {
+  .nav {
+    gap: 12px;
+    padding: 0 20px;
+  }
+  .nav-cta .nav-sponsor span,
+  .gh-btn .gh-stars {
+    display: none;
+  }
+  .nav-cta .nav-sponsor,
+  .nav-cta .gh-btn,
+  .nav-cta .btn.sm {
+    height: 44px;
+    min-height: 44px;
+  }
+  .nav-cta .nav-sponsor {
+    justify-content: center;
+    width: 44px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    gap: 8px;
+    padding: 0 16px;
+  }
+  .nav-cta .nav-sponsor,
+  .gh-btn .gh-text {
+    display: none;
+  }
+  .gh-btn .gh-label {
+    justify-content: center;
+    width: 44px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 340px) {
+  .nav-cta .gh-btn {
+    display: none;
+  }
 }
 
 /* ============================================================
