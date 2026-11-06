@@ -15,7 +15,7 @@ import { LEGAL, PAGES } from "../legal";
     <li>An account is optional, and only asks for your email address.</li>
     <li>The app runs on your computer. Your settings stay there.</li>
     <li>With Google Drive, captures go to your own Drive and never pass through us.</li>
-    <li>With Snap2Link hosting, a capture is kept for 6 hours at most.</li>
+    <li>With Snap2Link hosting, a capture is kept for 24 hours at most, or 48 hours with a free account.</li>
     <li>We never store your IP address, and we collect nothing about your device.</li>
   </ul>
 
@@ -65,7 +65,7 @@ import { LEGAL, PAGES } from "../legal";
           <td>The capture, its link, size and dates</td>
           <td>To give you a link (performance of the service)</td>
           <td>
-            The link stops at 6 hours, or when you press Delete. The data is erased at the next
+            The link stops at 24 hours (48 hours at most with a free account), or when you press Delete. The data is erased at the next
             cleanup, which runs every 30 minutes.
           </td>
         </tr>
@@ -146,6 +146,11 @@ import { LEGAL, PAGES } from "../legal";
     problem with your account. We don't use it for advertising.
   </p>
   <p>
+    You can also sign in with Google. The app then asks Google for your email address, with no
+    access to your Drive, and sends our server signed proof of that address. We don't keep that
+    proof, and we use the address as for an account created with a code.
+  </p>
+  <p>
     You can sign out or delete your account from the app. Deleting it erases the account, its
     sessions and its captures. The day's counters stay until the next cleanup after midnight UTC.
   </p>
@@ -186,7 +191,7 @@ import { LEGAL, PAGES } from "../legal";
       <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare</a>: website, Snap2Link
       hosting, security check.
     </li>
-    <li><a href="https://policies.google.com/privacy">Google</a>: only if you choose Drive.</li>
+    <li><a href="https://policies.google.com/privacy">Google</a>: only if you choose Drive or sign in with Google.</li>
     <li>
       <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement"
         >GitHub</a
