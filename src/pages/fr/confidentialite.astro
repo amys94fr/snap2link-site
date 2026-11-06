@@ -181,9 +181,11 @@ import { LEGAL, PAGES } from "../../legal";
 
   <h2>Le plugin Claude Code</h2>
   <p>
-    Le plugin tourne sur votre machine et télécharge la capture depuis son lien, sur notre
-    hébergement ou sur Google Drive. Cet hôte voit votre adresse IP, comme pour tout téléchargement,
-    et le plugin n’envoie rien d’autre. Une capture de plus de 3,5 Mo reste dans votre dossier
+    Le plugin du répertoire de Claude envoie le lien à notre serveur, qui récupère la capture sur
+    notre hébergement ou sur Google Drive, la réduit si elle est grande et la renvoie à Claude. Nous
+    ne gardons ni le lien ni l’image, et nous ne journalisons pas l’adresse qui se connecte. La
+    version à installer à la main tourne sur votre machine : elle télécharge elle-même la capture,
+    donc l’hôte voit votre adresse IP, et une capture de plus de 3,5 Mo reste dans votre dossier
     temporaire, lisible par vous seul. Ce que vous faites d’une capture dans un outil d’IA relève de
     la politique de cet outil.
   </p>

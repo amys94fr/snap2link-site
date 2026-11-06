@@ -172,10 +172,12 @@ import { LEGAL, PAGES } from "../legal";
 
   <h2>The Claude Code plugin</h2>
   <p>
-    The plugin runs on your machine and downloads the capture from its link, on our hosting or on
-    Google Drive. That host sees your IP address, as with any download, and the plugin sends nothing
-    else. A capture over 3.5 MB stays in your temporary folder, readable only by you. What you do
-    with a capture in an AI tool is covered by that tool's own policy.
+    The plugin from the Claude directory sends the link to our server, which fetches the capture
+    from our hosting or from Google Drive, reduces it if it is large and returns it to Claude. We
+    keep neither the link nor the image, and we don't log the address that connects. The version
+    you install by hand runs on your machine: it downloads the capture itself, so the host sees your
+    IP address, and a capture over 3.5 MB stays in your temporary folder, readable only by you. What
+    you do with a capture in an AI tool is covered by that tool's own policy.
   </p>
 
   <h2>Who else handles data</h2>
