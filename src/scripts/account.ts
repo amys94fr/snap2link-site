@@ -251,7 +251,7 @@ function showChallenge() {
 /* Google, as in the app: its button gives a token made for the site's own client. */
 
 /** The site's Google client: a Web one, with snap2link.app as its origin. Public, like the app's. */
-const GOOGLE_CLIENT_ID = "";
+const GOOGLE_CLIENT_ID = "565416375675-r39tbd633anirdjvhj4el4kncmfeb1uq.apps.googleusercontent.com";
 
 interface GoogleIdentity {
   accounts: {
