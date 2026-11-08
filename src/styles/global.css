@@ -1735,3 +1735,10 @@ html[data-os="lin"] .hero-ctas .btn[data-os-cta="lin"]:hover {
   flex-wrap: wrap;
   gap: 8px 16px;
 }
+
+/* The account link stays in the footer on phones, where the bar has no room for it. */
+@media (max-width: 640px) {
+  .nav-account {
+    display: none;
+  }
+}
