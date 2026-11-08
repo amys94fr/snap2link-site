@@ -101,7 +101,7 @@
   "methodEmail": "کد از طریق ایمیل",
   "methodEmailHint": "همیشه در دسترس است.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "در برنامه در دسترس است. به‌زودی در این سایت.",
+  "methodGoogleHint": "با نشانی حساب Google شما.",
   "active": "فعال",
   "sessionsTitle": "دستگاه‌های واردشده",
   "sessionsLead": "از دستگاهی که دیگر استفاده نمی‌کنید خارج شوید.",
@@ -145,5 +145,7 @@
   "slotsKept": "{kept} از {max} نگه داشته شده",
   "slotEmpty": "جایگاه خالی",
   "slotEmptyHint": "عکس بعدی شما اینجا قرار می‌گیرد.",
-  "emailTaken": "این نشانی از قبل حساب Snap2Link دارد."
+  "emailTaken": "این نشانی از قبل حساب Snap2Link دارد.",
+  "or": "یا",
+  "continueGoogle": "ادامه با Google"
 }

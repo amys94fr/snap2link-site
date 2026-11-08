@@ -101,7 +101,7 @@
   "methodEmail": "E-postayla kod",
   "methodEmailHint": "Her zaman kullanılabilir.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "Uygulamada kullanılabilir. Bu sitede yakında.",
+  "methodGoogleHint": "Google hesabının adresiyle.",
   "active": "Etkin",
   "sessionsTitle": "Oturum açık cihazlar",
   "sessionsLead": "Artık kullanmadığın bir cihazın oturumunu kapat.",
@@ -145,5 +145,7 @@
   "slotsKept": "{max} bağlantıdan {kept} tanesi saklandı",
   "slotEmpty": "Boş alan",
   "slotEmptyHint": "Bir sonraki görüntün buraya gelecek.",
-  "emailTaken": "Bu adresin zaten bir Snap2Link hesabı var."
+  "emailTaken": "Bu adresin zaten bir Snap2Link hesabı var.",
+  "or": "veya",
+  "continueGoogle": "Google ile devam et"
 }

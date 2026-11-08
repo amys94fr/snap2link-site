@@ -101,7 +101,7 @@
   "methodEmail": "Mã qua email",
   "methodEmailHint": "Luôn khả dụng.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "Có trong ứng dụng. Sắp có trên trang web này.",
+  "methodGoogleHint": "Bằng địa chỉ tài khoản Google của bạn.",
   "active": "Đang bật",
   "sessionsTitle": "Thiết bị đã đăng nhập",
   "sessionsLead": "Đăng xuất khỏi thiết bị bạn không dùng nữa.",
@@ -145,5 +145,7 @@
   "slotsKept": "Đã giữ {kept}/{max}",
   "slotEmpty": "Vị trí trống",
   "slotEmptyHint": "Ảnh chụp tiếp theo của bạn sẽ ở đây.",
-  "emailTaken": "Địa chỉ này đã có tài khoản Snap2Link."
+  "emailTaken": "Địa chỉ này đã có tài khoản Snap2Link.",
+  "or": "hoặc",
+  "continueGoogle": "Tiếp tục với Google"
 }

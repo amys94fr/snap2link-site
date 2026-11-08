@@ -101,7 +101,7 @@
   "methodEmail": "Код по электронной почте",
   "methodEmailHint": "Доступно всегда.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "Доступно в приложении. Скоро появится на сайте.",
+  "methodGoogleHint": "С адресом вашего аккаунта Google.",
   "active": "Активно",
   "sessionsTitle": "Устройства с выполненным входом",
   "sessionsLead": "Выйдите на устройстве, которым больше не пользуетесь.",
@@ -145,5 +145,7 @@
   "slotsKept": "Сохранено: {kept} из {max}",
   "slotEmpty": "Свободное место",
   "slotEmptyHint": "Здесь появится ваш следующий снимок.",
-  "emailTaken": "У этого адреса уже есть аккаунт Snap2Link."
+  "emailTaken": "У этого адреса уже есть аккаунт Snap2Link.",
+  "or": "или",
+  "continueGoogle": "Продолжить с Google"
 }

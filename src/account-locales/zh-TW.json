@@ -101,7 +101,7 @@
   "methodEmail": "電子郵件驗證碼",
   "methodEmailHint": "隨時可用。",
   "methodGoogle": "Google",
-  "methodGoogleHint": "應用程式中已支援，本網站即將支援。",
+  "methodGoogleHint": "使用您的 Google 帳號地址。",
   "active": "已啟用",
   "sessionsTitle": "已登入的裝置",
   "sessionsLead": "登出您不再使用的裝置。",
@@ -145,5 +145,7 @@
   "slotsKept": "已保留 {kept} / {max}",
   "slotEmpty": "空位",
   "slotEmptyHint": "你的下一張截圖會出現在這裡。",
-  "emailTaken": "這個地址已經有 Snap2Link 帳號了。"
+  "emailTaken": "這個地址已經有 Snap2Link 帳號了。",
+  "or": "或",
+  "continueGoogle": "使用 Google 繼續"
 }

@@ -101,7 +101,7 @@
   "methodEmail": "Kode lewat email",
   "methodEmailHint": "Selalu tersedia.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "Tersedia di aplikasi. Segera hadir di situs ini.",
+  "methodGoogleHint": "Dengan alamat akun Google Anda.",
   "active": "Aktif",
   "sessionsTitle": "Perangkat yang sedang masuk",
   "sessionsLead": "Keluarkan perangkat yang tidak lagi Anda pakai.",
@@ -145,5 +145,7 @@
   "slotsKept": "{kept} dari {max} disimpan",
   "slotEmpty": "Slot kosong",
   "slotEmptyHint": "Tangkapan Anda berikutnya akan muncul di sini.",
-  "emailTaken": "Alamat ini sudah memiliki akun Snap2Link."
+  "emailTaken": "Alamat ini sudah memiliki akun Snap2Link.",
+  "or": "atau",
+  "continueGoogle": "Lanjutkan dengan Google"
 }

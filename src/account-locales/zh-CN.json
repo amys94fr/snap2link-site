@@ -101,7 +101,7 @@
   "methodEmail": "邮箱验证码",
   "methodEmailHint": "始终可用。",
   "methodGoogle": "Google",
-  "methodGoogleHint": "应用中已支持，本网站即将支持。",
+  "methodGoogleHint": "使用你的 Google 账号地址。",
   "active": "已启用",
   "sessionsTitle": "已登录的设备",
   "sessionsLead": "退出你不再使用的设备。",
@@ -145,5 +145,7 @@
   "slotsKept": "已保留 {kept} / {max}",
   "slotEmpty": "空位",
   "slotEmptyHint": "你的下一张截图会出现在这里。",
-  "emailTaken": "这个地址已经有 Snap2Link 账号了。"
+  "emailTaken": "这个地址已经有 Snap2Link 账号了。",
+  "or": "或",
+  "continueGoogle": "使用 Google 继续"
 }

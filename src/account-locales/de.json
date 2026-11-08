@@ -101,7 +101,7 @@
   "methodEmail": "Code per E-Mail",
   "methodEmailHint": "Immer verfügbar.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "In der App verfügbar. Auf dieser Website bald.",
+  "methodGoogleHint": "Mit der Adresse deines Google-Kontos.",
   "active": "Aktiv",
   "sessionsTitle": "Angemeldete Geräte",
   "sessionsLead": "Melde ein Gerät ab, das du nicht mehr benutzt.",
@@ -145,5 +145,7 @@
   "slotsKept": "{kept} von {max} behalten",
   "slotEmpty": "Freier Platz",
   "slotEmptyHint": "Deine nächste Aufnahme landet hier.",
-  "emailTaken": "Für diese Adresse gibt es schon ein Snap2Link-Konto."
+  "emailTaken": "Für diese Adresse gibt es schon ein Snap2Link-Konto.",
+  "or": "oder",
+  "continueGoogle": "Weiter mit Google"
 }

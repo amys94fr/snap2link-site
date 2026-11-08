@@ -101,7 +101,7 @@
   "methodEmail": "Kod e-mailem",
   "methodEmailHint": "Zawsze dostępne.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "Dostępne w aplikacji. Wkrótce na tej stronie.",
+  "methodGoogleHint": "Adresem Twojego konta Google.",
   "active": "Aktywne",
   "sessionsTitle": "Zalogowane urządzenia",
   "sessionsLead": "Wyloguj urządzenie, którego już nie używasz.",
@@ -145,5 +145,7 @@
   "slotsKept": "Zachowane: {kept} z {max}",
   "slotEmpty": "Wolne miejsce",
   "slotEmptyHint": "Tu trafi Twój następny zrzut.",
-  "emailTaken": "Ten adres ma już konto Snap2Link."
+  "emailTaken": "Ten adres ma już konto Snap2Link.",
+  "or": "lub",
+  "continueGoogle": "Kontynuuj z Google"
 }

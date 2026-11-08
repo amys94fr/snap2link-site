@@ -101,7 +101,7 @@
   "methodEmail": "Code by email",
   "methodEmailHint": "Always available.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "Available in the app. Coming soon on this site.",
+  "methodGoogleHint": "Use the address of your Google account.",
   "active": "Active",
   "sessionsTitle": "Signed-in devices",
   "sessionsLead": "Sign out of a device you no longer use.",
@@ -145,5 +145,7 @@
   "slotsKept": "{kept} of {max} kept",
   "slotEmpty": "Free slot",
   "slotEmptyHint": "Your next capture goes here.",
-  "emailTaken": "This address already has a Snap2Link account."
+  "emailTaken": "This address already has a Snap2Link account.",
+  "or": "or",
+  "continueGoogle": "Continue with Google"
 }

@@ -101,7 +101,7 @@
   "methodEmail": "رمز عبر البريد الإلكتروني",
   "methodEmailHint": "متاح دائمًا.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "متاح في التطبيق. قريبًا على هذا الموقع.",
+  "methodGoogleHint": "باستخدام عنوان حسابك في Google.",
   "active": "نشط",
   "sessionsTitle": "الأجهزة المسجّل دخولها",
   "sessionsLead": "سجّل الخروج من جهاز لم تعد تستخدمه.",
@@ -145,5 +145,7 @@
   "slotsKept": "{kept} من {max} محفوظة",
   "slotEmpty": "خانة فارغة",
   "slotEmptyHint": "ستظهر لقطتك التالية هنا.",
-  "emailTaken": "هذا العنوان لديه حساب Snap2Link بالفعل."
+  "emailTaken": "هذا العنوان لديه حساب Snap2Link بالفعل.",
+  "or": "أو",
+  "continueGoogle": "المتابعة باستخدام Google"
 }

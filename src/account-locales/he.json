@@ -101,7 +101,7 @@
   "methodEmail": "קוד באימייל",
   "methodEmailHint": "תמיד זמין.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "זמין באפליקציה. בקרוב באתר הזה.",
+  "methodGoogleHint": "עם הכתובת של חשבון Google שלך.",
   "active": "פעיל",
   "sessionsTitle": "מכשירים מחוברים",
   "sessionsLead": "אפשר לנתק מכשיר שכבר לא בשימוש.",
@@ -145,5 +145,7 @@
   "slotsKept": "{kept} מתוך {max} נשמרו",
   "slotEmpty": "משבצת פנויה",
   "slotEmptyHint": "הצילום הבא יופיע כאן.",
-  "emailTaken": "לכתובת הזו כבר יש חשבון Snap2Link."
+  "emailTaken": "לכתובת הזו כבר יש חשבון Snap2Link.",
+  "or": "או",
+  "continueGoogle": "המשך עם Google"
 }

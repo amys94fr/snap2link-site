@@ -55,6 +55,7 @@ interface Api {
   history(): Promise<History>;
   sessions(): Promise<Session[]>;
   sendCode(email: string, turnstile: string): Promise<void>;
+  signInWithGoogle(credential: string): Promise<void>;
   verify(email: string, code: string): Promise<boolean>;
   saveProfile(profile: { name: string; language: string }): Promise<void>;
   sendEmailCode(email: string): Promise<void>;
@@ -110,6 +111,8 @@ const relayApi: Api = {
   sendCode: async (email, turnstile) =>
     void (await send("/v1/web/login/code", "POST", { email, turnstile, language: lang })),
   verify: (email, code) => accepted(send("/v1/web/login/verify", "POST", { email, code })),
+  signInWithGoogle: async (credential) =>
+    void (await send("/v1/web/login/google", "POST", { credential })),
   saveProfile: async (profile) => void (await send("/v1/me", "PATCH", profile)),
   sendEmailCode: async (email) =>
     void (await send("/v1/me/email/code", "POST", { email, language: lang })),
@@ -164,6 +167,9 @@ function demoApi(): Api {
     async verify(_email, code) {
       signedIn = code === "123456";
       return signedIn;
+    },
+    async signInWithGoogle() {
+      signedIn = true;
     },
     async saveProfile(profile) {
       Object.assign(me, profile);
@@ -239,6 +245,70 @@ function showChallenge() {
   script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
   script.async = true;
   script.addEventListener("load", draw);
+  document.head.append(script);
+}
+
+/* Google, as in the app: its button gives a token made for the site's own client. */
+
+/** The site's Google client: a Web one, with snap2link.app as its origin. Public, like the app's. */
+const GOOGLE_CLIENT_ID = "";
+
+interface GoogleIdentity {
+  accounts: {
+    id: {
+      initialize(options: Record<string, unknown>): void;
+      renderButton(element: HTMLElement, options: Record<string, unknown>): void;
+    };
+  };
+}
+
+let googleShown = false;
+
+async function googleSignIn(credential: string) {
+  setMessage("#email-error", null);
+  try {
+    await api.signInWithGoogle(credential);
+    await start();
+  } catch {
+    setMessage("#email-error", text.actionError);
+  }
+}
+
+function showGoogle() {
+  if (googleShown) return;
+  if (demo) {
+    googleShown = true;
+    $("#google-block").hidden = false;
+    $("#google-demo").hidden = false;
+    $("#google-button").hidden = true;
+    $("#google-demo").addEventListener("click", () => void googleSignIn("demo"));
+    return;
+  }
+  if (!GOOGLE_CLIENT_ID) return;
+  googleShown = true;
+  const script = document.createElement("script");
+  script.src = "https://accounts.google.com/gsi/client";
+  script.async = true;
+  script.addEventListener("load", () => {
+    const google = (window as unknown as { google?: GoogleIdentity }).google;
+    if (!google) return;
+    google.accounts.id.initialize({
+      client_id: GOOGLE_CLIENT_ID,
+      callback: ({ credential }: { credential: string }) => void googleSignIn(credential),
+      ux_mode: "popup",
+      auto_select: false,
+      itp_support: true,
+    });
+    google.accounts.id.renderButton($("#google-button"), {
+      theme: "filled_black",
+      size: "large",
+      text: "continue_with",
+      shape: "rectangular",
+      width: Math.min(400, $("#form-email").clientWidth || 400),
+      locale: lang,
+    });
+    $("#google-block").hidden = false;
+  });
   document.head.append(script);
 }
 
@@ -332,7 +402,10 @@ function view(name: "loading" | "auth" | "app") {
 
 function authStep(step: "email" | "code" | "error") {
   view("auth");
-  if (step === "email") showChallenge();
+  if (step === "email") {
+    showChallenge();
+    showGoogle();
+  }
   for (const name of ["email", "code", "error"]) $(`#auth-${name}`).hidden = name !== step;
 }
 

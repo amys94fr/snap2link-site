@@ -101,7 +101,7 @@
   "methodEmail": "ईमेल से कोड",
   "methodEmailHint": "हमेशा उपलब्ध।",
   "methodGoogle": "Google",
-  "methodGoogleHint": "ऐप में उपलब्ध। इस साइट पर जल्द आ रहा है।",
+  "methodGoogleHint": "अपने Google खाते के पते से।",
   "active": "सक्रिय",
   "sessionsTitle": "साइन इन किए हुए डिवाइस",
   "sessionsLead": "जो डिवाइस आप अब इस्तेमाल नहीं करते, उससे साइन आउट करें।",
@@ -145,5 +145,7 @@
   "slotsKept": "{max} में से {kept} रखे गए",
   "slotEmpty": "खाली स्लॉट",
   "slotEmptyHint": "आपका अगला कैप्चर यहाँ आएगा।",
-  "emailTaken": "इस पते पर पहले से Snap2Link खाता है।"
+  "emailTaken": "इस पते पर पहले से Snap2Link खाता है।",
+  "or": "या",
+  "continueGoogle": "Google के साथ जारी रखें"
 }

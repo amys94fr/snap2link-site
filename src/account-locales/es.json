@@ -101,7 +101,7 @@
   "methodEmail": "Código por correo",
   "methodEmailHint": "Siempre disponible.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "Disponible en la app. Próximamente en este sitio.",
+  "methodGoogleHint": "Con la dirección de tu cuenta de Google.",
   "active": "Activo",
   "sessionsTitle": "Dispositivos con sesión abierta",
   "sessionsLead": "Cierra la sesión de un dispositivo que ya no uses.",
@@ -145,5 +145,7 @@
   "slotsKept": "{kept} de {max} conservados",
   "slotEmpty": "Espacio libre",
   "slotEmptyHint": "Tu próxima captura irá aquí.",
-  "emailTaken": "Esta dirección ya tiene una cuenta de Snap2Link."
+  "emailTaken": "Esta dirección ya tiene una cuenta de Snap2Link.",
+  "or": "o",
+  "continueGoogle": "Continuar con Google"
 }

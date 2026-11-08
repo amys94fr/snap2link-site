@@ -101,7 +101,7 @@
   "methodEmail": "メールでコードを受け取る",
   "methodEmailHint": "いつでも利用できます。",
   "methodGoogle": "Google",
-  "methodGoogleHint": "アプリで利用できます。このサイトでは近日対応予定です。",
+  "methodGoogleHint": "Google アカウントのアドレスで。",
   "active": "有効",
   "sessionsTitle": "サインイン中のデバイス",
   "sessionsLead": "使っていないデバイスからサインアウトできます。",
@@ -145,5 +145,7 @@
   "slotsKept": "{max} 件中 {kept} 件を保持中",
   "slotEmpty": "空き枠",
   "slotEmptyHint": "次のキャプチャはここに入ります。",
-  "emailTaken": "このアドレスにはすでに Snap2Link アカウントがあります。"
+  "emailTaken": "このアドレスにはすでに Snap2Link アカウントがあります。",
+  "or": "または",
+  "continueGoogle": "Google で続行"
 }

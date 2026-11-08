@@ -101,7 +101,7 @@
   "methodEmail": "Код електронною поштою",
   "methodEmailHint": "Доступно завжди.",
   "methodGoogle": "Google",
-  "methodGoogleHint": "Доступно в застосунку. Незабаром з'явиться на сайті.",
+  "methodGoogleHint": "З адресою вашого облікового запису Google.",
   "active": "Активно",
   "sessionsTitle": "Пристрої з виконаним входом",
   "sessionsLead": "Вийдіть на пристрої, яким більше не користуєтеся.",
@@ -145,5 +145,7 @@
   "slotsKept": "Збережено: {kept} з {max}",
   "slotEmpty": "Вільне місце",
   "slotEmptyHint": "Тут з'явиться ваш наступний знімок.",
-  "emailTaken": "Ця адреса вже має обліковий запис Snap2Link."
+  "emailTaken": "Ця адреса вже має обліковий запис Snap2Link.",
+  "or": "або",
+  "continueGoogle": "Продовжити з Google"
 }
