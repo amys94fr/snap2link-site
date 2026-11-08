@@ -18,15 +18,18 @@ import { LEGAL } from "../legal";
     <h1>Code signing policy</h1>
 
     <p>
-      Free code signing provided by <a href="https://about.signpath.io/">SignPath.io</a>, certificate
-      by <a href="https://signpath.org/">SignPath Foundation</a>.
+      <strong>Status:</strong> Windows installers are not code-signed yet. SignPath Foundation, which
+      signs open source projects for free, asks for more public visibility than Snap2Link has today,
+      and the project will apply again later. Until then, Windows SmartScreen may show an "unrecognised
+      app" warning: choose <em>More info</em>, then <em>Run anyway</em>. This page will name the first
+      signed version and who signs it.
     </p>
     <p>
-      <strong>Status:</strong> signing is being set up. Until SignPath Foundation accepts the project,
-      Windows installers are unsigned. This page will name the first signed version.
+      Every release is still built in the open by GitHub Actions from this repository, and every
+      update is checked by the app against Snap2Link's own updater key before it installs.
     </p>
 
-    <h2>What is signed</h2>
+    <h2>What will be signed</h2>
     <ul>
       <li>
         The Windows installer, <code>Snap2Link_&lt;version&gt;_x64-setup.exe</code>, published on the
