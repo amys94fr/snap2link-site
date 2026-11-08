@@ -1,11 +1,14 @@
 ---
 import DemoFrame from "./DemoFrame.astro";
+import { latestRelease } from "../release";
+
+const { version } = await latestRelease();
 ---
 
 <section class="hero" id="top" data-screen-label="Hero">
   <span class="pill">
     <span class="dot"></span>
-    v1.4.0 · out now
+    v<span data-gh-version>{version}</span> · out now
   </span>
   <h1>
     Paste screenshots into <span class="accent">Claude Code</span>, Cursor, or

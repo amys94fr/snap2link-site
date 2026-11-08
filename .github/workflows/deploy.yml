@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
+  # A daily build picks up a new app release: version, sizes, stars and downloads.
+  schedule:
+    - cron: "17 6 * * *"
 
 permissions:
   contents: read

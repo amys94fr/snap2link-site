@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import heroFont from "@fontsource/geist-sans/files/geist-sans-latin-700-normal.woff2?url";
+import { latestRelease } from "../release";
 
 interface Props {
   title?: string;
@@ -15,6 +16,7 @@ const {
 } = Astro.props;
 
 const SITE_URL = Astro.site ?? new URL("https://snap2link.app");
+const { version } = await latestRelease();
 // `Astro.url.href` already includes the trailing slash for the index — keep it
 // stable so the same canonical is emitted for / and /index.html requests.
 const canonical = new URL(Astro.url.pathname, SITE_URL).toString();
@@ -32,7 +34,7 @@ const softwareLD = {
     "Hotkey-driven screenshot tool that uploads to your Google Drive and copies a public share link to your clipboard. Built for AI workflows: Claude Code, Cursor, ChatGPT, Aider.",
   applicationCategory: "ProductivityApplication",
   operatingSystem: "Windows 10, Windows 11, macOS 12, Linux",
-  softwareVersion: "1.4.0",
+  softwareVersion: version,
   url: SITE_URL.toString(),
   downloadUrl: "https://github.com/amys94fr/Snap2Link/releases/latest",
   installUrl: "https://github.com/amys94fr/Snap2Link/releases/latest",
@@ -159,8 +161,17 @@ const softwareLD = {
             { headers },
           );
           if (r.ok) {
-            type R = { assets?: Array<{ download_count?: number }> };
+            type R = {
+              tag_name?: string;
+              draft?: boolean;
+              prerelease?: boolean;
+              assets?: Array<{ download_count?: number }>;
+            };
             const releases = (await r.json()) as R[];
+            // Newest first: the first published one is the version to show.
+            const latest = releases.find((rel) => !rel.draft && !rel.prerelease);
+            const version = latest?.tag_name?.replace(/^v/, "");
+            if (version && /^\d+\.\d+\.\d+$/.test(version)) set("[data-gh-version]", version);
             const total = releases.reduce(
               (sum, rel) =>
                 sum +
