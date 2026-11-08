@@ -16,6 +16,10 @@
   Content-Type: text/html; charset=utf-8
   Cache-Control: public, max-age=300, s-maxage=86400
 
+/account/
+  Content-Type: text/html; charset=utf-8
+  Cache-Control: no-cache
+
 /fr/confidentialite/
   Content-Type: text/html; charset=utf-8
   Cache-Control: public, max-age=300, s-maxage=86400

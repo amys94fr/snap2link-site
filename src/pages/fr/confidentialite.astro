@@ -27,8 +27,11 @@ import { LEGAL, PAGES } from "../../legal";
 
   <h2>Le site</h2>
   <p>
-    snap2link.app ne dépose aucun cookie qui lui soit propre et n’utilise aucune mesure d’audience.
-    Cloudflare diffuse le site et traite votre adresse IP pour cela et pour le protéger. Sur la
+    snap2link.app n’utilise aucune mesure d’audience et ne dépose aucun cookie qui lui soit propre.
+    Si vous vous connectez à votre espace, sur snap2link.app/account/, notre serveur i.snap2link.app
+    dépose un cookie qui vous garde connecté. Il est nécessaire au fonctionnement de la page, ne
+    contient rien d’autre, et dure 30 jours ou jusqu’à votre déconnexion. La page garde la langue que
+    vous choisissez dans votre navigateur. Cloudflare diffuse le site et traite votre adresse IP pour cela et pour le protéger. Sur la
     page d’accueil, votre navigateur demande à GitHub le nombre d’étoiles et de téléchargements :
     GitHub voit donc votre adresse IP.
   </p>
@@ -117,7 +120,10 @@ import { LEGAL, PAGES } from "../../legal";
       </thead>
       <tbody>
         <tr>
-          <td>Votre adresse e-mail, votre forfait et la date de création du compte</td>
+          <td>
+            Votre adresse e-mail, votre forfait et la date de création du compte, ainsi que le nom
+            affiché et la langue que vous choisissez, le cas échéant
+          </td>
           <td>Pour fournir le compte et vous écrire à son sujet (exécution du service)</td>
           <td>
             Jusqu’à ce que vous supprimiez le compte. Un compte gratuit sans session active est
@@ -133,7 +139,10 @@ import { LEGAL, PAGES } from "../../legal";
         <tr>
           <td>Un jeton de session, stocké sous forme d’empreinte</td>
           <td>Pour vous garder connecté (exécution du service)</td>
-          <td>Un an, ou jusqu’à votre déconnexion. Votre copie reste sur votre ordinateur.</td>
+          <td>
+            Un an dans l’application, 30 jours sur le site, ou jusqu’à votre déconnexion. Nous gardons
+            aussi où et quand chaque session a été ouverte, pour que vous puissiez la voir et la fermer.
+          </td>
         </tr>
         <tr>
           <td>Le compte qui a envoyé une capture</td>
@@ -157,8 +166,10 @@ import { LEGAL, PAGES } from "../../legal";
     créé avec un code.
   </p>
   <p>
-    Vous pouvez vous déconnecter ou supprimer votre compte depuis l’application. La suppression
-    efface le compte, ses sessions et ses captures. Les compteurs du jour restent jusqu’au premier
+    Vous pouvez vous déconnecter ou supprimer votre compte depuis l’application ou depuis votre
+    espace en ligne. Cet espace permet aussi de changer d’adresse, une fois la nouvelle confirmée par
+    un code, et de télécharger vos données. La suppression efface le compte, ses sessions et ses
+    captures. Les compteurs du jour restent jusqu’au premier
     nettoyage après minuit UTC.
   </p>
 
