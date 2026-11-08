@@ -264,6 +264,28 @@ interface GoogleIdentity {
 
 let googleShown = false;
 
+/** Google's button speaks the page's language: its codes use an underscore. */
+const googleLocale = () => lang.replace("-", "_");
+
+function drawGoogleButton() {
+  const google = (window as unknown as { google?: GoogleIdentity }).google;
+  if (!google) return;
+  $("#google-button").replaceChildren();
+  google.accounts.id.renderButton($("#google-button"), {
+    theme: "filled_black",
+    size: "large",
+    text: "continue_with",
+    shape: "rectangular",
+    logo_alignment: "center",
+    width: Math.min(352, $("#form-email").clientWidth || 352),
+    locale: googleLocale(),
+  });
+}
+
+function redrawGoogle() {
+  if (googleShown && !demo && !$("#view-auth").hidden) drawGoogleButton();
+}
+
 async function googleSignIn(credential: string) {
   setMessage("#email-error", null);
   try {
@@ -287,7 +309,7 @@ function showGoogle() {
   if (!GOOGLE_CLIENT_ID) return;
   googleShown = true;
   const script = document.createElement("script");
-  script.src = "https://accounts.google.com/gsi/client";
+  script.src = `https://accounts.google.com/gsi/client?hl=${encodeURIComponent(googleLocale())}`;
   script.async = true;
   script.addEventListener("load", () => {
     const google = (window as unknown as { google?: GoogleIdentity }).google;
@@ -299,14 +321,7 @@ function showGoogle() {
       auto_select: false,
       itp_support: true,
     });
-    google.accounts.id.renderButton($("#google-button"), {
-      theme: "filled_black",
-      size: "large",
-      text: "continue_with",
-      shape: "rectangular",
-      width: Math.min(400, $("#form-email").clientWidth || 400),
-      locale: lang,
-    });
+    drawGoogleButton();
     $("#google-block").hidden = false;
   });
   document.head.append(script);
@@ -381,10 +396,20 @@ async function applyLanguage(code: string) {
   for (const element of $$("[data-t-aria]")) {
     element.setAttribute("aria-label", text[element.dataset.tAria!]);
   }
+  for (const element of $$<HTMLInputElement>("[data-t-placeholder]")) {
+    element.placeholder = text[element.dataset.tPlaceholder!];
+  }
   const french = code === "fr";
-  $<HTMLAnchorElement>("#legal-privacy").href = french ? "/fr/confidentialite/" : "/privacy/";
-  $<HTMLAnchorElement>("#legal-terms").href = french ? "/fr/conditions/" : "/terms/";
+  for (const id of ["#legal-privacy", "#login-privacy"]) {
+    $<HTMLAnchorElement>(id).href = french ? "/fr/confidentialite/" : "/privacy/";
+  }
+  for (const id of ["#legal-terms", "#login-terms"]) {
+    $<HTMLAnchorElement>(id).href = french ? "/fr/conditions/" : "/terms/";
+  }
   $<HTMLSelectElement>("#field-language").value = code;
+  $<HTMLSelectElement>("#login-language").value = code;
+  drawResend();
+  redrawGoogle();
   $("#delete-account").textContent = text.dangerButton;
   $("#email-submit").textContent = newEmail ? text.confirmEmail : text.sendCode;
   drawProfile();
@@ -696,7 +721,17 @@ async function start() {
   try {
     me = await api.me();
     await applyLanguage(closestLanguage(savedLanguage()) ?? closestLanguage(me?.language) ?? browserLanguage());
-    if (!me) return authStep("email");
+    if (!me) {
+      authStep("email");
+      // Demo only: open on the code step, to work on its layout.
+      if (demo && location.search.includes("codestep")) {
+        authEmail = "sam@example.com";
+        $("#code-email").textContent = authEmail;
+        authStep("code");
+        startResendWait();
+      }
+      return;
+    }
     await refresh();
     view("app");
     route(false);
@@ -707,35 +742,163 @@ async function start() {
 
 /* Sign-in */
 
+const RESEND_WAIT_S = 30;
+let resendAt = 0;
+let resendTimer: ReturnType<typeof setInterval> | undefined;
+
+function busy(button: HTMLButtonElement, on: boolean, label?: string) {
+  button.disabled = on;
+  button.setAttribute("aria-busy", String(on));
+  const slot = button.querySelector<HTMLElement>("[data-label]")!;
+  if (on && label) slot.textContent = label;
+  if (!on) slot.textContent = text[slot.dataset.key!];
+}
+
+function fieldError(selector: string, input: HTMLElement | null, message: string | null) {
+  setMessage(selector, message);
+  input?.setAttribute("aria-invalid", String(message !== null));
+}
+
+function drawResend() {
+  const button = $<HTMLButtonElement>("#code-resend");
+  const left = Math.ceil((resendAt - Date.now()) / 1000);
+  button.disabled = left > 0;
+  button.textContent = left > 0 ? text.resendIn.replace("{seconds}", String(left)) : text.resend;
+  if (left <= 0 && resendTimer) {
+    clearInterval(resendTimer);
+    resendTimer = undefined;
+  }
+}
+
+function startResendWait() {
+  resendAt = Date.now() + RESEND_WAIT_S * 1000;
+  clearInterval(resendTimer);
+  resendTimer = setInterval(drawResend, 1000);
+  drawResend();
+}
+
+const otpInputs = () => $$<HTMLInputElement>("#otp input");
+const otpValue = () => otpInputs().map((input) => input.value).join("");
+
+function fillOtp(digits: string, from = 0) {
+  const inputs = otpInputs();
+  [...digits.replace(/\D/g, "")].slice(0, inputs.length - from).forEach((digit, offset) => {
+    inputs[from + offset].value = digit;
+  });
+  const next = inputs.find((input) => !input.value) ?? inputs[inputs.length - 1];
+  next.focus();
+  if (otpValue().length === inputs.length) $<HTMLFormElement>("#form-code").requestSubmit();
+}
+
+function clearOtp() {
+  for (const input of otpInputs()) input.value = "";
+  otpInputs()[0].focus();
+}
+
+otpInputs().forEach((input, index) => {
+  input.addEventListener("input", () => {
+    const digits = input.value.replace(/\D/g, "");
+    input.value = "";
+    fieldError("#code-error", null, null);
+    if (digits) fillOtp(digits, index);
+  });
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Backspace" && !input.value && index > 0) {
+      const previous = otpInputs()[index - 1];
+      previous.value = "";
+      previous.focus();
+      event.preventDefault();
+    }
+    if (event.key === "ArrowLeft" && index > 0) otpInputs()[index - 1].focus();
+    if (event.key === "ArrowRight" && index < otpInputs().length - 1) otpInputs()[index + 1].focus();
+  });
+  input.addEventListener("paste", (event) => {
+    event.preventDefault();
+    fillOtp(event.clipboardData?.getData("text") ?? "", 0);
+  });
+  input.addEventListener("focus", () => input.select());
+});
+
+async function sendLoginCode(): Promise<boolean> {
+  const token = await challengeToken();
+  if (!token) throw new Error("challenge");
+  await api.sendCode(authEmail, token);
+  return true;
+}
+
 $("#form-email").addEventListener("submit", async (event) => {
   event.preventDefault();
-  authEmail = $<HTMLInputElement>("#field-email").value.trim();
-  if (!authEmail.includes("@")) return setMessage("#email-error", text.emailError);
-  setMessage("#email-error", null);
+  const field = $<HTMLInputElement>("#field-email");
+  authEmail = field.value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(authEmail)) {
+    fieldError("#email-error", field, text.emailError);
+    field.focus();
+    return;
+  }
+  fieldError("#email-error", field, null);
+  const button = $<HTMLButtonElement>("#login-submit");
+  busy(button, true, text.sending);
   try {
-    const token = await challengeToken();
-    if (!token) return setMessage("#email-error", text.actionError);
-    await api.sendCode(authEmail, token);
+    await sendLoginCode();
     $("#code-email").textContent = authEmail;
+    $("#code-resent").hidden = true;
     authStep("code");
-    $("#field-code").focus();
+    startResendWait();
+    clearOtp();
   } catch {
-    setMessage("#email-error", text.actionError);
+    fieldError("#email-error", field, text.actionError);
+  } finally {
+    busy(button, false);
   }
 });
 
 $("#form-code").addEventListener("submit", async (event) => {
   event.preventDefault();
-  setMessage("#code-error", null);
+  const code = otpValue();
+  if (code.length !== otpInputs().length) {
+    fieldError("#code-error", null, text.codeError);
+    otpInputs().find((input) => !input.value)?.focus();
+    return;
+  }
+  const button = $<HTMLButtonElement>("#login-code-submit");
+  busy(button, true, text.verifying);
+  fieldError("#code-error", null, null);
   try {
-    if (await api.verify(authEmail, $<HTMLInputElement>("#field-code").value.trim())) await start();
-    else setMessage("#code-error", text.codeError);
+    if (await api.verify(authEmail, code)) {
+      clearInterval(resendTimer);
+      await start();
+    } else {
+      fieldError("#code-error", null, text.codeError);
+      clearOtp();
+    }
   } catch {
-    setMessage("#code-error", text.actionError);
+    fieldError("#code-error", null, text.actionError);
+  } finally {
+    busy(button, false);
   }
 });
 
-$("#code-back").addEventListener("click", () => authStep("email"));
+$("#code-resend").addEventListener("click", async () => {
+  const button = $<HTMLButtonElement>("#code-resend");
+  button.disabled = true;
+  $("#code-resent").hidden = true;
+  fieldError("#code-error", null, null);
+  try {
+    await sendLoginCode();
+    $("#code-resent").hidden = false;
+    startResendWait();
+    clearOtp();
+  } catch {
+    fieldError("#code-error", null, text.actionError);
+    drawResend();
+  }
+});
+
+$("#code-back").addEventListener("click", () => {
+  clearInterval(resendTimer);
+  authStep("email");
+  $("#field-email").focus();
+});
 $("#error-retry").addEventListener("click", () => void start());
 
 /* Shell */
@@ -836,8 +999,7 @@ $("#export-data").addEventListener("click", async () => {
 
 /* Settings */
 
-$("#field-language").addEventListener("change", async () => {
-  const code = $<HTMLSelectElement>("#field-language").value;
+async function changeLanguage(code: string) {
   rememberLanguage(code);
   try {
     await applyLanguage(code);
@@ -845,7 +1007,11 @@ $("#field-language").addEventListener("change", async () => {
   } catch (e) {
     actionFailed(e);
   }
-});
+}
+
+for (const id of ["#field-language", "#login-language"]) {
+  $(id).addEventListener("change", () => void changeLanguage($<HTMLSelectElement>(id).value));
+}
 
 /* Security */
 
