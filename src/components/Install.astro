@@ -73,10 +73,21 @@ const PLATFORMS = [
         </div>
       ))
     }
+    <p class="install-signing">
+      Windows signing: <a href="/code-signing/">Code signing policy</a>
+    </p>
   </div>
 </section>
 
 <style>
+  .install-signing {
+    margin: 16px 0 0;
+    color: var(--color-slate-400);
+    font-size: 13px;
+  }
+  .install-signing a {
+    color: var(--color-slate-300);
+  }
   .install-panel.hidden {
     display: none;
   }

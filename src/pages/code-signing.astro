@@ -1,0 +1,100 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { LEGAL } from "../legal";
+---
+
+<Layout
+  title="Code signing policy · Snap2Link"
+  description="How Snap2Link's Windows installers are signed, who approves each release, and what the app sends over the network."
+>
+  <header class="legal-header">
+    <a href="/" class="nav-brand" aria-label="Back to Snap2Link">
+      <img src="/assets/logo-app-icon.png" width="28" height="28" alt="" style="border-radius: 6px;" />
+      <span>Snap<b>2</b>Link</span>
+    </a>
+  </header>
+
+  <main class="legal">
+    <h1>Code signing policy</h1>
+
+    <p>
+      Free code signing provided by <a href="https://about.signpath.io/">SignPath.io</a>, certificate
+      by <a href="https://signpath.org/">SignPath Foundation</a>.
+    </p>
+    <p>
+      <strong>Status:</strong> signing is being set up. Until SignPath Foundation accepts the project,
+      Windows installers are unsigned. This page will name the first signed version.
+    </p>
+
+    <h2>What is signed</h2>
+    <ul>
+      <li>
+        The Windows installer, <code>Snap2Link_&lt;version&gt;_x64-setup.exe</code>, published on the
+        <a href="https://github.com/amys94fr/Snap2Link/releases">GitHub releases page</a> and through
+        winget.
+      </li>
+      <li>
+        Only installers built by the GitHub Actions workflow of
+        <a href="https://github.com/amys94fr/Snap2Link">amys94fr/Snap2Link</a>, from the source code at
+        the release tag, on GitHub-hosted runners. Nothing built elsewhere is sent for signing.
+      </li>
+      <li>
+        The installer's product name must be Snap2Link and its version must match the release, or the
+        signing is refused.
+      </li>
+    </ul>
+    <p>
+      macOS and Linux packages are not covered by this certificate. Every update, on every platform,
+      is also checked by the app against Snap2Link's own updater key before it installs.
+    </p>
+
+    <h2>Team roles</h2>
+    <ul>
+      <li>Committers and reviewers: <a href="https://github.com/amys94fr">amys94fr</a></li>
+      <li>Approvers: <a href="https://github.com/amys94fr">amys94fr</a></li>
+    </ul>
+    <p>
+      Changes from anyone else arrive as pull requests, which a committer reviews before they are merged.
+      The <code>main</code> branch only accepts changes through pull requests that pass the tests. Every
+      signing request is approved by hand on SignPath. All team members use multi-factor authentication
+      on GitHub and SignPath.
+    </p>
+
+    <h2>Privacy</h2>
+    <p>
+      Snap2Link only sends data to the services you choose, and to the few it needs to work:
+    </p>
+    <ul>
+      <li>
+        Your captures go to the host you pick in the setup wizard: Snap2Link hosting at
+        <code>i.snap2link.app</code>, or your own Google Drive.
+      </li>
+      <li>
+        Signing in to a Snap2Link account goes through a code sent by email, or through Google if you
+        choose it.
+      </li>
+      <li>
+        Before the first upload without an account, a Cloudflare Turnstile check runs once.
+      </li>
+      <li>The app checks GitHub for updates.</li>
+    </ul>
+    <p>
+      The <a href="/privacy/">privacy policy</a> lists what each of them receives and how long it is
+      kept. The app sends no telemetry and no analytics.
+    </p>
+
+    <h2>Report a problem</h2>
+    <p>
+      If you think a file signed for Snap2Link is not what it claims to be, write to
+      <a href={`mailto:${LEGAL.contact}`}>{LEGAL.contact}</a>. You can also report it to SignPath at
+      <a href="mailto:support@signpath.io">support@signpath.io</a>.
+    </p>
+  </main>
+
+  <nav class="legal-nav" aria-label="Legal pages">
+    <a href="/privacy/">Privacy</a>
+    <a href="/terms/">Terms</a>
+    <a href="/legal/">Legal notice</a>
+    <a href="/">Back to Snap2Link</a>
+  </nav>
+</Layout>
