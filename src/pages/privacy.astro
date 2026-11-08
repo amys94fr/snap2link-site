@@ -27,7 +27,10 @@ import { LEGAL, PAGES } from "../legal";
 
   <h2>The website</h2>
   <p>
-    snap2link.app sets no cookies of its own and has no analytics. Cloudflare delivers the site
+    snap2link.app has no analytics and sets no cookies of its own. If you sign in to your account
+    page, at snap2link.app/account/, our server i.snap2link.app sets one cookie that keeps you
+    signed in. It is needed for the page to work, holds nothing else, and lasts 30 days or until
+    you sign out. The page keeps the language you choose in your browser. Cloudflare delivers the site
     and processes your IP address to do so and to protect it. On the home page, your browser asks
     GitHub for the number of stars and downloads, so GitHub sees your IP address.
   </p>
@@ -113,7 +116,10 @@ import { LEGAL, PAGES } from "../legal";
       </thead>
       <tbody>
         <tr>
-          <td>Your email address, your plan and the date the account was created</td>
+          <td>
+            Your email address, your plan and the date the account was created, and the display name
+            and language you choose, if you do
+          </td>
           <td>To provide the account and write to you about it (performing the service)</td>
           <td>
             Until you delete the account. A free account with no active session is deleted a year
@@ -129,7 +135,10 @@ import { LEGAL, PAGES } from "../legal";
         <tr>
           <td>A session token, stored as a hash</td>
           <td>To keep you signed in (performing the service)</td>
-          <td>One year, or until you sign out. Your copy stays on your computer.</td>
+          <td>
+            One year in the app, 30 days on the website, or until you sign out. We also keep where
+            and when each session was opened, so that you can see it and close it.
+          </td>
         </tr>
         <tr>
           <td>Which account sent a capture</td>
@@ -146,13 +155,15 @@ import { LEGAL, PAGES } from "../legal";
     problem with your account. We don't use it for advertising.
   </p>
   <p>
-    You can also sign in with Google. The app then asks Google for your email address, with no
-    access to your Drive, and sends our server signed proof of that address. We don't keep that
-    proof, and we use the address as for an account created with a code.
+    You can also sign in with Google, in the app or on your account page. Google then gives your
+    email address, with no access to your Drive, and our server receives signed proof of that
+    address. We don't keep that proof, and we use the address as for an account created with a
+    code. On the account page, Google's button is loaded from Google, which sees your IP address.
   </p>
   <p>
-    You can sign out or delete your account from the app. Deleting it erases the account, its
-    sessions and its captures. The day's counters stay until the next cleanup after midnight UTC.
+    You can sign out or delete your account from the app or from your account page. On that page,
+    you can also change your address, once a code confirms the new one, and download your data.
+    Deleting the account erases it, its sessions and its captures. The day's counters stay until the next cleanup after midnight UTC.
   </p>
 
   <h2>The security check</h2>

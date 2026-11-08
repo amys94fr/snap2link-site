@@ -7,7 +7,8 @@ import sitemap from "@astrojs/sitemap";
 // Tailwind 4 ships through its Vite plugin; tokens live in src/styles/global.css.
 export default defineConfig({
   site: "https://snap2link.app",
-  integrations: [sitemap()],
+  // The account area is private: it stays out of the sitemap.
+  integrations: [sitemap({ filter: (page) => !page.includes("/account/") })],
   vite: {
     plugins: [tailwindcss()],
   },
