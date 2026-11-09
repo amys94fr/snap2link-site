@@ -29,9 +29,9 @@ const softwareLD = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Snap2Link",
-  alternateName: "Snap2Link: Screenshot to Drive link",
+  alternateName: "Snap2Link: screenshot to link",
   description:
-    "Hotkey-driven screenshot tool that uploads to your Google Drive and copies a public share link to your clipboard. Built for AI workflows: Claude Code, Cursor, ChatGPT, Aider.",
+    "Hotkey-driven screenshot tool that uploads to Snap2Link hosting or your own Google Drive and copies a public share link to your clipboard. Built for AI workflows: Claude Code, Cursor, ChatGPT, Aider.",
   applicationCategory: "ProductivityApplication",
   operatingSystem: "Windows 10, Windows 11, macOS 12, Linux",
   softwareVersion: version,
@@ -53,16 +53,20 @@ const softwareLD = {
     "Drag-to-capture screen region overlay",
     "Full-screen capture (single monitor)",
     "Per-window capture from a picker of open windows",
-    "Direct upload to your own Google Drive (drive.file scope)",
+    "Snap2Link hosting with no account, or a free account with kept links",
+    "Upload to your own Google Drive (drive.file scope)",
     "Public share link copied to clipboard",
     "Built-in annotator (pen, rectangle, circle, arrow, text, blur)",
-    "Global rebindable hotkey",
-    "Auto-cleanup of old screenshots",
+    "Up to 3 global shortcuts, each with its own capture mode",
+    "History of links with thumbnails, in the app and online",
+    "MCP server so Claude Code and opencode can read links, even over SSH",
+    "Auto-cleanup of old screenshots on Drive",
     "Built-in auto-updater",
+    "20 languages, including right-to-left",
     "Cross-platform: Windows, macOS, Linux",
   ],
   keywords:
-    "screenshot, screen capture, google drive, claude code, cursor, ai tools, productivity, tauri, open source",
+    "screenshot, screen capture, share link, google drive, claude code, cursor, mcp, ai tools, productivity, tauri, open source",
 };
 ---
 
