@@ -3,30 +3,36 @@
 // 0 idle → 1 hotkey overlay → 2 selection drawn → 3 toast → 4 terminal paste.
 // Driven by a tiny vanilla JS snippet at the bottom of the file so we don't
 // need to ship React just for one animation.
+import { strings } from "../i18n/site";
+
+interface Props {
+  lang: string;
+}
+const t = strings(Astro.props.lang);
 ---
 
 <div class="demo-wrap">
   <div class="demo-frame demo" data-phase="0">
     <div class="demo-chrome">
       <div class="dots"><span></span><span></span><span></span></div>
-      <div class="url">snap2link · capturing region</div>
+      <div class="url">{t["demo.url"]}</div>
     </div>
 
     <div class="demo-phases">
-      <span class="phase active">1. idle</span>
-      <span class="phase">2. hotkey</span>
-      <span class="phase">3. drag</span>
-      <span class="phase">4. copy</span>
-      <span class="phase">5. paste</span>
+      <span class="phase active">{t["demo.idle"]}</span>
+      <span class="phase">{t["demo.hotkey"]}</span>
+      <span class="phase">{t["demo.drag"]}</span>
+      <span class="phase">{t["demo.copy"]}</span>
+      <span class="phase">{t["demo.paste"]}</span>
     </div>
 
     <div class="demo-stage">
       <div class="demo-desktop">
         <div class="demo-sidebar">
-          <div class="item active"><span class="glyph"></span>Inbox</div>
-          <div class="item"><span class="glyph"></span>Projects</div>
-          <div class="item"><span class="glyph"></span>Releases</div>
-          <div class="item"><span class="glyph"></span>Settings</div>
+          <div class="item active"><span class="glyph"></span>{t["demo.inbox"]}</div>
+          <div class="item"><span class="glyph"></span>{t["demo.projects"]}</div>
+          <div class="item"><span class="glyph"></span>{t["demo.releases"]}</div>
+          <div class="item"><span class="glyph"></span>{t["demo.settings"]}</div>
         </div>
         <div class="demo-main">
           <div class="row short"></div>
@@ -74,7 +80,7 @@
           </svg>
         </span>
         <div class="toast-text">
-          <span class="toast-title">Link copied</span>
+          <span class="toast-title">{t["demo.copied"]}</span>
           <span class="toast-link">i.snap2link.app/7Hq2xKp…</span>
         </div>
       </div>
@@ -82,12 +88,11 @@
       <div class="demo-terminal">
         <div>
           <span class="prompt">claude $</span>
-          <span class="you"> look at this </span>
+          <span class="you"> {t["demo.prompt"]} </span>
           <span class="url-paste">i.snap2link.app/7Hq2xKp…</span>
         </div>
         <div style="margin-top: 6px; color: var(--color-slate-400);">
-          I see the TypeError on line 142. `user.profile` is read before the
-          fetch resolves<span class="caret"></span>
+          {t["demo.reply"]}<span class="caret"></span>
         </div>
       </div>
     </div>

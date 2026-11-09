@@ -1,12 +1,19 @@
 ---
 import AnnotatorCard from "./AnnotatorCard.astro";
 import { latestRelease } from "../release";
+import { fill, strings, type Key } from "../i18n/site";
 
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const t = strings(lang);
 const { sizes } = await latestRelease();
 const installers = [
-  sizes.windows && `${sizes.windows} on Windows`,
-  sizes.mac && `${sizes.mac} on macOS (Universal)`,
-].filter(Boolean);
+  sizes.windows && fill(t["features.platforms.windows"], { size: sizes.windows }),
+  sizes.mac && fill(t["features.platforms.mac"], { size: sizes.mac }),
+].filter((size): size is string => Boolean(size));
+const separator = new Intl.ListFormat(lang, { type: "conjunction" });
 
 interface Feature {
   iconKey: keyof typeof ICONS;
@@ -14,7 +21,7 @@ interface Feature {
   body: string;
 }
 
-// Inline SVGs keyed by name — keeps the markup readable and dodges a
+// Inline SVGs keyed by name: keeps the markup readable and dodges a
 // runtime icon library.
 const ICONS = {
   bot: `<rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="11"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/>`,
@@ -22,69 +29,45 @@ const ICONS = {
   zap: `<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>`,
   keyboard: `<rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h0M10 10h0M14 10h0M18 10h0M6 14h0M18 14h0M10 14h4"/>`,
   monitor: `<rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>`,
-  trash: `<polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/>`,
+  history: `<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>`,
   refresh: `<path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"/><path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"/>`,
   shield: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
 } as const;
 
+const feature = (iconKey: keyof typeof ICONS, name: string, body?: string): Feature => ({
+  iconKey,
+  title: t[`features.${name}.title` as Key],
+  body: body ?? t[`features.${name}.body` as Key],
+});
+
 const TOP: Feature[] = [
-  {
-    iconKey: "bot",
-    title: "Built for AI workflows",
-    body: "Pastes as a plain URL into any text field: Claude Code, Cursor, Aider, ChatGPT, Zed. Over SSH, Claude Code and opencode read the image itself through the Snap2Link MCP server.",
-  },
-  {
-    iconKey: "mouse",
-    title: "Region, screen or window",
-    body: "Drag a region with live pixel dimensions, take the whole screen, or pick a window. Esc to cancel.",
-  },
-  {
-    iconKey: "zap",
-    title: "Instant share link",
-    body: "Under one second from drag-end to clipboard. Faster than your editor's auto-save.",
-  },
-  {
-    iconKey: "keyboard",
-    title: "Up to 3 shortcuts",
-    body: "Default Ctrl + PrtSc. Give each shortcut its own capture mode and next step: share at once, or annotate first.",
-  },
-  {
-    iconKey: "monitor",
-    title: "Windows, macOS, Linux",
-    body: installers.length
-      ? `In 20 languages. Small installers: ${installers.join(", ")}. No Electron.`
-      : "In 20 languages. Small native installers, no Electron.",
-  },
+  feature("bot", "ai"),
+  feature("mouse", "capture"),
+  feature("zap", "instant"),
+  feature("keyboard", "shortcuts"),
+  feature(
+    "monitor",
+    "platforms",
+    installers.length
+      ? fill(t["features.platforms.body"], { sizes: separator.format(installers) })
+      : t["features.platforms.bodyNoSizes"],
+  ),
 ];
 
 const BOTTOM: Feature[] = [
-  {
-    iconKey: "trash",
-    title: "History and kept links",
-    body: "Every link with its thumbnail and time left, in the app and on your account page. Copy it, delete it, or lock it so a new capture won't replace it.",
-  },
-  {
-    iconKey: "refresh",
-    title: "Built-in auto-updater",
-    body: "Cryptographically signed updater archives so updates self-verify. Click “Check for Updates” in Settings any time.",
-  },
-  {
-    iconKey: "shield",
-    title: "Your choice of host",
-    body: "Snap2Link hosting, where links expire on their own, or your own Google Drive with the drive.file scope: Snap2Link only sees what it created, and old captures go after 30 days by default.",
-  },
+  feature("history", "history"),
+  feature("refresh", "updater"),
+  feature("shield", "host"),
 ];
-
-const SVG_PROPS = `viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"`;
 ---
 
 <section class="section" id="features" data-screen-label="Features">
   <div class="container-page">
-    <span class="eyebrow">Features</span>
+    <span class="eyebrow">{t["features.eyebrow"]}</span>
     <h2
       style="font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.025em; line-height: 1.1; font-weight: 700; color: var(--color-slate-100); margin: 16px 0 32px; max-width: 720px; text-wrap: balance;"
     >
-      Built for the keystroke, not the tour.
+      {t["features.title"]}
     </h2>
     <div class="bento">
       {
@@ -98,7 +81,7 @@ const SVG_PROPS = `viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
           </div>
         ))
       }
-      <AnnotatorCard />
+      <AnnotatorCard lang={lang} />
       {
         BOTTOM.map((f) => (
           <div class="feature-card">

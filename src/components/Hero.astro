@@ -1,23 +1,23 @@
 ---
 import DemoFrame from "./DemoFrame.astro";
 import { latestRelease } from "../release";
+import { strings } from "../i18n/site";
 
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const t = strings(lang);
 const { version } = await latestRelease();
 ---
 
 <section class="hero" id="top" data-screen-label="Hero">
   <span class="pill">
     <span class="dot"></span>
-    v<span data-gh-version>{version}</span> · out now
+    v<span data-gh-version>{version}</span> · {t["hero.pill"]}
   </span>
-  <h1>
-    Paste screenshots into <span class="accent">Claude Code</span>, Cursor, or
-    any terminal AI.
-  </h1>
-  <p class="lead">
-    Hotkey → drag a region → public share link lands in your clipboard. One
-    keystroke, on Windows, macOS, and Linux.
-  </p>
+  <h1 set:html={t["hero.title"]} />
+  <p class="lead">{t["hero.lead"]}</p>
   <div class="hero-ctas">
     <a class="btn primary lg" data-os-cta="win" href="#install" data-install-tab="win">
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
@@ -34,7 +34,7 @@ const { version } = await latestRelease();
           d="M16.4 12.5c0-2.4 2-3.5 2.1-3.6-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.2.9-4 2.4-1.7 3-.4 7.5 1.3 10 .8 1.2 1.7 2.5 3 2.5 1.2 0 1.6-.8 3-.8s1.8.8 3 .8c1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8 0-.1-2.5-1-2.2-3.3zM14 5.2c.6-.8 1.1-1.9 1-3-.9 0-2 .6-2.6 1.4-.6.7-1.2 1.8-1 2.9 1 .1 2-.5 2.6-1.3z"
         ></path>
       </svg>
-      Download .dmg
+      {t["hero.dmg"]}
     </a>
     <a class="btn outline lg" data-os-cta="lin" href="#install" data-install-tab="lin">
       <svg
@@ -73,5 +73,5 @@ const { version } = await latestRelease();
     })();
   </script>
 
-  <DemoFrame />
+  <DemoFrame lang={lang} />
 </section>

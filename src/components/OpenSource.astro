@@ -1,25 +1,28 @@
 ---
+import { strings } from "../i18n/site";
+
 interface Props {
+  lang: string;
   stars: number;
   downloads: number;
 }
-const { stars, downloads } = Astro.props;
-const downloadsDisplay = downloads.toLocaleString("en-US");
+const { lang, stars, downloads } = Astro.props;
+const t = strings(lang);
+const downloadsDisplay = downloads.toLocaleString(lang);
 ---
 
 <section class="section" id="open" data-screen-label="OpenSource">
   <div class="container-page">
-    <span class="eyebrow">Open source</span>
+    <span class="eyebrow">{t["open.eyebrow"]}</span>
     <h2
       style="font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.025em; line-height: 1.1; font-weight: 700; color: var(--color-slate-100); margin: 16px 0 0; max-width: 720px; text-wrap: balance;"
     >
-      Free, open source, MIT licensed.
+      {t["open.title"]}
     </h2>
     <p
       style="max-width: 640px; margin-top: 12px; color: var(--color-slate-300); font-size: 16px; line-height: 1.6;"
     >
-      Tauri + React + Rust. Read the source, file an issue, ship a PR. Early
-      days. Every star helps.
+      {t["open.lead"]}
     </p>
 
     <div class="os-stats">
@@ -27,22 +30,22 @@ const downloadsDisplay = downloads.toLocaleString("en-US");
         <span class="num"
           ><span class="live"></span><span data-gh-stars>{stars}</span></span
         >
-        <span class="lbl">GitHub stars</span>
+        <span class="lbl">{t["open.stars"]}</span>
       </div>
       <div class="os-stat">
         <span class="num"><span data-gh-downloads>{downloadsDisplay}</span></span>
-        <span class="lbl">Downloads</span>
+        <span class="lbl">{t["open.downloads"]}</span>
       </div>
       <div class="os-stat">
         <span class="num">1</span>
-        <span class="lbl">Contributor</span>
+        <span class="lbl">{t["open.contributor"]}</span>
       </div>
     </div>
 
     <div class="os-cards">
       <a href="https://github.com/amys94fr/Snap2Link" class="os-card">
         <h3>
-          Read the source
+          {t["open.source.title"]}
           <span class="arrow">
             <svg
               viewBox="0 0 24 24"
@@ -60,8 +63,7 @@ const downloadsDisplay = downloads.toLocaleString("en-US");
           </span>
         </h3>
         <p>
-          Tauri v2 and Rust for the app, React and TypeScript for the
-          interface, a Cloudflare Worker for the hosting.
+          {t["open.source.body"]}
         </p>
       </a>
       <a
@@ -69,7 +71,7 @@ const downloadsDisplay = downloads.toLocaleString("en-US");
         class="os-card"
       >
         <h3>
-          Contribute
+          {t["open.contribute.title"]}
           <span class="arrow">
             <svg
               viewBox="0 0 24 24"
@@ -87,14 +89,13 @@ const downloadsDisplay = downloads.toLocaleString("en-US");
           </span>
         </h3>
         <p>
-          First-issue PRs welcome. Every PR runs the Vitest, cargo test and
-          hosting tests. Reviews are friendly.
+          {t["open.contribute.body"]}
         </p>
       </a>
     </div>
 
     <p class="os-footnote">
-      Built with <code>Tauri v2</code> · <code>Rust</code> · <code>React 19</code> ·
+      {t["open.builtWith"]} <code>Tauri v2</code> · <code>Rust</code> · <code>React 19</code> ·
       <code>Tailwind 4</code> · <code>Cloudflare Workers</code>
     </p>
   </div>

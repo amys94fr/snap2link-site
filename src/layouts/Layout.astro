@@ -2,17 +2,21 @@
 import "../styles/global.css";
 import heroFont from "@fontsource/geist-sans/files/geist-sans-latin-700-normal.woff2?url";
 import { latestRelease } from "../release";
+import { LANGUAGE_KEY, SITE_LANGUAGES, direction, homePath, ogLocale } from "../i18n/site";
 
 interface Props {
   title?: string;
   description?: string;
   lang?: string;
+  /** Other languages of this page, for `hreflang` links. */
+  alternates?: { hreflang: string; path: string }[];
 }
 
 const {
   title = "Snap2Link · paste screenshots into Claude Code, Cursor, or any terminal AI",
   description = "Hotkey → drag a region → public share link lands in your clipboard. One keystroke, on Windows, macOS, and Linux. Free, open source, MIT licensed.",
   lang = "en",
+  alternates = [],
 } = Astro.props;
 
 const SITE_URL = Astro.site ?? new URL("https://snap2link.app");
@@ -21,6 +25,11 @@ const { version } = await latestRelease();
 // stable so the same canonical is emitted for / and /index.html requests.
 const canonical = new URL(Astro.url.pathname, SITE_URL).toString();
 const ogImage = new URL("/og.png", SITE_URL).toString();
+// The English home page sends visitors to their language: the one they picked
+// before, or else the closest one their browser asks for. Search engines get
+// English, and every language keeps its own address.
+const redirects = Astro.url.pathname === "/";
+const languagePaths = Object.fromEntries(SITE_LANGUAGES.map(({ code }) => [code, homePath(code)]));
 
 // Schema.org SoftwareApplication block — Google uses this to surface the
 // app in rich results (download button, OS chips, ratings) and to crawl
@@ -71,13 +80,43 @@ const softwareLD = {
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} dir={direction(lang)}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {
+      alternates.map(({ hreflang, path }) => (
+        <link rel="alternate" hreflang={hreflang} href={new URL(path, SITE_URL).toString()} />
+      ))
+    }
+    {
+      redirects && (
+        <script is:inline define:vars={{ languagePaths, key: LANGUAGE_KEY }}>
+          (function () {
+            var closest = function (code) {
+              if (!code) return undefined;
+              if (languagePaths[code]) return code;
+              var base = code.split("-")[0].toLowerCase();
+              if (base === "zh") return /TW|HK|MO|Hant/i.test(code) ? "zh-TW" : "zh-CN";
+              if (base === "pt") return "pt-BR";
+              return languagePaths[base] ? base : undefined;
+            };
+            var choice;
+            try {
+              choice = closest(localStorage.getItem(key));
+            } catch (e) {}
+            if (!choice) {
+              var wanted = navigator.languages || [navigator.language];
+              for (var i = 0; i < wanted.length && !choice; i++) choice = closest(wanted[i]);
+            }
+            if (choice && choice !== "en") location.replace(languagePaths[choice] + location.hash);
+          })();
+        </script>
+      )
+    }
 
     <link rel="icon" href="/assets/logo-app-icon.png" />
     <link rel="apple-touch-icon" href="/assets/logo-app-icon.png" />
@@ -91,7 +130,7 @@ const softwareLD = {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocale(lang)} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -185,7 +224,7 @@ const softwareLD = {
                 ),
               0,
             );
-            set("[data-gh-downloads]", total.toLocaleString("en-US"));
+            set("[data-gh-downloads]", total.toLocaleString(document.documentElement.lang || "en"));
           }
         } catch {
           /* keep build-time value */

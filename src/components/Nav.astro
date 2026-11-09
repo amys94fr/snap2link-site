@@ -1,8 +1,13 @@
 ---
+import LanguagePicker from "./LanguagePicker.astro";
+import { strings } from "../i18n/site";
+
 interface Props {
+  lang: string;
   stars: number;
 }
-const { stars } = Astro.props;
+const { lang, stars } = Astro.props;
+const t = strings(lang);
 ---
 
 <nav class="nav" data-screen-label="Nav">
@@ -17,10 +22,10 @@ const { stars } = Astro.props;
     <span>Snap<b>2</b>Link</span>
   </a>
   <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#how">How it works</a>
-    <a href="#install">Download</a>
-    <a href="#open">Open source</a>
+    <a href="#features">{t["nav.features"]}</a>
+    <a href="#how">{t["nav.how"]}</a>
+    <a href="#install">{t["nav.download"]}</a>
+    <a href="#open">{t["nav.open"]}</a>
   </div>
   <div class="nav-cta">
     <a
@@ -28,8 +33,8 @@ const { stars } = Astro.props;
       class="nav-sponsor"
       target="_blank"
       rel="noopener noreferrer"
-      title="Sponsor Snap2Link on GitHub Sponsors"
-      aria-label="Sponsor Snap2Link on GitHub Sponsors"
+      title={t["nav.sponsorLabel"]}
+      aria-label={t["nav.sponsorLabel"]}
     >
       <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
         <path
@@ -37,15 +42,15 @@ const { stars } = Astro.props;
           d="M4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.565 20.565 0 008 13.393a20.561 20.561 0 003.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.75.75 0 01-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5zM8 14.25l-.345.666-.002-.001-.006-.003-.018-.01a7.643 7.643 0 01-.31-.17 22.075 22.075 0 01-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.08 22.08 0 01-3.744 2.584l-.018.01-.006.003h-.002L8 14.25z"
         ></path>
       </svg>
-      <span>Sponsor</span>
+      <span>{t["nav.sponsor"]}</span>
     </a>
     <a
       href="https://github.com/amys94fr/Snap2Link"
       class="gh-btn"
       target="_blank"
       rel="noopener noreferrer"
-      title="View Snap2Link on GitHub"
-      aria-label="View Snap2Link on GitHub"
+      title={t["nav.githubLabel"]}
+      aria-label={t["nav.githubLabel"]}
     >
       <span class="gh-label">
         <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
@@ -63,7 +68,8 @@ const { stars } = Astro.props;
         <span data-gh-stars>{stars}</span>
       </span>
     </a>
-    <a href="/account/" class="btn outline sm nav-account">My account</a>
-    <a href="#install" class="btn primary sm">Get Snap2Link</a>
+    <LanguagePicker lang={lang} compact />
+    <a href="/account/" class="btn outline sm nav-account">{t["nav.account"]}</a>
+    <a href="#install" class="btn primary sm">{t["nav.cta"]}</a>
   </div>
 </nav>
