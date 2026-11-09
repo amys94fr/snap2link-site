@@ -1,11 +1,21 @@
 ---
+import LanguagePicker from "./LanguagePicker.astro";
+import { homePath, legalPages, strings } from "../i18n/site";
+
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const t = strings(lang);
+const home = homePath(lang);
+const legal = legalPages(lang);
 const YEAR = new Date().getFullYear();
 ---
 
 <footer class="footer" data-screen-label="Footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="/#top" class="nav-brand">
+      <a href={`${home}#top`} class="nav-brand">
         <img
           src="/assets/logo-app-icon.png"
           width="24"
@@ -16,52 +26,53 @@ const YEAR = new Date().getFullYear();
         <span>Snap<b>2</b>Link</span>
       </a>
       <p class="tag">
-        Screenshot → public link → clipboard. One keystroke.
+        {t["footer.tag"]}
       </p>
     </div>
 
     <div class="footer-col">
-      <h4>Product</h4>
-      <a href="/#install">Download</a>
-      <a href="/account/">My account</a>
-      <a href="/code-signing/">Code signing policy</a>
+      <h4>{t["footer.product"]}</h4>
+      <a href={`${home}#install`}>{t["footer.download"]}</a>
+      <a href="/account/">{t["footer.account"]}</a>
+      <a href="/code-signing/">{t["footer.codeSigning"]}</a>
     </div>
 
     <div class="footer-col">
-      <h4>Source</h4>
+      <h4>{t["footer.source"]}</h4>
       <a href="https://github.com/amys94fr/Snap2Link">GitHub</a>
-      <a href="https://github.com/amys94fr/Snap2Link/issues">Issues</a>
+      <a href="https://github.com/amys94fr/Snap2Link/issues">{t["footer.issues"]}</a>
       <a
         href="https://github.com/amys94fr/Snap2Link/blob/main/CONTRIBUTING.md"
-        >Contribute</a
+        >{t["footer.contribute"]}</a
       >
     </div>
 
     <div class="footer-col">
-      <h4>Docs</h4>
-      <a href="https://github.com/amys94fr/Snap2Link#readme">README</a>
-      <a href="https://github.com/amys94fr/Snap2Link/releases">Release notes</a>
+      <h4>{t["footer.docs"]}</h4>
+      <a href="https://github.com/amys94fr/Snap2Link#readme">{t["footer.readme"]}</a>
+      <a href="https://github.com/amys94fr/Snap2Link/releases">{t["footer.releaseNotes"]}</a>
     </div>
 
     <div class="footer-col">
-      <h4>Support</h4>
+      <h4>{t["footer.support"]}</h4>
       <a
         href="https://github.com/sponsors/amys94fr"
         class="footer-sponsor-link"
-        >GitHub Sponsors</a
+        >{t["footer.sponsors"]}</a
       >
-      <a href="https://github.com/amys94fr">GitHub profile</a>
+      <a href="https://github.com/amys94fr">{t["footer.profile"]}</a>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <span>© {YEAR} Steven Abittan · MIT License</span>
+    <span>© {YEAR} Steven Abittan · {t["footer.license"]}</span>
     <div class="footer-legal">
-      <a href="/privacy/">Privacy</a>
-      <a href="/terms/">Terms</a>
-      <a href="/legal/">Legal notice</a>
-      <a href="/legal/#report">Report content</a>
+      <a href={legal.privacy}>{t["footer.privacy"]}</a>
+      <a href={legal.terms}>{t["footer.terms"]}</a>
+      <a href={legal.legal}>{t["footer.legal"]}</a>
+      <a href={legal.report}>{t["footer.report"]}</a>
     </div>
+    <LanguagePicker lang={lang} />
     <div class="socials">
       <a href="https://github.com/amys94fr/Snap2Link" aria-label="GitHub">
         <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">

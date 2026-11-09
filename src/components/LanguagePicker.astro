@@ -1,0 +1,158 @@
+---
+/**
+ * A menu of plain links to each language's home page, so it works without
+ * JavaScript and search engines can follow it. Picking a language also saves
+ * it, so the English home page and the account page open in it next time.
+ */
+import { LANGUAGE_KEY, SITE_LANGUAGES, homePath, strings } from "../i18n/site";
+
+interface Props {
+  lang: string;
+  /** In the top bar: the code only, and the menu opens downwards. */
+  compact?: boolean;
+}
+
+const { lang, compact = false } = Astro.props;
+const t = strings(lang);
+const current = SITE_LANGUAGES.find(({ code }) => code === lang)?.name ?? lang;
+---
+
+<details class:list={["lang-picker", compact ? "lang-compact" : "lang-full"]} data-language-key={LANGUAGE_KEY}>
+  <summary aria-label={`${t["nav.language"]}: ${current}`}>
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+    <span>{compact ? lang.split("-")[0].toUpperCase() : current}</span>
+  </summary>
+  <ul>
+    {
+      SITE_LANGUAGES.map(({ code, name }) => (
+        <li>
+          <a href={homePath(code)} hreflang={code} lang={code} data-pick={code} aria-current={code === lang ? "true" : undefined}>
+            {name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</details>
+
+<script>
+  document.querySelectorAll<HTMLDetailsElement>(".lang-picker").forEach((picker) => {
+    const key = picker.dataset.languageKey ?? "snap2link-language";
+    picker.querySelectorAll<HTMLAnchorElement>("a[data-pick]").forEach((link) => {
+      link.addEventListener("click", () => {
+        try {
+          localStorage.setItem(key, link.dataset.pick ?? "en");
+        } catch {
+          /* private mode: the link still works */
+        }
+      });
+    });
+    // Close on Escape or on a click elsewhere.
+    picker.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && picker.open) {
+        picker.open = false;
+        picker.querySelector("summary")?.focus();
+      }
+    });
+    document.addEventListener("click", (event) => {
+      if (picker.open && !picker.contains(event.target as Node)) picker.open = false;
+    });
+  });
+</script>
+
+<style>
+  .lang-picker {
+    position: relative;
+  }
+  summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 0 10px;
+    border: 1px solid var(--color-slate-800);
+    border-radius: 8px;
+    color: var(--color-slate-300);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    transition: color 150ms, background-color 150ms;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary:hover,
+  .lang-picker[open] summary {
+    color: var(--color-slate-100);
+    background: var(--color-slate-900);
+  }
+  summary:focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+  ul {
+    position: absolute;
+    inset-inline-end: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 2px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--color-slate-900);
+    border: 1px solid var(--color-slate-800);
+    border-radius: 10px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  }
+  .lang-compact ul {
+    top: calc(100% + 8px);
+  }
+  .lang-full ul {
+    bottom: calc(100% + 8px);
+  }
+  a {
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 10px;
+    border-radius: 6px;
+    color: var(--color-slate-300);
+    font-size: 14px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  a:hover,
+  a:focus-visible {
+    color: var(--color-slate-100);
+    background: var(--color-slate-800);
+    outline: none;
+  }
+  a[aria-current="true"] {
+    color: var(--color-brand);
+    font-weight: 600;
+  }
+  /* The top bar has no room on small screens: the footer keeps the menu. */
+  @media (max-width: 760px) {
+    .lang-compact {
+      display: none;
+    }
+  }
+  @media (max-width: 600px) {
+    .lang-full ul {
+      inset-inline-start: 0;
+      inset-inline-end: auto;
+    }
+  }
+  @media (max-width: 420px) {
+    ul {
+      grid-template-columns: 1fr;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+  }
+</style>

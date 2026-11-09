@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "./Nav.astro";
+import Hero from "./Hero.astro";
+import Why from "./Why.astro";
+import Features from "./Features.astro";
+import HowItWorks from "./HowItWorks.astro";
+import Install from "./Install.astro";
+import OpenSource from "./OpenSource.astro";
+import Footer from "./Footer.astro";
+import { repoStats } from "../github";
+import { homeAlternates, strings } from "../i18n/site";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = strings(lang);
+const { stars, downloads } = await repoStats();
+---
+
+<Layout lang={lang} title={t["meta.title"]} description={t["meta.description"]} alternates={homeAlternates()}>
+  <Nav lang={lang} stars={stars} />
+  <Hero lang={lang} />
+  <Why lang={lang} />
+  <Features lang={lang} />
+  <HowItWorks lang={lang} />
+  <Install lang={lang} />
+  <OpenSource lang={lang} stars={stars} downloads={downloads} />
+  <Footer lang={lang} />
+</Layout>

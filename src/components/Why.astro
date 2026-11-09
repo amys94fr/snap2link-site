@@ -1,6 +1,12 @@
 ---
 // Real brand SVGs from simple-icons.org (CC0). Monochrome paths so they
-// inherit currentColor — the chip toggles colour on hover via CSS.
+// inherit currentColor: the chip toggles colour on hover via CSS.
+import { strings } from "../i18n/site";
+
+interface Props {
+  lang: string;
+}
+const t = strings(Astro.props.lang);
 const TOOLS = [
   {
     name: "Claude",
@@ -23,22 +29,10 @@ const TOOLS = [
 
 <section class="section" data-screen-label="Why">
   <div class="why">
-    <span class="eyebrow">Built for AI workflows</span>
-    <h2>Stop screenshotting → uploading → copying → pasting.</h2>
-    <p>
-      You're working with Claude Code on a remote VPS. You need to show the
-      model a UI bug, a design mockup, a stack trace. The usual workflow
-      (screenshot, open browser, upload to imgur, copy the URL, paste) is six
-      steps, three apps, and a dozen seconds you'll never get back.
-    </p>
-    <p>
-      Snap2Link collapses it into one keystroke. By default the capture goes to
-      Snap2Link hosting: no account needed, and the link expires on its own. A
-      free account keeps links for 48 hours and lets you lock the ones that
-      matter. Prefer your own storage? Send captures to <strong>your</strong>
-      Google Drive instead. No telemetry either way, and the link is on your
-      clipboard before the toast finishes.
-    </p>
+    <span class="eyebrow">{t["why.eyebrow"]}</span>
+    <h2>{t["why.title"]}</h2>
+    <p>{t["why.p1"]}</p>
+    <p set:html={t["why.p2"]} />
     <div class="tools-row">
       {
         TOOLS.map((t) => (
