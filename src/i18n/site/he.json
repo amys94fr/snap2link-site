@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · הדבקת צילומי מסך ב-Claude Code, ב-Cursor או בכל AI בטרמינל",
   "meta.description": "לוחצים על קיצור המקשים, גוררים אזור, וקישור שיתוף ציבורי כבר נמצא בלוח. הקשה אחת, ב-Windows, ב-macOS וב-Linux. חינמי, קוד פתוח, ברישיון MIT.",
-
   "nav.features": "תכונות",
   "nav.how": "איך זה עובד",
   "nav.download": "הורדה",
@@ -12,12 +11,11 @@
   "nav.account": "החשבון שלי",
   "nav.cta": "להורדת Snap2Link",
   "nav.language": "שפה",
-
   "hero.pill": "זמין עכשיו",
   "hero.title": "מדביקים צילומי מסך ב-<span class=\"accent\">Claude Code</span>, ב-Cursor או בכל AI בטרמינל.",
   "hero.lead": "לוחצים על קיצור המקשים, גוררים אזור, וקישור שיתוף ציבורי כבר נמצא בלוח. הקשה אחת, ב-Windows, ב-macOS וב-Linux.",
-  "hero.dmg": "הורדת .dmg",
-
+  "hero.win": "הורדה ל-Windows",
+  "hero.mac": "הורדה ל-macOS",
   "demo.url": "snap2link · צילום אזור",
   "demo.idle": "1. המתנה",
   "demo.hotkey": "2. קיצור",
@@ -31,7 +29,6 @@
   "demo.copied": "הקישור הועתק",
   "demo.prompt": "תסתכל על זה",
   "demo.reply": "אני רואה את ה-TypeError בשורה 142: הקוד קורא את user.profile לפני שה-fetch מסתיים",
-
   "why.eyebrow": "נבנה לעבודה עם AI",
   "why.title": "די לצלם, להעלות, להעתיק ולהדביק.",
   "why.p1": "עובדים עם Claude Code על VPS מרוחק, וצריך להראות למודל באג בממשק, מוקאפ של עיצוב או stack trace. התהליך הרגיל (צילום מסך, פתיחת הדפדפן, העלאה לאנשהו, העתקת ה-URL, הדבקה) הוא שישה שלבים, שלוש אפליקציות ותריסר שניות שלא יחזרו.",
@@ -53,7 +50,6 @@
   "inbox.after": "עם Snap2Link",
   "inbox.message": "היי, כפתור התשלום לא עושה כלום:",
   "inbox.afterCount": "0 קבצים נשמרו",
-
   "features.eyebrow": "תכונות",
   "features.title": "נבנה בשביל ההקשה, לא בשביל הסיור.",
   "features.ai.title": "נבנה לעבודה עם AI",
@@ -83,7 +79,6 @@
   "features.updater.body": "ארכיוני עדכון חתומים, כך שכל עדכון מאמת את עצמו. אפשר לבדוק עדכונים בהגדרות בכל רגע.",
   "features.host.title": "בוחרים איפה לארח",
   "features.host.body": "האירוח של Snap2Link, שבו הקישורים פגים מעצמם, או ה-Google Drive שלך עם הרשאת drive.file: Snap2Link רואה רק את מה שהוא יצר, וצילומים ישנים נמחקים כברירת מחדל אחרי 30 יום.",
-
   "how.eyebrow": "איך זה עובד",
   "how.title": "שלושה שלבים. הקשה אחת לכל אחד.",
   "how.s1.title": "לוחצים על הקיצור",
@@ -93,19 +88,16 @@
   "how.s3.title": "מדביקים בכל מקום",
   "how.s3.body": "הקישור כבר בלוח. מדביקים אותו ב-Claude Code, ב-Cursor, בצ'אט, ב-issue. בכל מקום שמקבל URL של תמונה.",
   "how.s3.prompt": "מה שבור כאן:",
-
   "install.eyebrow": "התקנה",
   "install.title": "שורה אחת. שלוש פלטפורמות.",
-  "install.winManual": "הורדת קובץ ה-.exe מדף הגרסאות ב-GitHub",
-  "install.macCmd": "הורדת {file}",
-  "install.macManual": "הורדת קובץ ה-.dmg מדף הגרסאות ב-GitHub",
+  "install.winCommand": "מעדיפים את הטרמינל? התקינו עם winget:",
+  "install.releases": "לדף הגרסאות ב-GitHub",
   "install.linManual": "הורדת קובץ .AppImage, .deb או .rpm",
   "install.copy": "העתקה",
   "install.copied": "הועתק",
   "install.copyLabel": "העתקת הפקודה",
   "install.signing": "מתקיני Windows עדיין לא חתומים דיגיטלית, ולכן SmartScreen עשוי לבקש אישור.",
   "install.signingLink": "מדיניות חתימת קוד",
-
   "open.eyebrow": "קוד פתוח",
   "open.title": "חינמי, קוד פתוח, ברישיון MIT.",
   "open.lead": "קוראים את הקוד, פותחים issue, שולחים PR. אנחנו רק בהתחלה: כל כוכב עוזר.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "תרומה לפרויקט",
   "open.contribute.body": "PR ראשון? בשמחה. כל PR מריץ את בדיקות Vitest, cargo test ובדיקות האירוח. הביקורות ידידותיות.",
   "open.builtWith": "נבנה עם",
-
   "footer.tag": "צילום מסך, קישור ציבורי, לוח. הקשה אחת.",
   "footer.product": "מוצר",
   "footer.download": "הורדה",

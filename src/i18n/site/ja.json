@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · スクリーンショットを Claude Code、Cursor、あらゆるターミナル AI に貼り付け",
   "meta.description": "ショートカットを押して範囲をドラッグするだけで、公開共有リンクがクリップボードに入ります。Windows、macOS、Linux でワンキー操作。無料のオープンソース、MIT ライセンス。",
-
   "nav.features": "機能",
   "nav.how": "使い方",
   "nav.download": "ダウンロード",
@@ -12,12 +11,11 @@
   "nav.account": "マイアカウント",
   "nav.cta": "Snap2Link を入手",
   "nav.language": "言語",
-
   "hero.pill": "公開中",
   "hero.title": "スクリーンショットを <span class=\"accent\">Claude Code</span>、Cursor、あらゆるターミナル AI に貼り付け。",
   "hero.lead": "ショートカットを押して範囲をドラッグするだけで、公開共有リンクがクリップボードに入ります。Windows、macOS、Linux でワンキー操作。",
-  "hero.dmg": ".dmg をダウンロード",
-
+  "hero.win": "Windows 版をダウンロード",
+  "hero.mac": "macOS 版をダウンロード",
   "demo.url": "snap2link · 範囲をキャプチャ中",
   "demo.idle": "1. 待機",
   "demo.hotkey": "2. キー入力",
@@ -31,7 +29,6 @@
   "demo.copied": "リンクをコピーしました",
   "demo.prompt": "これを見て",
   "demo.reply": "142 行目の TypeError ですね。fetch が完了する前に user.profile を読み込んでいます",
-
   "why.eyebrow": "AI ワークフローのために",
   "why.title": "撮る、アップする、コピーする、貼る。その繰り返しはもう終わり。",
   "why.p1": "リモートの VPS で Claude Code を使っているとします。UI のバグ、デザインのモックアップ、スタックトレースをモデルに見せたい。いつもの流れ（スクリーンショットを撮る、ブラウザーを開く、どこかにアップロードする、URL をコピーする、貼り付ける）は 6 ステップ、3 つのアプリ、そして二度と戻らない十数秒です。",
@@ -53,7 +50,6 @@
   "inbox.after": "Snap2Link あり",
   "inbox.message": "すみません、購入ボタンを押しても何も起きません：",
   "inbox.afterCount": "保存されたファイルは 0 件",
-
   "features.eyebrow": "機能",
   "features.title": "機能紹介より、キー一発。",
   "features.ai.title": "AI ワークフロー向け",
@@ -83,7 +79,6 @@
   "features.updater.body": "アップデートは署名付きなので、毎回自動で検証されます。設定からいつでもアップデートを確認できます。",
   "features.host.title": "ホスティング先を選べる",
   "features.host.body": "リンクが自動で期限切れになる Snap2Link のホスティングか、自分の Google Drive か。Drive は drive.file スコープなので、Snap2Link がアクセスできるのは自身が作成したファイルだけです。古いキャプチャは標準で 30 日後に削除されます。",
-
   "how.eyebrow": "使い方",
   "how.title": "3 ステップ。それぞれワンキー。",
   "how.s1.title": "ショートカットを押す",
@@ -93,19 +88,16 @@
   "how.s3.title": "どこにでも貼り付け",
   "how.s3.body": "リンクはもうクリップボードにあります。Claude Code、Cursor、チャット、Issue に貼り付けるだけ。画像の URL を受け付けるところなら、どこでも使えます。",
   "how.s3.prompt": "どこが壊れてる？",
-
   "install.eyebrow": "インストール",
   "install.title": "コマンド 1 行、3 つのプラットフォーム。",
-  "install.winManual": "GitHub のリリースから .exe をダウンロード",
-  "install.macCmd": "{file} をダウンロード",
-  "install.macManual": "GitHub のリリースから .dmg をダウンロード",
+  "install.winCommand": "ターミナル派なら winget でインストール:",
+  "install.releases": "GitHub のリリースを見る",
   "install.linManual": ".AppImage、.deb、.rpm をダウンロード",
   "install.copy": "コピー",
   "install.copied": "コピーしました",
   "install.copyLabel": "コマンドをコピー",
   "install.signing": "Windows 版インストーラーはまだコード署名されていないため、SmartScreen で確認を求められることがあります。",
   "install.signingLink": "コード署名ポリシー",
-
   "open.eyebrow": "オープンソース",
   "open.title": "無料、オープンソース、MIT ライセンス。",
   "open.lead": "ソースを読んで、Issue を立てて、PR を送ってください。まだ始まったばかりなので、スターひとつが大きな力になります。",
@@ -117,7 +109,6 @@
   "open.contribute.title": "コントリビュート",
   "open.contribute.body": "初めての PR も歓迎です。すべての PR で Vitest、cargo test、ホスティングのテストが実行されます。レビューはフレンドリーです。",
   "open.builtWith": "使用技術",
-
   "footer.tag": "スクリーンショット、公開リンク、クリップボード。すべてワンキーで。",
   "footer.product": "製品",
   "footer.download": "ダウンロード",

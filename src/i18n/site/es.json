@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · pega capturas en Claude Code, Cursor o cualquier IA de terminal",
   "meta.description": "Pulsa un atajo, arrastra una región y un enlace público llega a tu portapapeles. Una sola tecla, en Windows, macOS y Linux. Gratis, de código abierto y con licencia MIT.",
-
   "nav.features": "Funciones",
   "nav.how": "Cómo funciona",
   "nav.download": "Descargar",
@@ -12,12 +11,11 @@
   "nav.account": "Mi cuenta",
   "nav.cta": "Consigue Snap2Link",
   "nav.language": "Idioma",
-
   "hero.pill": "ya disponible",
   "hero.title": "Pega capturas en <span class=\"accent\">Claude Code</span>, Cursor o cualquier IA de terminal.",
   "hero.lead": "Pulsa un atajo, arrastra una región y un enlace público llega a tu portapapeles. Una sola tecla, en Windows, macOS y Linux.",
-  "hero.dmg": "Descargar .dmg",
-
+  "hero.win": "Descargar para Windows",
+  "hero.mac": "Descargar para macOS",
   "demo.url": "snap2link · capturando región",
   "demo.idle": "1. en espera",
   "demo.hotkey": "2. atajo",
@@ -31,7 +29,6 @@
   "demo.copied": "Enlace copiado",
   "demo.prompt": "mira esto",
   "demo.reply": "Veo el TypeError en la línea 142: user.profile se lee antes de que se resuelva el fetch",
-
   "why.eyebrow": "Hecho para flujos con IA",
   "why.title": "Deja de capturar, subir, copiar y pegar.",
   "why.p1": "Trabajas con Claude Code en un VPS remoto. Necesitas enseñarle al modelo un bug de la interfaz, un mockup de diseño, un stack trace. El flujo de siempre (captura, abrir el navegador, subirla a algún sitio, copiar la URL, pegar) son seis pasos, tres apps y una docena de segundos que no vas a recuperar.",
@@ -53,7 +50,6 @@
   "inbox.after": "Con Snap2Link",
   "inbox.message": "Hola, el botón de pago no hace nada:",
   "inbox.afterCount": "0 archivos guardados",
-
   "features.eyebrow": "Funciones",
   "features.title": "Hecho para la tecla, no para el tour.",
   "features.ai.title": "Hecho para flujos con IA",
@@ -83,7 +79,6 @@
   "features.updater.body": "Archivos de actualización firmados: cada actualización se verifica sola. Busca actualizaciones en Ajustes cuando quieras.",
   "features.host.title": "Tú eliges el alojamiento",
   "features.host.body": "El alojamiento de Snap2Link, donde los enlaces caducan solos, o tu propio Google Drive con el permiso drive.file: Snap2Link solo ve lo que ha creado, y las capturas antiguas se borran a los 30 días por defecto.",
-
   "how.eyebrow": "Cómo funciona",
   "how.title": "Tres pasos. Una tecla cada uno.",
   "how.s1.title": "Pulsa el atajo",
@@ -93,19 +88,16 @@
   "how.s3.title": "Pega donde quieras",
   "how.s3.body": "El enlace está en tu portapapeles. Pégalo en Claude Code, Cursor, un chat, una issue. En cualquier sitio que acepte la URL de una imagen.",
   "how.s3.prompt": "qué falla:",
-
   "install.eyebrow": "Instalación",
   "install.title": "Una línea. Tres plataformas.",
-  "install.winManual": "Descarga el .exe desde las releases de GitHub",
-  "install.macCmd": "Descargar {file}",
-  "install.macManual": "Descarga el .dmg desde las releases de GitHub",
+  "install.winCommand": "¿Prefieres la terminal? Instala con winget:",
+  "install.releases": "Ver las releases en GitHub",
   "install.linManual": "Descarga el .AppImage, .deb o .rpm",
   "install.copy": "Copiar",
   "install.copied": "Copiado",
   "install.copyLabel": "Copiar el comando",
   "install.signing": "Los instaladores de Windows aún no tienen firma de código, así que SmartScreen puede pedirte que confirmes.",
   "install.signingLink": "Política de firma de código",
-
   "open.eyebrow": "Código abierto",
   "open.title": "Gratis, de código abierto, con licencia MIT.",
   "open.lead": "Lee el código, abre una issue, envía un PR. Estamos empezando: cada estrella cuenta.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "Colabora",
   "open.contribute.body": "Los PR para primeras issues son bienvenidos. Cada PR pasa Vitest, cargo test y los tests del alojamiento. Las revisiones son amables.",
   "open.builtWith": "Hecho con",
-
   "footer.tag": "Captura, enlace público, portapapeles. Una sola tecla.",
   "footer.product": "Producto",
   "footer.download": "Descargar",

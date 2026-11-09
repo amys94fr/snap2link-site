@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · Claude Code, Cursor 등 모든 터미널 AI에 스크린샷 붙여 넣기",
   "meta.description": "단축키를 누르고 영역을 드래그하면 공개 공유 링크가 클립보드에 복사됩니다. Windows, macOS, Linux에서 키 한 번이면 됩니다. 무료 오픈 소스, MIT 라이선스.",
-
   "nav.features": "기능",
   "nav.how": "작동 방식",
   "nav.download": "다운로드",
@@ -12,12 +11,11 @@
   "nav.account": "내 계정",
   "nav.cta": "Snap2Link 받기",
   "nav.language": "언어",
-
   "hero.pill": "지금 출시",
   "hero.title": "<span class=\"accent\">Claude Code</span>, Cursor, 어떤 터미널 AI에도 스크린샷을 붙여 넣으세요.",
   "hero.lead": "단축키를 누르고 영역을 드래그하면 공개 공유 링크가 클립보드에 복사됩니다. Windows, macOS, Linux에서 키 한 번이면 됩니다.",
-  "hero.dmg": ".dmg 다운로드",
-
+  "hero.win": "Windows용 다운로드",
+  "hero.mac": "macOS용 다운로드",
   "demo.url": "snap2link · 영역 캡처 중",
   "demo.idle": "1. 대기",
   "demo.hotkey": "2. 단축키",
@@ -31,7 +29,6 @@
   "demo.copied": "링크 복사됨",
   "demo.prompt": "이거 봐 줘",
   "demo.reply": "142번째 줄에서 TypeError가 보입니다. fetch가 끝나기 전에 user.profile을 읽고 있습니다",
-
   "why.eyebrow": "AI 워크플로를 위해 만든",
   "why.title": "캡처하고, 올리고, 복사하고, 붙여 넣는 일은 이제 그만.",
   "why.p1": "원격 VPS에서 Claude Code로 작업 중입니다. 모델에게 UI 버그, 디자인 목업, 스택 트레이스를 보여 줘야 합니다. 평소 방식(스크린샷 찍기, 브라우저 열기, 어딘가에 업로드, URL 복사, 붙여 넣기)은 6단계, 앱 3개, 그리고 다시는 돌아오지 않는 10여 초입니다.",
@@ -53,7 +50,6 @@
   "inbox.after": "Snap2Link로",
   "inbox.message": "안녕하세요, 결제 버튼을 눌러도 아무 반응이 없어요:",
   "inbox.afterCount": "저장된 파일 0개",
-
   "features.eyebrow": "기능",
   "features.title": "화려한 소개보다 키 한 번.",
   "features.ai.title": "AI 워크플로에 최적화",
@@ -83,7 +79,6 @@
   "features.updater.body": "업데이트 파일에 서명이 되어 있어 매번 스스로 검증됩니다. 설정에서 언제든 업데이트를 확인하세요.",
   "features.host.title": "호스팅은 원하는 대로",
   "features.host.body": "링크가 알아서 만료되는 Snap2Link 호스팅, 또는 drive.file 범위로 연결하는 내 Google Drive. Snap2Link는 자신이 만든 파일만 볼 수 있으며, 오래된 캡처는 기본적으로 30일 후 삭제됩니다.",
-
   "how.eyebrow": "작동 방식",
   "how.title": "세 단계. 단계마다 키 한 번.",
   "how.s1.title": "단축키 누르기",
@@ -93,19 +88,16 @@
   "how.s3.title": "어디든 붙여 넣기",
   "how.s3.body": "링크는 이미 클립보드에 있습니다. Claude Code, Cursor, 채팅, 이슈에 붙여 넣으세요. 이미지 URL을 받는 곳이라면 어디든 됩니다.",
   "how.s3.prompt": "뭐가 문제야:",
-
   "install.eyebrow": "설치",
   "install.title": "명령 한 줄, 플랫폼 세 개.",
-  "install.winManual": "GitHub 릴리스에서 .exe 다운로드",
-  "install.macCmd": "{file} 다운로드",
-  "install.macManual": "GitHub 릴리스에서 .dmg 다운로드",
+  "install.winCommand": "터미널이 편하다면 winget으로 설치하세요:",
+  "install.releases": "GitHub 릴리스 보기",
   "install.linManual": ".AppImage, .deb 또는 .rpm 다운로드",
   "install.copy": "복사",
   "install.copied": "복사됨",
   "install.copyLabel": "명령어 복사",
   "install.signing": "Windows 설치 파일은 아직 코드 서명이 되어 있지 않아 SmartScreen이 확인을 요청할 수 있습니다.",
   "install.signingLink": "코드 서명 정책",
-
   "open.eyebrow": "오픈 소스",
   "open.title": "무료, 오픈 소스, MIT 라이선스.",
   "open.lead": "소스를 읽고, 이슈를 올리고, PR을 보내 주세요. 아직 초기라 스타 하나하나가 큰 힘이 됩니다.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "기여하기",
   "open.contribute.body": "첫 이슈 PR도 환영합니다. 모든 PR에서 Vitest, cargo test, 호스팅 테스트가 실행됩니다. 리뷰는 친절합니다.",
   "open.builtWith": "사용 기술",
-
   "footer.tag": "스크린샷, 공개 링크, 클립보드. 키 한 번으로.",
   "footer.product": "제품",
   "footer.download": "다운로드",

@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · स्क्रीनशॉट सीधे Claude Code, Cursor या किसी भी टर्मिनल AI में पेस्ट करें",
   "meta.description": "शॉर्टकट दबाएँ, ड्रैग करके क्षेत्र चुनें, और सार्वजनिक शेयर लिंक आपके क्लिपबोर्ड पर। बस एक कीस्ट्रोक, Windows, macOS और Linux पर। मुफ़्त, ओपन सोर्स, MIT लाइसेंस।",
-
   "nav.features": "फ़ीचर",
   "nav.how": "कैसे काम करता है",
   "nav.download": "डाउनलोड",
@@ -12,12 +11,11 @@
   "nav.account": "मेरा खाता",
   "nav.cta": "Snap2Link पाएँ",
   "nav.language": "भाषा",
-
   "hero.pill": "अब उपलब्ध",
   "hero.title": "स्क्रीनशॉट सीधे <span class=\"accent\">Claude Code</span>, Cursor या किसी भी टर्मिनल AI में पेस्ट करें।",
   "hero.lead": "शॉर्टकट दबाएँ, ड्रैग करके क्षेत्र चुनें, और सार्वजनिक शेयर लिंक आपके क्लिपबोर्ड पर। बस एक कीस्ट्रोक, Windows, macOS और Linux पर।",
-  "hero.dmg": ".dmg डाउनलोड करें",
-
+  "hero.win": "Windows के लिए डाउनलोड करें",
+  "hero.mac": "macOS के लिए डाउनलोड करें",
   "demo.url": "snap2link · क्षेत्र कैप्चर हो रहा है",
   "demo.idle": "1. इंतज़ार",
   "demo.hotkey": "2. शॉर्टकट",
@@ -31,7 +29,6 @@
   "demo.copied": "लिंक कॉपी हो गया",
   "demo.prompt": "इसे देखो",
   "demo.reply": "लाइन 142 पर TypeError दिख रहा है: fetch पूरा होने से पहले ही user.profile पढ़ा जा रहा है",
-
   "why.eyebrow": "AI वर्कफ़्लो के लिए बना",
   "why.title": "स्क्रीनशॉट, अपलोड, कॉपी, पेस्ट का झंझट खत्म।",
   "why.p1": "आप किसी रिमोट VPS पर Claude Code के साथ काम कर रहे हैं। मॉडल को कोई UI बग, डिज़ाइन मॉकअप या स्टैक ट्रेस दिखाना है। आम तरीका (स्क्रीनशॉट लें, ब्राउज़र खोलें, कहीं अपलोड करें, URL कॉपी करें, पेस्ट करें) यानी छह कदम, तीन ऐप और दर्जन भर सेकंड, जो कभी वापस नहीं मिलेंगे।",
@@ -53,7 +50,6 @@
   "inbox.after": "Snap2Link के साथ",
   "inbox.message": "नमस्ते, चेकआउट बटन काम नहीं कर रहा:",
   "inbox.afterCount": "0 फ़ाइलें सेव हुईं",
-
   "features.eyebrow": "फ़ीचर",
   "features.title": "कीस्ट्रोक के लिए बना, टूर के लिए नहीं।",
   "features.ai.title": "AI वर्कफ़्लो के लिए बना",
@@ -83,7 +79,6 @@
   "features.updater.body": "साइन किए गए अपडेट आर्काइव, इसलिए हर अपडेट खुद को सत्यापित करता है। सेटिंग्स में कभी भी अपडेट देखें।",
   "features.host.title": "होस्ट आपकी पसंद का",
   "features.host.body": "Snap2Link होस्टिंग, जहाँ लिंक अपने आप समाप्त होते हैं, या drive.file स्कोप के साथ आपका अपना Google Drive: Snap2Link सिर्फ़ वही देखता है जो उसने बनाया, और पुराने कैप्चर डिफ़ॉल्ट रूप से 30 दिन बाद हट जाते हैं।",
-
   "how.eyebrow": "कैसे काम करता है",
   "how.title": "तीन कदम। हर कदम एक कीस्ट्रोक।",
   "how.s1.title": "शॉर्टकट दबाएँ",
@@ -93,19 +88,16 @@
   "how.s3.title": "कहीं भी पेस्ट करें",
   "how.s3.body": "लिंक आपके क्लिपबोर्ड पर है। इसे Claude Code, Cursor, किसी चैट या issue में पेस्ट करें। जहाँ भी इमेज URL चलता हो।",
   "how.s3.prompt": "क्या खराब है:",
-
   "install.eyebrow": "इंस्टॉल",
   "install.title": "एक लाइन। तीन प्लेटफ़ॉर्म।",
-  "install.winManual": "GitHub रिलीज़ से .exe डाउनलोड करें",
-  "install.macCmd": "{file} डाउनलोड करें",
-  "install.macManual": "GitHub रिलीज़ से .dmg डाउनलोड करें",
+  "install.winCommand": "टर्मिनल पसंद है? winget से इंस्टॉल करें:",
+  "install.releases": "GitHub रिलीज़ देखें",
   "install.linManual": ".AppImage, .deb या .rpm डाउनलोड करें",
   "install.copy": "कॉपी करें",
   "install.copied": "कॉपी हो गया",
   "install.copyLabel": "कमांड कॉपी करें",
   "install.signing": "Windows इंस्टॉलर अभी कोड-साइन नहीं हैं, इसलिए SmartScreen आपसे पुष्टि माँग सकता है।",
   "install.signingLink": "कोड साइनिंग नीति",
-
   "open.eyebrow": "ओपन सोर्स",
   "open.title": "मुफ़्त, ओपन सोर्स, MIT लाइसेंस।",
   "open.lead": "सोर्स पढ़ें, issue दर्ज करें, PR भेजें। अभी शुरुआती दिन हैं: हर स्टार मायने रखता है।",
@@ -117,7 +109,6 @@
   "open.contribute.title": "योगदान दें",
   "open.contribute.body": "पहली बार PR भेजने वालों का स्वागत है। हर PR पर Vitest, cargo test और होस्टिंग टेस्ट चलते हैं। रिव्यू दोस्ताना होते हैं।",
   "open.builtWith": "इनसे बना",
-
   "footer.tag": "स्क्रीनशॉट, सार्वजनिक लिंक, क्लिपबोर्ड। एक कीस्ट्रोक।",
   "footer.product": "प्रोडक्ट",
   "footer.download": "डाउनलोड",
