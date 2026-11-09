@@ -86,7 +86,7 @@ export const APK = /_android\.apk$/;
 const ALL_RELEASES = "https://github.com/amys94fr/Snap2Link/releases";
 
 const ANDROID_FALLBACK: AndroidRelease = {
-  version: "0.1.0",
+  version: "0.2.0",
   download: ALL_RELEASES,
   page: ALL_RELEASES,
 };

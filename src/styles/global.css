@@ -1287,13 +1287,17 @@ button {
   border-bottom-color: var(--color-brand);
 }
 
+/* Four tabs on a phone: tighter, and the row scrolls rather than the page. */
 @media (max-width: 400px) {
   .install-tabs {
     gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
   .install-tab {
-    gap: 6px;
-    padding: 12px 8px;
+    gap: 5px;
+    padding: 12px 5px;
+    white-space: nowrap;
   }
 }
 
