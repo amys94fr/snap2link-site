@@ -1,6 +1,7 @@
 ---
 import Layout from "./Layout.astro";
 import { LEGAL, PAGES } from "../legal";
+import { homePath } from "../i18n/site";
 
 type Lang = keyof typeof PAGES;
 type Page = keyof (typeof PAGES)["en"];
@@ -51,7 +52,7 @@ const links = [
   </Fragment>
 
   <header class="legal-header">
-    <a href="/" class="nav-brand" aria-label={labels.home}>
+    <a href={homePath(lang)} class="nav-brand" aria-label={labels.home}>
       <img src="/assets/logo-app-icon.png" width="28" height="28" alt="" style="border-radius: 6px;" />
       <span>Snap<b>2</b>Link</span>
     </a>
@@ -72,6 +73,6 @@ const links = [
         </a>
       ))
     }
-    <a href="/">{labels.home}</a>
+    <a href={homePath(lang)}>{labels.home}</a>
   </nav>
 </Layout>

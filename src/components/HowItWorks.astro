@@ -1,25 +1,28 @@
 ---
 // Three-step horizontal timeline. Stacks on mobile, separators hide.
+import { fill, strings } from "../i18n/site";
+
+interface Props {
+  lang: string;
+}
+const t = strings(Astro.props.lang);
+const shortcut = '<code style="font-family: var(--font-mono); font-size: 13px;">Ctrl + PrintScreen</code>';
 ---
 
 <section class="section" id="how" data-screen-label="How">
   <div class="container-page">
-    <span class="eyebrow">How it works</span>
+    <span class="eyebrow">{t["how.eyebrow"]}</span>
     <h2
       style="font-size: clamp(28px, 4vw, 40px); letter-spacing: -0.025em; line-height: 1.1; font-weight: 700; color: var(--color-slate-100); margin: 16px 0 0; max-width: 720px; text-wrap: balance;"
     >
-      Three steps. One keystroke each.
+      {t["how.title"]}
     </h2>
 
     <div class="how-grid">
       <div class="how-step">
         <span class="num">1</span>
-        <h3>Press the hotkey</h3>
-        <p>
-          Default <code style="font-family: var(--font-mono); font-size: 13px;"
-            >Ctrl + PrintScreen</code
-          >. Change it, or add up to 3 shortcuts, in Settings.
-        </p>
+        <h3>{t["how.s1.title"]}</h3>
+        <p set:html={fill(t["how.s1.body"], { shortcut })} />
         <div class="visual">
           <span class="kbd">Ctrl</span>
           <span style="margin: 0 6px; color: var(--color-slate-400);">+</span>
@@ -45,11 +48,8 @@
 
       <div class="how-step">
         <span class="num">2</span>
-        <h3>Drag a region</h3>
-        <p>
-          The screen dims. Drag any rectangle. Annotate with arrows, boxes, or
-          blur a sensitive zone, or skip and ship.
-        </p>
+        <h3>{t["how.s2.title"]}</h3>
+        <p>{t["how.s2.body"]}</p>
         <div
           class="visual"
           style="padding: 0; position: relative; overflow: hidden;"
@@ -110,18 +110,15 @@
 
       <div class="how-step">
         <span class="num">3</span>
-        <h3>Paste anywhere</h3>
-        <p>
-          The link is on your clipboard. Paste it into Claude Code, Cursor, a
-          chat, an issue. Anything that takes an image URL.
-        </p>
+        <h3>{t["how.s3.title"]}</h3>
+        <p>{t["how.s3.body"]}</p>
         <div
           class="visual"
           style="flex-direction: column; align-items: flex-start; gap: 4px;"
         >
           <div>
             <span style="color: var(--color-brand);">claude $</span>
-            <span style="color: var(--color-slate-100);"> what's broken: </span>
+            <span style="color: var(--color-slate-100);"> {t["how.s3.prompt"]} </span>
           </div>
           <div style="color: var(--color-indigo-400); font-size: 11px;">
             i.snap2link.app/7Hq2xKp<span

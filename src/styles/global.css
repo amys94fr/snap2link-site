@@ -182,7 +182,7 @@ button {
 }
 
 .nav-cta {
-  margin-left: auto;
+  margin-inline-start: auto;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -227,7 +227,7 @@ button {
   gap: 4px;
   padding: 0 10px;
   background: var(--color-slate-950);
-  border-left: 1px solid var(--color-slate-800);
+  border-inline-start: 1px solid var(--color-slate-800);
   color: var(--color-slate-300);
   font-family: var(--font-mono);
   font-size: 12px;
@@ -440,7 +440,7 @@ button {
   font-family: var(--font-sans);
   color: var(--color-slate-400);
   font-weight: 500;
-  margin-right: 4px;
+  margin-inline-end: 4px;
 }
 
 /* ============================================================
@@ -910,7 +910,7 @@ button {
   max-width: 720px;
   margin: 0 auto;
   padding: 0 32px;
-  text-align: left;
+  text-align: start;
 }
 
 .why h2 {
@@ -1381,13 +1381,13 @@ button {
 
 .os-stat {
   padding: 32px 24px;
-  border-right: 1px solid var(--color-slate-800);
+  border-inline-end: 1px solid var(--color-slate-800);
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.os-stat:last-child { border-right: 0; }
+.os-stat:last-child { border-inline-end: 0; }
 
 .os-stat .num {
   font-family: var(--font-mono);
@@ -1403,7 +1403,7 @@ button {
   border-radius: 9999px;
   background: var(--color-success);
   display: inline-block;
-  margin-right: 8px;
+  margin-inline-end: 8px;
   vertical-align: middle;
   box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.20);
 }
@@ -1418,7 +1418,7 @@ button {
 @media (max-width: 700px) {
   .os-stats { grid-template-columns: 1fr; }
   .os-stat {
-    border-right: 0;
+    border-inline-end: 0;
     border-bottom: 1px solid var(--color-slate-800);
   }
   .os-stat:last-child { border-bottom: 0; }
@@ -1676,7 +1676,7 @@ button {
   font-family: var(--font-sans);
   color: inherit;
   font-weight: 600;
-  margin-right: 4px;
+  margin-inline-end: 4px;
   opacity: 0.85;
 }
 
@@ -1851,4 +1851,26 @@ html[data-os="lin"] .hero-ctas .btn[data-os-cta="lin"]:hover {
   .nav-account {
     display: none;
   }
+}
+
+/* ============================================================
+   RIGHT-TO-LEFT (Arabic, Hebrew, Persian)
+   Commands, links and the fake desktop stay left-to-right; arrows that
+   point "forward" turn around.
+   ============================================================ */
+.codeblock,
+.hero-cta-code,
+.demo-frame {
+  direction: ltr;
+}
+.flip {
+  display: inline-block;
+}
+[dir="rtl"] .flip,
+[dir="rtl"] .arrow svg,
+[dir="rtl"] .arrow-sep svg {
+  transform: scaleX(-1);
+}
+[dir="rtl"] .hero-ctas .btn[data-os-cta="win"] {
+  direction: ltr;
 }
