@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Nav from "./Nav.astro";
 import Hero from "./Hero.astro";
 import Why from "./Why.astro";
+import Receivers from "./Receivers.astro";
 import Features from "./Features.astro";
 import HowItWorks from "./HowItWorks.astro";
 import Install from "./Install.astro";
@@ -24,6 +25,7 @@ const { stars, downloads } = await repoStats();
   <Nav lang={lang} stars={stars} />
   <Hero lang={lang} />
   <Why lang={lang} />
+  <Receivers lang={lang} />
   <Features lang={lang} />
   <HowItWorks lang={lang} />
   <Install lang={lang} />
