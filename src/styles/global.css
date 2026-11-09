@@ -1287,13 +1287,17 @@ button {
   border-bottom-color: var(--color-brand);
 }
 
+/* Four tabs on a phone: tighter, and the row scrolls rather than the page. */
 @media (max-width: 400px) {
   .install-tabs {
     gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
   .install-tab {
-    gap: 6px;
-    padding: 12px 8px;
+    gap: 5px;
+    padding: 12px 5px;
+    white-space: nowrap;
   }
 }
 
@@ -1668,10 +1672,10 @@ button {
 
 /* ============================================================
    HERO CTA — OS-aware emphasis
-   The Hero ships three CTAs (.exe, .dmg, curl). A small inline
+   The Hero ships four CTAs (.exe, .dmg, curl, .apk). A small inline
    script in Hero.astro sets `data-os` on <html>. The rules below
    swap which CTA looks primary vs outline based on the detected
-   OS. All three remain clickable in every case; only their visual
+   OS. All of them remain clickable in every case; only their visual
    hierarchy shifts so the visitor sees the relevant install path
    first.
    ============================================================ */
@@ -1706,6 +1710,26 @@ html[data-os="lin"] .hero-ctas .btn[data-os-cta="lin"] {
 html[data-os="lin"] .hero-ctas .btn[data-os-cta="lin"]:hover {
   background: var(--color-brand-dark);
   box-shadow: var(--shadow-glow);
+}
+
+/* On Android: the APK becomes primary, the Windows .exe falls back to outline. */
+html[data-os="android"] .hero-ctas .btn[data-os-cta="win"] {
+  background: transparent;
+  color: var(--color-slate-100);
+  border-color: var(--color-slate-700);
+}
+html[data-os="android"] .hero-ctas .btn[data-os-cta="android"] {
+  background: var(--color-brand);
+  color: white;
+  border-color: transparent;
+}
+html[data-os="android"] .hero-ctas .btn[data-os-cta="android"]:hover {
+  background: var(--color-brand-dark);
+  box-shadow: var(--shadow-glow);
+}
+/* A phone can't run the desktop app: its button comes first. */
+html[data-os="android"] .hero-ctas .btn[data-os-cta="android"] {
+  order: -1;
 }
 
 /* ============================================================

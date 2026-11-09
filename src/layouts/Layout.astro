@@ -42,7 +42,7 @@ const softwareLD = {
   description:
     "Hotkey-driven screenshot tool that uploads to Snap2Link hosting or your own Google Drive and copies a public share link to your clipboard. Built for AI workflows: Claude Code, Cursor, ChatGPT, Aider.",
   applicationCategory: "ProductivityApplication",
-  operatingSystem: "Windows 10, Windows 11, macOS 12, Linux",
+  operatingSystem: "Windows 10, Windows 11, macOS 12, Linux, Android 8",
   softwareVersion: version,
   url: SITE_URL.toString(),
   downloadUrl: "https://github.com/amys94fr/Snap2Link/releases/latest",
@@ -209,20 +209,34 @@ const softwareLD = {
               tag_name?: string;
               draft?: boolean;
               prerelease?: boolean;
+              html_url?: string;
               assets?: Array<{ name?: string; download_count?: number; browser_download_url?: string }>;
             };
             const releases = (await r.json()) as R[];
-            // Newest first: the first published one is the version to show.
-            const latest = releases.find((rel) => !rel.draft && !rel.prerelease);
+            // Newest first. Android releases have their own android-v tags.
+            const newest = (tag: RegExp) =>
+              releases.find((rel) => !rel.draft && !rel.prerelease && tag.test(rel.tag_name ?? ""));
+            const latest = newest(/^v\d+\.\d+\.\d+$/);
+            const android = newest(/^android-v\d+\.\d+\.\d+$/);
             const version = latest?.tag_name?.replace(/^v/, "");
-            if (version && /^\d+\.\d+\.\d+$/.test(version)) set("[data-gh-version]", version);
+            if (version) set("[data-gh-version]", version);
             // Download buttons follow a release published after the last deploy.
-            const installers: Record<string, RegExp> = { windows: /x64-setup\.exe$/, mac: /universal\.dmg$/ };
+            const installers: Record<string, [R | undefined, RegExp]> = {
+              windows: [latest, /x64-setup\.exe$/],
+              mac: [latest, /universal\.dmg$/],
+              android: [android, /_android\.apk$/],
+            };
             document.querySelectorAll<HTMLAnchorElement>("[data-download]").forEach((link) => {
-              const pattern = installers[link.dataset.download ?? ""];
-              const url = latest?.assets?.find((a) => pattern?.test(a.name ?? ""))?.browser_download_url;
+              const [release, pattern] = installers[link.dataset.download ?? ""] ?? [];
+              const url = release?.assets?.find((a) => pattern?.test(a.name ?? ""))?.browser_download_url;
               if (url?.startsWith("https://github.com/amys94fr/Snap2Link/releases/download/")) link.href = url;
             });
+            const androidPage = android?.html_url;
+            if (androidPage?.startsWith("https://github.com/amys94fr/Snap2Link/releases/tag/")) {
+              document
+                .querySelectorAll<HTMLAnchorElement>('[data-releases="android"]')
+                .forEach((link) => (link.href = androidPage));
+            }
             const total = releases.reduce(
               (sum, rel) =>
                 sum +

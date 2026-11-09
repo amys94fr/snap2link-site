@@ -1,6 +1,6 @@
 ---
 import AnnotatorCard from "./AnnotatorCard.astro";
-import { latestRelease } from "../release";
+import { latestAndroidRelease, latestRelease } from "../release";
 import { fill, strings, type Key } from "../i18n/site";
 
 interface Props {
@@ -9,9 +9,11 @@ interface Props {
 const { lang } = Astro.props;
 const t = strings(lang);
 const { sizes } = await latestRelease();
+const android = await latestAndroidRelease();
 const installers = [
   sizes.windows && fill(t["features.platforms.windows"], { size: sizes.windows }),
   sizes.mac && fill(t["features.platforms.mac"], { size: sizes.mac }),
+  android.size && fill(t["features.platforms.android"], { size: android.size }),
 ].filter((size): size is string => Boolean(size));
 const separator = new Intl.ListFormat(lang, { type: "conjunction" });
 
