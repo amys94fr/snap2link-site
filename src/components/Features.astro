@@ -1,5 +1,12 @@
 ---
 import AnnotatorCard from "./AnnotatorCard.astro";
+import { latestRelease } from "../release";
+
+const { sizes } = await latestRelease();
+const installers = [
+  sizes.windows && `${sizes.windows} on Windows`,
+  sizes.mac && `${sizes.mac} on macOS (Universal)`,
+].filter(Boolean);
 
 interface Feature {
   iconKey: keyof typeof ICONS;
@@ -24,12 +31,12 @@ const TOP: Feature[] = [
   {
     iconKey: "bot",
     title: "Built for AI workflows",
-    body: "Pastes as a plain URL into any text field. Works in Claude Code, Cursor, Aider, ChatGPT, Continue, Zed.",
+    body: "Pastes as a plain URL into any text field: Claude Code, Cursor, Aider, ChatGPT, Zed. Over SSH, Claude Code and opencode read the image itself through the Snap2Link MCP server.",
   },
   {
     iconKey: "mouse",
-    title: "Drag-to-capture overlay",
-    body: "Dimmed scrim, dashed selection, live pixel dimensions. Esc to cancel.",
+    title: "Region, screen or window",
+    body: "Drag a region with live pixel dimensions, take the whole screen, or pick a window. Esc to cancel.",
   },
   {
     iconKey: "zap",
@@ -38,21 +45,23 @@ const TOP: Feature[] = [
   },
   {
     iconKey: "keyboard",
-    title: "Global hotkey",
-    body: "Default ⌃ + PrtSc, rebind to anything. The capture works whether the app's focused or not.",
+    title: "Up to 3 shortcuts",
+    body: "Default Ctrl + PrtSc. Give each shortcut its own capture mode and next step: share at once, or annotate first.",
   },
   {
     iconKey: "monitor",
     title: "Windows, macOS, Linux",
-    body: "Tiny installers: 4 MB Windows, 13 MB macOS Universal, 7 MB Linux .deb. No Electron.",
+    body: installers.length
+      ? `In 20 languages. Small installers: ${installers.join(", ")}. No Electron.`
+      : "In 20 languages. Small native installers, no Electron.",
   },
 ];
 
 const BOTTOM: Feature[] = [
   {
     iconKey: "trash",
-    title: "Auto-cleanup",
-    body: "Old screenshots evict from Drive on a schedule you set. Default: 30 days.",
+    title: "History and kept links",
+    body: "Every link with its thumbnail and time left, in the app and on your account page. Copy it, delete it, or lock it so a new capture won't replace it.",
   },
   {
     iconKey: "refresh",
@@ -61,8 +70,8 @@ const BOTTOM: Feature[] = [
   },
   {
     iconKey: "shield",
-    title: "No third-party server",
-    body: "Direct from your machine to your Drive. Drive scope is `drive.file`. Snap2Link only sees what it created.",
+    title: "Your choice of host",
+    body: "Snap2Link hosting, where links expire on their own, or your own Google Drive with the drive.file scope: Snap2Link only sees what it created, and old captures go after 30 days by default.",
   },
 ];
 
