@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · paste screenshots into Claude Code, Cursor, or any terminal AI",
   "meta.description": "Hotkey, drag a region, and a public share link lands in your clipboard. One keystroke, on Windows, macOS and Linux. Free, open source, MIT licensed.",
-
   "nav.features": "Features",
   "nav.how": "How it works",
   "nav.download": "Download",
@@ -12,12 +11,10 @@
   "nav.account": "My account",
   "nav.cta": "Get Snap2Link",
   "nav.language": "Language",
-
   "hero.pill": "out now",
   "hero.title": "Paste screenshots into <span class=\"accent\">Claude Code</span>, Cursor, or any terminal AI.",
   "hero.lead": "Hotkey, drag a region, and a public share link lands in your clipboard. One keystroke, on Windows, macOS and Linux.",
   "hero.dmg": "Download .dmg",
-
   "demo.url": "snap2link · capturing region",
   "demo.idle": "1. idle",
   "demo.hotkey": "2. hotkey",
@@ -31,12 +28,27 @@
   "demo.copied": "Link copied",
   "demo.prompt": "look at this",
   "demo.reply": "I see the TypeError on line 142: user.profile is read before the fetch resolves",
-
   "why.eyebrow": "Built for AI workflows",
   "why.title": "Stop screenshotting, uploading, copying, pasting.",
   "why.p1": "You're working with Claude Code on a remote VPS. You need to show the model a UI bug, a design mockup, a stack trace. The usual workflow (screenshot, open the browser, upload somewhere, copy the URL, paste) is six steps, three apps, and a dozen seconds you'll never get back.",
   "why.p2": "Snap2Link collapses it into one keystroke. By default the capture goes to Snap2Link hosting: no account needed, and the link expires on its own. A free account keeps links for 48 hours and lets you lock the ones that matter. Prefer your own storage? Send captures to <strong>your</strong> Google Drive instead. No telemetry either way, and the link is on your clipboard before the toast finishes.",
-
+  "inbox.eyebrow": "For the people who receive them",
+  "inbox.title": "See the screenshot. Keep nothing.",
+  "inbox.lead": "Developers, support teams and designers get screenshots all day from clients and colleagues. Each one lands in the phone's gallery, the Downloads folder or the chat, and stays there long after the bug is fixed. A Snap2Link capture arrives as a link instead: open it, read it, done.",
+  "inbox.nothing.title": "Nothing saved on your device",
+  "inbox.nothing.body": "The link opens in the browser. No file in your gallery, your Downloads or your chat's storage.",
+  "inbox.devices.title": "Any device, same link",
+  "inbox.devices.body": "The capture lives in the cloud, so the same link opens on your phone, your laptop or a colleague's screen. WhatsApp, X and LinkedIn even show a preview.",
+  "inbox.expires.title": "Gone when you're done",
+  "inbox.expires.body": "Links expire on their own after 24 hours, or 48 with a free account. Keep the ones you still need.",
+  "inbox.note": "Only the sender needs Snap2Link. Send your clients to snap2link.app: it's free.",
+  "inbox.copy": "Copy the address",
+  "inbox.copied": "Copied",
+  "inbox.before": "Without Snap2Link",
+  "inbox.beforeCount": "{count} screenshots in your gallery",
+  "inbox.after": "With Snap2Link",
+  "inbox.message": "Hi, the checkout button does nothing:",
+  "inbox.afterCount": "0 files saved",
   "features.eyebrow": "Features",
   "features.title": "Built for the keystroke, not the tour.",
   "features.ai.title": "Built for AI workflows",
@@ -66,7 +78,6 @@
   "features.updater.body": "Signed update archives, so every update verifies itself. Check for updates in Settings any time.",
   "features.host.title": "Your choice of host",
   "features.host.body": "Snap2Link hosting, where links expire on their own, or your own Google Drive with the drive.file scope: Snap2Link only sees what it created, and old captures go after 30 days by default.",
-
   "how.eyebrow": "How it works",
   "how.title": "Three steps. One keystroke each.",
   "how.s1.title": "Press the shortcut",
@@ -76,7 +87,6 @@
   "how.s3.title": "Paste anywhere",
   "how.s3.body": "The link is on your clipboard. Paste it into Claude Code, Cursor, a chat, an issue. Anything that takes an image URL.",
   "how.s3.prompt": "what's broken:",
-
   "install.eyebrow": "Install",
   "install.title": "One line. Three platforms.",
   "install.winManual": "Download the .exe from GitHub releases",
@@ -88,7 +98,6 @@
   "install.copyLabel": "Copy the command",
   "install.signing": "Windows installers aren't code-signed yet, so SmartScreen may ask you to confirm.",
   "install.signingLink": "Code signing policy",
-
   "open.eyebrow": "Open source",
   "open.title": "Free, open source, MIT licensed.",
   "open.lead": "Read the source, file an issue, ship a PR. Early days: every star helps.",
@@ -100,7 +109,6 @@
   "open.contribute.title": "Contribute",
   "open.contribute.body": "First-issue PRs welcome. Every PR runs the Vitest, cargo test and hosting tests. Reviews are friendly.",
   "open.builtWith": "Built with",
-
   "footer.tag": "Screenshot, public link, clipboard. One keystroke.",
   "footer.product": "Product",
   "footer.download": "Download",

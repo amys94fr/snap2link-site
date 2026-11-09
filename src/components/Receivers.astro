@@ -1,0 +1,311 @@
+---
+// The second reason to use Snap2Link, for the people on the other end: a
+// screenshot that arrives as a link leaves nothing on their phone or laptop.
+// The mock-up compares a gallery full of screenshots with one chat message.
+import { fill, strings } from "../i18n/site";
+
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const t = strings(lang);
+const count = (214).toLocaleString(lang);
+
+const ICONS = {
+  nothing: `<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="m4.9 4.9 14.2 14.2"/>`,
+  devices: `<rect x="2" y="4" width="14" height="10" rx="2"/><path d="M5 18h8"/><rect x="17" y="8" width="5" height="12" rx="1"/>`,
+  expires: `<circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2"/><path d="M9 2h6"/>`,
+} as const;
+
+const POINTS = (["nothing", "devices", "expires"] as const).map((name) => ({
+  icon: ICONS[name],
+  title: t[`inbox.${name}.title`],
+  body: t[`inbox.${name}.body`],
+}));
+---
+
+<section class="section" id="receivers" data-screen-label="Receivers">
+  <div class="container-page receivers">
+    <div class="receivers-copy">
+      <span class="eyebrow">{t["inbox.eyebrow"]}</span>
+      <h2>{t["inbox.title"]}</h2>
+      <p class="receivers-lead">{t["inbox.lead"]}</p>
+      <ul class="receivers-points">
+        {
+          POINTS.map((point) => (
+            <li>
+              <span class="receivers-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" set:html={point.icon} />
+              </span>
+              <div>
+                <h3>{point.title}</h3>
+                <p>{point.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="receivers-note">
+        <p>{t["inbox.note"]}</p>
+        <button type="button" class="btn outline sm receivers-copy-btn" data-copy="https://snap2link.app" data-copied={t["inbox.copied"]}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span aria-live="polite">{t["inbox.copy"]}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="receivers-compare" aria-hidden="true">
+      <figure class="compare-card compare-before">
+        <figcaption>{t["inbox.before"]}</figcaption>
+        <div class="gallery">
+          {Array.from({ length: 12 }, (_, i) => <span class={`shot shot-${i % 4}`}></span>)}
+        </div>
+        <p class="compare-count bad">{fill(t["inbox.beforeCount"], { count })}</p>
+      </figure>
+
+      <figure class="compare-card compare-after">
+        <figcaption>{t["inbox.after"]}</figcaption>
+        <div class="chat">
+          <p class="bubble">{t["inbox.message"]}</p>
+          <div class="bubble link-bubble">
+            <span class="link-preview">
+              <span class="preview-row"></span>
+              <span class="preview-row short"></span>
+              <span class="preview-bug"></span>
+            </span>
+            <span class="link-url">i.snap2link.app/7Hq2xKp</span>
+          </div>
+        </div>
+        <p class="compare-count good">{t["inbox.afterCount"]}</p>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".receivers-copy-btn").forEach((button) => {
+    const label = button.querySelector("span");
+    const original = label?.textContent ?? "";
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy ?? "");
+      } catch {
+        return;
+      }
+      if (!label) return;
+      label.textContent = button.dataset.copied ?? original;
+      window.setTimeout(() => (label.textContent = original), 1500);
+    });
+  });
+</script>
+
+<style>
+  .receivers {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+  h2 {
+    margin: 16px 0 0;
+    max-width: 560px;
+    color: var(--color-slate-100);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+  .receivers-lead {
+    margin: 16px 0 0;
+    max-width: 600px;
+    color: var(--color-slate-300);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .receivers-points {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .receivers-points li {
+    display: flex;
+    gap: 14px;
+  }
+  .receivers-icon {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    color: var(--color-brand);
+    background: rgba(217, 119, 87, 0.1);
+    border: 1px solid rgba(217, 119, 87, 0.25);
+  }
+  .receivers-points h3 {
+    margin: 0;
+    color: var(--color-slate-100);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .receivers-points p {
+    margin: 4px 0 0;
+    color: var(--color-slate-400);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .receivers-note {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 16px;
+    margin-top: 28px;
+    padding: 14px 16px;
+    border: 1px dashed var(--color-slate-700);
+    border-radius: 10px;
+  }
+  .receivers-note p {
+    flex: 1 1 240px;
+    margin: 0;
+    color: var(--color-slate-300);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .receivers-copy-btn {
+    gap: 6px;
+    min-height: 40px;
+    cursor: pointer;
+  }
+
+  /* Mock-up */
+  .receivers-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .compare-card {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 0;
+    padding: 16px;
+    background: var(--color-slate-900);
+    border: 1px solid var(--color-slate-800);
+    border-radius: 14px;
+  }
+  figcaption {
+    color: var(--color-slate-400);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    flex: 1;
+  }
+  .shot {
+    aspect-ratio: 3 / 4;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #334155 0 18%, #1e293b 18% 100%);
+    border: 1px solid #3b4a61;
+  }
+  .shot-1 {
+    background: linear-gradient(180deg, #475569 0 30%, #273449 30% 100%);
+  }
+  .shot-2 {
+    background: linear-gradient(180deg, #3f2a2a 0 22%, #2a2230 22% 100%);
+  }
+  .shot-3 {
+    background: linear-gradient(180deg, #2b3a4f 0 12%, #1b2433 12% 100%);
+  }
+  .compare-count {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .compare-count.bad {
+    color: #fca5a5;
+  }
+  .compare-count.good {
+    color: #86efac;
+  }
+  .chat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    justify-content: flex-end;
+  }
+  .bubble {
+    align-self: flex-start;
+    max-width: 100%;
+    margin: 0;
+    padding: 8px 10px;
+    border-radius: 12px 12px 12px 4px;
+    background: var(--color-slate-800);
+    color: var(--color-slate-100);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .link-bubble {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  .link-preview {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    background: var(--color-slate-950);
+  }
+  .preview-row {
+    height: 6px;
+    width: 80%;
+    border-radius: 3px;
+    background: var(--color-slate-800);
+  }
+  .preview-row.short {
+    width: 50%;
+  }
+  .preview-bug {
+    position: absolute;
+    inset: 45% 20% 15% 12%;
+    border: 2px solid var(--color-brand);
+    border-radius: 4px;
+    background: rgba(217, 119, 87, 0.12);
+  }
+  .link-url {
+    direction: ltr;
+    text-align: start;
+    color: var(--color-indigo-400);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-decoration: underline;
+    word-break: break-all;
+  }
+
+  @media (max-width: 960px) {
+    .receivers {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+  @media (max-width: 480px) {
+    .receivers-compare {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
