@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · dán ảnh chụp màn hình vào Claude Code, Cursor hay bất kỳ AI nào trong terminal",
   "meta.description": "Nhấn phím tắt, kéo chọn một vùng, và liên kết chia sẻ công khai đã nằm sẵn trong bộ nhớ tạm. Chỉ một phím bấm, trên Windows, macOS và Linux. Miễn phí, mã nguồn mở, giấy phép MIT.",
-
   "nav.features": "Tính năng",
   "nav.how": "Cách hoạt động",
   "nav.download": "Tải xuống",
@@ -12,12 +11,11 @@
   "nav.account": "Tài khoản của tôi",
   "nav.cta": "Tải Snap2Link",
   "nav.language": "Ngôn ngữ",
-
   "hero.pill": "đã ra mắt",
   "hero.title": "Dán ảnh chụp màn hình vào <span class=\"accent\">Claude Code</span>, Cursor hay bất kỳ AI nào trong terminal.",
   "hero.lead": "Nhấn phím tắt, kéo chọn một vùng, và liên kết chia sẻ công khai đã nằm sẵn trong bộ nhớ tạm. Chỉ một phím bấm, trên Windows, macOS và Linux.",
-  "hero.dmg": "Tải .dmg",
-
+  "hero.win": "Tải cho Windows",
+  "hero.mac": "Tải cho macOS",
   "demo.url": "snap2link · đang chụp vùng",
   "demo.idle": "1. chờ",
   "demo.hotkey": "2. phím tắt",
@@ -31,7 +29,6 @@
   "demo.copied": "Đã sao chép liên kết",
   "demo.prompt": "xem cái này",
   "demo.reply": "Tôi thấy lỗi TypeError ở dòng 142: user.profile được đọc trước khi fetch hoàn tất",
-
   "why.eyebrow": "Dành cho quy trình làm việc với AI",
   "why.title": "Thôi chụp, tải lên, sao chép rồi dán.",
   "why.p1": "Bạn đang làm việc với Claude Code trên một VPS từ xa. Bạn cần cho mô hình xem một lỗi giao diện, một bản mockup thiết kế, một stack trace. Cách làm quen thuộc (chụp màn hình, mở trình duyệt, tải lên đâu đó, sao chép URL, dán) là sáu bước, ba ứng dụng và cả chục giây bạn không bao giờ lấy lại được.",
@@ -53,7 +50,6 @@
   "inbox.after": "Có Snap2Link",
   "inbox.message": "Chào bạn, nút thanh toán bấm không được:",
   "inbox.afterCount": "0 tệp được lưu",
-
   "features.eyebrow": "Tính năng",
   "features.title": "Chỉ cần một phím bấm, không cần hướng dẫn.",
   "features.ai.title": "Dành cho quy trình làm việc với AI",
@@ -83,7 +79,6 @@
   "features.updater.body": "Gói cập nhật được ký số, nên mọi bản cập nhật đều tự xác minh. Kiểm tra cập nhật trong Cài đặt bất cứ lúc nào.",
   "features.host.title": "Tự chọn nơi lưu trữ",
   "features.host.body": "Dịch vụ lưu trữ Snap2Link, nơi liên kết tự hết hạn, hoặc Google Drive của riêng bạn với phạm vi drive.file: Snap2Link chỉ thấy những gì nó tạo ra, và ảnh chụp cũ mặc định bị xóa sau 30 ngày.",
-
   "how.eyebrow": "Cách hoạt động",
   "how.title": "Ba bước. Mỗi bước một phím.",
   "how.s1.title": "Nhấn phím tắt",
@@ -93,19 +88,16 @@
   "how.s3.title": "Dán ở bất cứ đâu",
   "how.s3.body": "Liên kết đã nằm trong bộ nhớ tạm. Dán vào Claude Code, Cursor, một cuộc trò chuyện, một issue. Bất cứ nơi nào nhận URL hình ảnh.",
   "how.s3.prompt": "lỗi ở đâu:",
-
   "install.eyebrow": "Cài đặt",
   "install.title": "Một dòng lệnh. Ba nền tảng.",
-  "install.winManual": "Tải file .exe từ trang phát hành trên GitHub",
-  "install.macCmd": "Tải {file}",
-  "install.macManual": "Tải file .dmg từ trang phát hành trên GitHub",
+  "install.winCommand": "Thích dùng terminal? Cài bằng winget:",
+  "install.releases": "Xem các bản phát hành trên GitHub",
   "install.linManual": "Tải file .AppImage, .deb hoặc .rpm",
   "install.copy": "Sao chép",
   "install.copied": "Đã sao chép",
   "install.copyLabel": "Sao chép lệnh",
   "install.signing": "Bộ cài Windows chưa được ký mã, nên SmartScreen có thể yêu cầu bạn xác nhận.",
   "install.signingLink": "Chính sách ký mã",
-
   "open.eyebrow": "Mã nguồn mở",
   "open.title": "Miễn phí, mã nguồn mở, giấy phép MIT.",
   "open.lead": "Đọc mã nguồn, báo lỗi, gửi PR. Dự án mới khởi đầu: mỗi ngôi sao đều có ý nghĩa.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "Đóng góp",
   "open.contribute.body": "Hoan nghênh PR đầu tay. Mỗi PR đều chạy kiểm thử Vitest, cargo test và kiểm thử phần lưu trữ. Review luôn thân thiện.",
   "open.builtWith": "Xây dựng bằng",
-
   "footer.tag": "Ảnh chụp màn hình, liên kết công khai, bộ nhớ tạm. Một phím bấm.",
   "footer.product": "Sản phẩm",
   "footer.download": "Tải xuống",

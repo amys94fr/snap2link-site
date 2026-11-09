@@ -10,9 +10,21 @@ export interface Release {
   version: string;
   /** Rounded sizes, such as "3.6 MB", when the asset was found. */
   sizes: { windows?: string; mac?: string };
+  /** Direct links to the installers, or the releases page when one is missing. */
+  downloads: { windows: string; mac: string };
 }
 
-const FALLBACK: Release = { version: "1.8.0", sizes: {} };
+/** Where a download button goes when the installer itself can't be found. */
+export const RELEASES_PAGE = "https://github.com/amys94fr/Snap2Link/releases/latest";
+
+/** The installer names, also matched by the script in Layout that refreshes the links. */
+export const INSTALLERS = { windows: /x64-setup\.exe$/, mac: /universal\.dmg$/ };
+
+const FALLBACK: Release = {
+  version: "1.8.0",
+  sizes: {},
+  downloads: { windows: RELEASES_PAGE, mac: RELEASES_PAGE },
+};
 
 const megabytes = (bytes: number) => `${(bytes / 1_000_000).toFixed(bytes < 10_000_000 ? 1 : 0)} MB`;
 
@@ -24,15 +36,24 @@ async function fetchRelease(): Promise<Release> {
     if (!response.ok) return FALLBACK;
     const release = (await response.json()) as {
       tag_name?: string;
-      assets?: { name: string; size: number }[];
+      assets?: { name: string; size: number; browser_download_url?: string }[];
     };
     const version = release.tag_name?.replace(/^v/, "");
     if (!version || !/^\d+\.\d+\.\d+$/.test(version)) return FALLBACK;
+    const asset = (pattern: RegExp) => release.assets?.find(({ name }) => pattern.test(name));
     const size = (pattern: RegExp) => {
-      const asset = release.assets?.find(({ name }) => pattern.test(name));
-      return asset ? megabytes(asset.size) : undefined;
+      const found = asset(pattern);
+      return found ? megabytes(found.size) : undefined;
     };
-    return { version, sizes: { windows: size(/x64-setup\.exe$/), mac: size(/universal\.dmg$/) } };
+    const link = (pattern: RegExp) => {
+      const url = asset(pattern)?.browser_download_url;
+      return url?.startsWith("https://github.com/") ? url : RELEASES_PAGE;
+    };
+    return {
+      version,
+      sizes: { windows: size(INSTALLERS.windows), mac: size(INSTALLERS.mac) },
+      downloads: { windows: link(INSTALLERS.windows), mac: link(INSTALLERS.mac) },
+    };
   } catch {
     return FALLBACK;
   }

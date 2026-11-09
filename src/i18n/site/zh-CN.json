@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · 把截图粘贴到 Claude Code、Cursor 或任何终端 AI",
   "meta.description": "按下快捷键，拖选区域，公开分享链接就会进入剪贴板。一键完成，支持 Windows、macOS 和 Linux。免费开源，MIT 许可证。",
-
   "nav.features": "功能",
   "nav.how": "工作原理",
   "nav.download": "下载",
@@ -12,12 +11,11 @@
   "nav.account": "我的账号",
   "nav.cta": "获取 Snap2Link",
   "nav.language": "语言",
-
   "hero.pill": "现已发布",
   "hero.title": "把截图粘贴到 <span class=\"accent\">Claude Code</span>、Cursor 或任何终端 AI。",
   "hero.lead": "按下快捷键，拖选区域，公开分享链接就会进入剪贴板。一键完成，支持 Windows、macOS 和 Linux。",
-  "hero.dmg": "下载 .dmg",
-
+  "hero.win": "下载 Windows 版",
+  "hero.mac": "下载 macOS 版",
   "demo.url": "snap2link · 正在截取区域",
   "demo.idle": "1. 待命",
   "demo.hotkey": "2. 快捷键",
@@ -31,7 +29,6 @@
   "demo.copied": "链接已复制",
   "demo.prompt": "看看这个",
   "demo.reply": "第 142 行出现了 TypeError：在 fetch 完成之前就读取了 user.profile",
-
   "why.eyebrow": "为 AI 工作流打造",
   "why.title": "别再截图、上传、复制、粘贴了。",
   "why.p1": "你正在远程 VPS 上用 Claude Code 干活，需要给模型看一个 UI bug、一张设计稿或一段堆栈跟踪。常规流程（截图、打开浏览器、找个地方上传、复制 URL、粘贴）要六步、三个应用，还有一去不返的十几秒。",
@@ -53,7 +50,6 @@
   "inbox.after": "使用 Snap2Link",
   "inbox.message": "你好，结账按钮点了没反应：",
   "inbox.afterCount": "已保存 0 个文件",
-
   "features.eyebrow": "功能",
   "features.title": "为按键而生，不为炫技。",
   "features.ai.title": "为 AI 工作流打造",
@@ -83,7 +79,6 @@
   "features.updater.body": "更新包均已签名，每次更新都会自行校验。随时可在设置中检查更新。",
   "features.host.title": "托管方式任你选",
   "features.host.body": "可选 Snap2Link 托管服务（链接自动过期），或使用 drive.file 权限范围的你自己的 Google Drive：Snap2Link 只能看到它自己创建的文件，旧截图默认 30 天后删除。",
-
   "how.eyebrow": "工作原理",
   "how.title": "三个步骤，每步一个按键。",
   "how.s1.title": "按下快捷键",
@@ -93,19 +88,16 @@
   "how.s3.title": "随处粘贴",
   "how.s3.body": "链接已在剪贴板中。粘贴到 Claude Code、Cursor、聊天窗口或 issue 里，任何接受图片 URL 的地方都行。",
   "how.s3.prompt": "哪里坏了：",
-
   "install.eyebrow": "安装",
   "install.title": "一行命令，三大平台。",
-  "install.winManual": "从 GitHub 发行版下载 .exe",
-  "install.macCmd": "下载 {file}",
-  "install.macManual": "从 GitHub 发行版下载 .dmg",
+  "install.winCommand": "习惯用终端？用 winget 安装：",
+  "install.releases": "查看 GitHub 发行版",
   "install.linManual": "下载 .AppImage、.deb 或 .rpm",
   "install.copy": "复制",
   "install.copied": "已复制",
   "install.copyLabel": "复制命令",
   "install.signing": "Windows 安装包尚未进行代码签名，因此 SmartScreen 可能会要求你确认。",
   "install.signingLink": "代码签名政策",
-
   "open.eyebrow": "开源",
   "open.title": "免费、开源、MIT 许可证。",
   "open.lead": "阅读源码、提交 issue、发起 PR。项目刚起步，每一颗星都很重要。",
@@ -117,7 +109,6 @@
   "open.contribute.title": "参与贡献",
   "open.contribute.body": "欢迎提交你的第一个 PR。每个 PR 都会运行 Vitest、cargo test 和托管服务测试。代码审查很友好。",
   "open.builtWith": "技术栈",
-
   "footer.tag": "截图、公开链接、剪贴板，一键搞定。",
   "footer.product": "产品",
   "footer.download": "下载",

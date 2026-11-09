@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · اسکرین‌شات را در Claude Code، Cursor یا هر هوش مصنوعی ترمینالی بچسبانید",
   "meta.description": "میان‌بر را بزنید، ناحیه‌ای را بکشید، و لینک اشتراک عمومی در کلیپ‌بورد شماست. فقط با یک کلید، روی Windows، macOS و Linux. رایگان، متن‌باز، با مجوز MIT.",
-
   "nav.features": "امکانات",
   "nav.how": "چطور کار می‌کند",
   "nav.download": "دانلود",
@@ -12,12 +11,11 @@
   "nav.account": "حساب من",
   "nav.cta": "دریافت Snap2Link",
   "nav.language": "زبان",
-
   "hero.pill": "منتشر شد",
   "hero.title": "اسکرین‌شات را در <span class=\"accent\">Claude Code</span>، Cursor یا هر هوش مصنوعی ترمینالی بچسبانید.",
   "hero.lead": "میان‌بر را بزنید، ناحیه‌ای را بکشید، و لینک اشتراک عمومی در کلیپ‌بورد شماست. فقط با یک کلید، روی Windows، macOS و Linux.",
-  "hero.dmg": "دانلود .dmg",
-
+  "hero.win": "دانلود برای Windows",
+  "hero.mac": "دانلود برای macOS",
   "demo.url": "snap2link · ثبت ناحیه",
   "demo.idle": "1. آماده",
   "demo.hotkey": "2. میان‌بر",
@@ -31,7 +29,6 @@
   "demo.copied": "لینک کپی شد",
   "demo.prompt": "این را ببین",
   "demo.reply": "خطای TypeError را در خط 142 می‌بینم: user.profile پیش از کامل شدن fetch خوانده می‌شود",
-
   "why.eyebrow": "ساخته‌شده برای کار با هوش مصنوعی",
   "why.title": "خداحافظ اسکرین‌شات، آپلود، کپی و چسباندن.",
   "why.p1": "با Claude Code روی یک VPS راه‌دور کار می‌کنید و باید یک باگ رابط کاربری، یک ماکاپ طراحی یا یک stack trace را به مدل نشان دهید. روال معمول (اسکرین‌شات، باز کردن مرورگر، آپلود در جایی، کپی URL، چسباندن) یعنی شش مرحله، سه برنامه و ده‌ها ثانیه که دیگر برنمی‌گردد.",
@@ -53,7 +50,6 @@
   "inbox.after": "با Snap2Link",
   "inbox.message": "سلام، دکمه پرداخت کار نمی‌کند:",
   "inbox.afterCount": "0 فایل ذخیره‌شده",
-
   "features.eyebrow": "امکانات",
   "features.title": "ساخته‌شده برای یک کلید، نه برای تور آموزشی.",
   "features.ai.title": "ساخته‌شده برای کار با هوش مصنوعی",
@@ -83,7 +79,6 @@
   "features.updater.body": "بسته‌های به‌روزرسانی امضاشده‌اند، پس هر به‌روزرسانی خودش را تأیید می‌کند. هر وقت خواستید، به‌روزرسانی‌ها را در تنظیمات بررسی کنید.",
   "features.host.title": "میزبان به انتخاب شما",
   "features.host.body": "میزبانی Snap2Link، که لینک‌ها در آن خودشان منقضی می‌شوند، یا Google Drive خودتان با دسترسی drive.file: Snap2Link فقط چیزهایی را می‌بیند که خودش ساخته، و تصویرهای قدیمی به‌طور پیش‌فرض پس از 30 روز حذف می‌شوند.",
-
   "how.eyebrow": "چطور کار می‌کند",
   "how.title": "سه مرحله. هر کدام یک کلید.",
   "how.s1.title": "میان‌بر را بزنید",
@@ -93,19 +88,16 @@
   "how.s3.title": "هر جا بچسبانید",
   "how.s3.body": "لینک در کلیپ‌بورد شماست. آن را در Claude Code، Cursor، یک گفتگو یا یک issue بچسبانید. هر جایی که URL تصویر بپذیرد.",
   "how.s3.prompt": "چه چیزی خراب است:",
-
   "install.eyebrow": "نصب",
   "install.title": "یک خط. سه پلتفرم.",
-  "install.winManual": "فایل .exe را از صفحه انتشارهای GitHub دانلود کنید",
-  "install.macCmd": "دانلود {file}",
-  "install.macManual": "فایل .dmg را از صفحه انتشارهای GitHub دانلود کنید",
+  "install.winCommand": "ترمینال را ترجیح می‌دهید؟ با winget نصب کنید:",
+  "install.releases": "دیدن انتشارها در GitHub",
   "install.linManual": "فایل .AppImage، .deb یا .rpm را دانلود کنید",
   "install.copy": "کپی",
   "install.copied": "کپی شد",
   "install.copyLabel": "کپی فرمان",
   "install.signing": "نصب‌کننده‌های Windows هنوز امضای کد ندارند، پس ممکن است SmartScreen از شما تأیید بخواهد.",
   "install.signingLink": "سیاست امضای کد",
-
   "open.eyebrow": "متن‌باز",
   "open.title": "رایگان، متن‌باز، با مجوز MIT.",
   "open.lead": "کد را بخوانید، issue ثبت کنید، PR بفرستید. هنوز اول راهیم: هر ستاره کمک می‌کند.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "مشارکت کنید",
   "open.contribute.body": "از اولین PR شما استقبال می‌کنیم. هر PR تست‌های Vitest، cargo test و تست‌های میزبانی را اجرا می‌کند. بازبینی‌ها دوستانه‌اند.",
   "open.builtWith": "ساخته‌شده با",
-
   "footer.tag": "اسکرین‌شات، لینک عمومی، کلیپ‌بورد. با یک کلید.",
   "footer.product": "محصول",
   "footer.download": "دانلود",

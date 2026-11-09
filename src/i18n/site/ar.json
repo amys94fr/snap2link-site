@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · الصق لقطات الشاشة في Claude Code أو Cursor أو أي ذكاء اصطناعي في الطرفية",
   "meta.description": "اضغط الاختصار، وحدّد منطقة بالسحب، فيصل رابط مشاركة عام إلى الحافظة. ضغطة واحدة، على Windows وmacOS وLinux. مجاني، مفتوح المصدر، برخصة MIT.",
-
   "nav.features": "الميزات",
   "nav.how": "طريقة العمل",
   "nav.download": "التنزيل",
@@ -12,12 +11,11 @@
   "nav.account": "حسابي",
   "nav.cta": "احصل على Snap2Link",
   "nav.language": "اللغة",
-
   "hero.pill": "متاح الآن",
   "hero.title": "الصق لقطات الشاشة في <span class=\"accent\">Claude Code</span> أو Cursor أو أي ذكاء اصطناعي في الطرفية.",
   "hero.lead": "اضغط الاختصار، وحدّد منطقة بالسحب، فيصل رابط مشاركة عام إلى الحافظة. ضغطة واحدة، على Windows وmacOS وLinux.",
-  "hero.dmg": "تنزيل .dmg",
-
+  "hero.win": "تنزيل لنظام Windows",
+  "hero.mac": "تنزيل لنظام macOS",
   "demo.url": "snap2link · التقاط منطقة",
   "demo.idle": "1. انتظار",
   "demo.hotkey": "2. الاختصار",
@@ -31,7 +29,6 @@
   "demo.copied": "تم نسخ الرابط",
   "demo.prompt": "انظر إلى هذا",
   "demo.reply": "أرى الخطأ TypeError في السطر 142: تتم قراءة user.profile قبل اكتمال fetch",
-
   "why.eyebrow": "مصمَّم للعمل مع الذكاء الاصطناعي",
   "why.title": "كفى التقاطًا ورفعًا ونسخًا ولصقًا.",
   "why.p1": "تعمل مع Claude Code على خادم VPS بعيد، وتحتاج إلى أن تعرض على النموذج خطأً في الواجهة أو تصميمًا مبدئيًا أو stack trace. الطريقة المعتادة (لقطة شاشة، ثم فتح المتصفح، ثم الرفع إلى مكان ما، ثم نسخ الرابط، ثم اللصق) تعني ست خطوات وثلاثة تطبيقات وثوانيَ لن تستعيدها أبدًا.",
@@ -53,7 +50,6 @@
   "inbox.after": "مع Snap2Link",
   "inbox.message": "مرحبًا، زر الدفع لا يستجيب:",
   "inbox.afterCount": "0 ملف محفوظ",
-
   "features.eyebrow": "الميزات",
   "features.title": "مصمَّم للضغطة، لا للجولة التعريفية.",
   "features.ai.title": "مصمَّم للعمل مع الذكاء الاصطناعي",
@@ -83,7 +79,6 @@
   "features.updater.body": "أرشيفات تحديث موقّعة، فيتحقق كل تحديث من نفسه. تحقّق من وجود تحديثات في الإعدادات متى شئت.",
   "features.host.title": "الاستضافة باختيارك",
   "features.host.body": "استضافة Snap2Link، حيث تنتهي الروابط من تلقاء نفسها، أو Google Drive الخاص بك بنطاق drive.file: لا يرى Snap2Link إلا ما أنشأه، وتُحذف اللقطات القديمة بعد 30 يومًا افتراضيًا.",
-
   "how.eyebrow": "طريقة العمل",
   "how.title": "ثلاث خطوات. ضغطة واحدة لكل منها.",
   "how.s1.title": "اضغط الاختصار",
@@ -93,19 +88,16 @@
   "how.s3.title": "الصق في أي مكان",
   "how.s3.body": "الرابط في الحافظة. الصقه في Claude Code أو Cursor أو محادثة أو issue. في أي مكان يقبل رابط صورة.",
   "how.s3.prompt": "ما العطل هنا:",
-
   "install.eyebrow": "التثبيت",
   "install.title": "سطر واحد. ثلاث منصات.",
-  "install.winManual": "نزّل ملف .exe من إصدارات GitHub",
-  "install.macCmd": "تنزيل {file}",
-  "install.macManual": "نزّل ملف .dmg من إصدارات GitHub",
+  "install.winCommand": "تفضّل الطرفية؟ ثبّته باستخدام winget:",
+  "install.releases": "عرض الإصدارات على GitHub",
   "install.linManual": "نزّل ملف .AppImage أو .deb أو .rpm",
   "install.copy": "نسخ",
   "install.copied": "تم النسخ",
   "install.copyLabel": "انسخ الأمر",
   "install.signing": "مثبّتات Windows غير موقّعة رقميًا بعد، لذا قد يطلب منك SmartScreen التأكيد.",
   "install.signingLink": "سياسة توقيع الشيفرة",
-
   "open.eyebrow": "مفتوح المصدر",
   "open.title": "مجاني، مفتوح المصدر، برخصة MIT.",
   "open.lead": "اقرأ الشيفرة، أبلغ عن مشكلة، أرسل PR. ما زلنا في البداية: كل نجمة تُحدث فرقًا.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "ساهم",
   "open.contribute.body": "نرحّب بأول PR لك. كل PR يشغّل اختبارات Vitest وcargo test واختبارات الاستضافة. والمراجعات ودّية.",
   "open.builtWith": "مبني بـ",
-
   "footer.tag": "لقطة شاشة، رابط عام، الحافظة. ضغطة واحدة.",
   "footer.product": "المنتج",
   "footer.download": "التنزيل",

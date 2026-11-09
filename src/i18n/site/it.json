@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · incolla screenshot in Claude Code, Cursor o qualsiasi IA da terminale",
   "meta.description": "Premi una scorciatoia, trascini un'area e un link pubblico finisce negli appunti. Un solo tasto, su Windows, macOS e Linux. Gratuito, open source, con licenza MIT.",
-
   "nav.features": "Funzionalità",
   "nav.how": "Come funziona",
   "nav.download": "Download",
@@ -12,12 +11,11 @@
   "nav.account": "Il mio account",
   "nav.cta": "Scarica Snap2Link",
   "nav.language": "Lingua",
-
   "hero.pill": "disponibile ora",
   "hero.title": "Incolla screenshot in <span class=\"accent\">Claude Code</span>, Cursor o qualsiasi IA da terminale.",
   "hero.lead": "Premi una scorciatoia, trascini un'area e un link pubblico finisce negli appunti. Un solo tasto, su Windows, macOS e Linux.",
-  "hero.dmg": "Scarica il .dmg",
-
+  "hero.win": "Scarica per Windows",
+  "hero.mac": "Scarica per macOS",
   "demo.url": "snap2link · cattura dell'area",
   "demo.idle": "1. in attesa",
   "demo.hotkey": "2. scorciatoia",
@@ -31,7 +29,6 @@
   "demo.copied": "Link copiato",
   "demo.prompt": "guarda qui",
   "demo.reply": "Vedo il TypeError alla riga 142: user.profile viene letto prima che la fetch si risolva",
-
   "why.eyebrow": "Pensato per i workflow con l'IA",
   "why.title": "Basta screenshot, upload, copia e incolla.",
   "why.p1": "Lavori con Claude Code su un VPS remoto. Devi mostrare al modello un bug dell'interfaccia, un mockup, uno stack trace. Il solito giro (screenshot, apri il browser, carica da qualche parte, copia l'URL, incolla) sono sei passaggi, tre app e una decina di secondi che non tornano più.",
@@ -53,7 +50,6 @@
   "inbox.after": "Con Snap2Link",
   "inbox.message": "Ciao, il pulsante di pagamento non fa niente:",
   "inbox.afterCount": "0 file salvati",
-
   "features.eyebrow": "Funzionalità",
   "features.title": "Pensato per il tasto, non per il tour.",
   "features.ai.title": "Pensato per i workflow con l'IA",
@@ -83,7 +79,6 @@
   "features.updater.body": "Archivi di aggiornamento firmati, così ogni aggiornamento si verifica da solo. Cerca aggiornamenti nelle Impostazioni quando vuoi.",
   "features.host.title": "L'hosting lo scegli tu",
   "features.host.body": "L'hosting di Snap2Link, dove i link scadono da soli, o il tuo Google Drive con lo scope drive.file: Snap2Link vede solo ciò che ha creato, e gli screenshot vecchi vengono rimossi dopo 30 giorni di default.",
-
   "how.eyebrow": "Come funziona",
   "how.title": "Tre passaggi. Un tasto ciascuno.",
   "how.s1.title": "Premi la scorciatoia",
@@ -93,19 +88,16 @@
   "how.s3.title": "Incolla dove vuoi",
   "how.s3.body": "Il link è negli appunti. Incollalo in Claude Code, Cursor, una chat, una issue. Ovunque si accetti l'URL di un'immagine.",
   "how.s3.prompt": "cosa non va:",
-
   "install.eyebrow": "Installazione",
   "install.title": "Una riga. Tre piattaforme.",
-  "install.winManual": "Scarica il .exe dalle release di GitHub",
-  "install.macCmd": "Scarica {file}",
-  "install.macManual": "Scarica il .dmg dalle release di GitHub",
+  "install.winCommand": "Preferisci il terminale? Installa con winget:",
+  "install.releases": "Vedi le release su GitHub",
   "install.linManual": "Scarica il .AppImage, il .deb o il .rpm",
   "install.copy": "Copia",
   "install.copied": "Copiato",
   "install.copyLabel": "Copia il comando",
   "install.signing": "Gli installer per Windows non hanno ancora la firma del codice, quindi SmartScreen potrebbe chiederti una conferma.",
   "install.signingLink": "Criteri di firma del codice",
-
   "open.eyebrow": "Open source",
   "open.title": "Gratuito, open source, con licenza MIT.",
   "open.lead": "Leggi il codice, apri una issue, manda una PR. Siamo agli inizi: ogni stella aiuta.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "Contribuisci",
   "open.contribute.body": "Le PR sulle prime issue sono benvenute. Ogni PR esegue Vitest, cargo test e i test dell'hosting. Le review sono cordiali.",
   "open.builtWith": "Realizzato con",
-
   "footer.tag": "Screenshot, link pubblico, appunti. Un solo tasto.",
   "footer.product": "Prodotto",
   "footer.download": "Download",

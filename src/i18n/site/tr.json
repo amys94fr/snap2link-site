@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · ekran görüntülerini Claude Code, Cursor veya herhangi bir terminal yapay zekasına yapıştır",
   "meta.description": "Kısayola bas, bir bölge seç, herkese açık paylaşım bağlantısı panona gelsin. Tek tuşla, Windows, macOS ve Linux'ta. Ücretsiz, açık kaynak, MIT lisanslı.",
-
   "nav.features": "Özellikler",
   "nav.how": "Nasıl çalışır",
   "nav.download": "İndir",
@@ -12,12 +11,11 @@
   "nav.account": "Hesabım",
   "nav.cta": "Snap2Link'i edin",
   "nav.language": "Dil",
-
   "hero.pill": "yayında",
   "hero.title": "Ekran görüntülerini <span class=\"accent\">Claude Code</span>, Cursor veya herhangi bir terminal yapay zekasına yapıştır.",
   "hero.lead": "Kısayola bas, bir bölge seç, herkese açık paylaşım bağlantısı panona gelsin. Tek tuşla, Windows, macOS ve Linux'ta.",
-  "hero.dmg": ".dmg indir",
-
+  "hero.win": "Windows için indir",
+  "hero.mac": "macOS için indir",
   "demo.url": "snap2link · bölge yakalanıyor",
   "demo.idle": "1. bekleme",
   "demo.hotkey": "2. kısayol",
@@ -31,7 +29,6 @@
   "demo.copied": "Bağlantı kopyalandı",
   "demo.prompt": "şuna bak",
   "demo.reply": "142. satırdaki TypeError'ı görüyorum: user.profile, fetch tamamlanmadan okunuyor",
-
   "why.eyebrow": "Yapay zeka iş akışları için",
   "why.title": "Görüntü al, yükle, kopyala, yapıştır döngüsüne son.",
   "why.p1": "Uzak bir VPS'te Claude Code ile çalışıyorsun. Modele bir arayüz hatası, bir tasarım taslağı ya da bir stack trace göstermen gerekiyor. Alışılmış yol (görüntü al, tarayıcıyı aç, bir yere yükle, URL'yi kopyala, yapıştır) altı adım, üç uygulama ve bir daha geri gelmeyecek on saniyeden fazlası demek.",
@@ -53,7 +50,6 @@
   "inbox.after": "Snap2Link ile",
   "inbox.message": "Merhaba, ödeme butonu hiçbir şey yapmıyor:",
   "inbox.afterCount": "Kaydedilen dosya: 0",
-
   "features.eyebrow": "Özellikler",
   "features.title": "Tura değil, tek tuşa göre tasarlandı.",
   "features.ai.title": "Yapay zeka iş akışları için",
@@ -83,7 +79,6 @@
   "features.updater.body": "İmzalı güncelleme arşivleri, böylece her güncelleme kendini doğrular. Güncellemeleri istediğin zaman Ayarlar'dan denetle.",
   "features.host.title": "Barındırmayı sen seç",
   "features.host.body": "Bağlantıların kendiliğinden sona erdiği Snap2Link barındırma hizmeti ya da drive.file kapsamıyla kendi Google Drive'ın: Snap2Link yalnızca kendi oluşturduklarını görür ve eski görüntüler varsayılan olarak 30 gün sonra silinir.",
-
   "how.eyebrow": "Nasıl çalışır",
   "how.title": "Üç adım. Her biri tek tuş.",
   "how.s1.title": "Kısayola bas",
@@ -93,19 +88,16 @@
   "how.s3.title": "Her yere yapıştır",
   "how.s3.body": "Bağlantı panonda. Claude Code'a, Cursor'a, bir sohbete, bir issue'ya yapıştır. Görüntü URL'si kabul eden her yere.",
   "how.s3.prompt": "ne bozuk:",
-
   "install.eyebrow": "Kurulum",
   "install.title": "Tek satır. Üç platform.",
-  "install.winManual": "GitHub sürümlerinden .exe dosyasını indir",
-  "install.macCmd": "{file} indir",
-  "install.macManual": "GitHub sürümlerinden .dmg dosyasını indir",
+  "install.winCommand": "Terminali mi tercih edersin? winget ile kur:",
+  "install.releases": "GitHub sürümlerini gör",
   "install.linManual": ".AppImage, .deb veya .rpm indir",
   "install.copy": "Kopyala",
   "install.copied": "Kopyalandı",
   "install.copyLabel": "Komutu kopyala",
   "install.signing": "Windows yükleyicileri henüz kod imzalı değil, bu yüzden SmartScreen onay isteyebilir.",
   "install.signingLink": "Kod imzalama politikası",
-
   "open.eyebrow": "Açık kaynak",
   "open.title": "Ücretsiz, açık kaynak, MIT lisanslı.",
   "open.lead": "Kaynağı oku, issue aç, PR gönder. Daha yolun başındayız: her yıldız işe yarar.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "Katkıda bulun",
   "open.contribute.body": "İlk katkı PR'larına kapımız açık. Her PR Vitest, cargo test ve barındırma testlerinden geçer. İncelemeler dostanedir.",
   "open.builtWith": "Kullanılan teknolojiler",
-
   "footer.tag": "Ekran görüntüsü, herkese açık bağlantı, pano. Tek tuş.",
   "footer.product": "Ürün",
   "footer.download": "İndir",

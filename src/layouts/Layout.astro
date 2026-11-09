@@ -209,13 +209,20 @@ const softwareLD = {
               tag_name?: string;
               draft?: boolean;
               prerelease?: boolean;
-              assets?: Array<{ download_count?: number }>;
+              assets?: Array<{ name?: string; download_count?: number; browser_download_url?: string }>;
             };
             const releases = (await r.json()) as R[];
             // Newest first: the first published one is the version to show.
             const latest = releases.find((rel) => !rel.draft && !rel.prerelease);
             const version = latest?.tag_name?.replace(/^v/, "");
             if (version && /^\d+\.\d+\.\d+$/.test(version)) set("[data-gh-version]", version);
+            // Download buttons follow a release published after the last deploy.
+            const installers: Record<string, RegExp> = { windows: /x64-setup\.exe$/, mac: /universal\.dmg$/ };
+            document.querySelectorAll<HTMLAnchorElement>("[data-download]").forEach((link) => {
+              const pattern = installers[link.dataset.download ?? ""];
+              const url = latest?.assets?.find((a) => pattern?.test(a.name ?? ""))?.browser_download_url;
+              if (url?.startsWith("https://github.com/amys94fr/Snap2Link/releases/download/")) link.href = url;
+            });
             const total = releases.reduce(
               (sum, rel) =>
                 sum +

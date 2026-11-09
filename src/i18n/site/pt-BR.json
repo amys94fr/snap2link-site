@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · cole capturas de tela no Claude Code, no Cursor ou em qualquer IA de terminal",
   "meta.description": "Aperte um atalho, arraste uma região e um link público vai para a sua área de transferência. Uma tecla só, no Windows, macOS e Linux. Gratuito, open source, licença MIT.",
-
   "nav.features": "Recursos",
   "nav.how": "Como funciona",
   "nav.download": "Baixar",
@@ -12,12 +11,11 @@
   "nav.account": "Minha conta",
   "nav.cta": "Baixe o Snap2Link",
   "nav.language": "Idioma",
-
   "hero.pill": "já disponível",
   "hero.title": "Cole capturas de tela no <span class=\"accent\">Claude Code</span>, no Cursor ou em qualquer IA de terminal.",
   "hero.lead": "Aperte um atalho, arraste uma região e um link público vai para a sua área de transferência. Uma tecla só, no Windows, macOS e Linux.",
-  "hero.dmg": "Baixar .dmg",
-
+  "hero.win": "Baixar para Windows",
+  "hero.mac": "Baixar para macOS",
   "demo.url": "snap2link · capturando região",
   "demo.idle": "1. em espera",
   "demo.hotkey": "2. atalho",
@@ -31,7 +29,6 @@
   "demo.copied": "Link copiado",
   "demo.prompt": "olha isso",
   "demo.reply": "Vejo o TypeError na linha 142: user.profile é lido antes de o fetch resolver",
-
   "why.eyebrow": "Feito para fluxos com IA",
   "why.title": "Chega de capturar, enviar, copiar e colar.",
   "why.p1": "Você está trabalhando com o Claude Code em um VPS remoto. Precisa mostrar ao modelo um bug de interface, um mockup, um stack trace. O fluxo de sempre (captura, abrir o navegador, enviar para algum lugar, copiar a URL, colar) são seis etapas, três apps e uma dúzia de segundos que não voltam mais.",
@@ -53,7 +50,6 @@
   "inbox.after": "Com o Snap2Link",
   "inbox.message": "Oi, o botão de pagamento não faz nada:",
   "inbox.afterCount": "0 arquivos salvos",
-
   "features.eyebrow": "Recursos",
   "features.title": "Feito para a tecla, não para o tour.",
   "features.ai.title": "Feito para fluxos com IA",
@@ -83,7 +79,6 @@
   "features.updater.body": "Pacotes de atualização assinados, então cada atualização se verifica sozinha. Verifique atualizações nas Configurações quando quiser.",
   "features.host.title": "Você escolhe a hospedagem",
   "features.host.body": "A hospedagem do Snap2Link, onde os links expiram sozinhos, ou o seu próprio Google Drive com o escopo drive.file: o Snap2Link só vê o que ele mesmo criou, e as capturas antigas são removidas depois de 30 dias por padrão.",
-
   "how.eyebrow": "Como funciona",
   "how.title": "Três passos. Uma tecla cada.",
   "how.s1.title": "Aperte o atalho",
@@ -93,19 +88,16 @@
   "how.s3.title": "Cole onde quiser",
   "how.s3.body": "O link está na área de transferência. Cole no Claude Code, no Cursor, em um chat, em uma issue. Em qualquer lugar que aceite a URL de uma imagem.",
   "how.s3.prompt": "o que está quebrado:",
-
   "install.eyebrow": "Instalação",
   "install.title": "Uma linha. Três plataformas.",
-  "install.winManual": "Baixe o .exe nas releases do GitHub",
-  "install.macCmd": "Baixar {file}",
-  "install.macManual": "Baixe o .dmg nas releases do GitHub",
+  "install.winCommand": "Prefere o terminal? Instale com o winget:",
+  "install.releases": "Ver as releases no GitHub",
   "install.linManual": "Baixe o .AppImage, .deb ou .rpm",
   "install.copy": "Copiar",
   "install.copied": "Copiado",
   "install.copyLabel": "Copiar o comando",
   "install.signing": "Os instaladores para Windows ainda não têm assinatura de código, então o SmartScreen pode pedir uma confirmação.",
   "install.signingLink": "Política de assinatura de código",
-
   "open.eyebrow": "Open source",
   "open.title": "Gratuito, open source, licença MIT.",
   "open.lead": "Leia o código, abra uma issue, mande um PR. Estamos no começo: cada estrela ajuda.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "Contribua",
   "open.contribute.body": "PRs para primeiras issues são bem-vindos. Cada PR roda o Vitest, o cargo test e os testes da hospedagem. As revisões são amigáveis.",
   "open.builtWith": "Feito com",
-
   "footer.tag": "Captura, link público, área de transferência. Uma tecla.",
   "footer.product": "Produto",
   "footer.download": "Baixar",

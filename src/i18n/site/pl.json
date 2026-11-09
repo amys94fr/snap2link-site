@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · wklejaj zrzuty ekranu do Claude Code, Cursor lub dowolnego AI w terminalu",
   "meta.description": "Skrót, zaznacz obszar i publiczny link do udostępnienia trafia do schowka. Jedno naciśnięcie klawisza, na Windows, macOS i Linux. Darmowy, open source, na licencji MIT.",
-
   "nav.features": "Funkcje",
   "nav.how": "Jak to działa",
   "nav.download": "Pobierz",
@@ -12,12 +11,11 @@
   "nav.account": "Moje konto",
   "nav.cta": "Pobierz Snap2Link",
   "nav.language": "Język",
-
   "hero.pill": "już dostępny",
   "hero.title": "Wklejaj zrzuty ekranu do <span class=\"accent\">Claude Code</span>, Cursor lub dowolnego AI w terminalu.",
   "hero.lead": "Skrót, zaznacz obszar i publiczny link trafia do schowka. Jedno naciśnięcie klawisza, na Windows, macOS i Linux.",
-  "hero.dmg": "Pobierz .dmg",
-
+  "hero.win": "Pobierz na Windows",
+  "hero.mac": "Pobierz na macOS",
   "demo.url": "snap2link · zrzut obszaru",
   "demo.idle": "1. gotowy",
   "demo.hotkey": "2. skrót",
@@ -31,7 +29,6 @@
   "demo.copied": "Link skopiowany",
   "demo.prompt": "zobacz to",
   "demo.reply": "Widzę TypeError w linii 142: user.profile jest odczytywane, zanim fetch się zakończy",
-
   "why.eyebrow": "Stworzony do pracy z AI",
   "why.title": "Koniec ze zrzutem, wysyłaniem, kopiowaniem i wklejaniem.",
   "why.p1": "Pracujesz z Claude Code na zdalnym VPS. Musisz pokazać modelowi błąd w UI, makietę albo stack trace. Zwykły sposób (zrzut ekranu, przeglądarka, upload gdziekolwiek, kopiowanie URL, wklejenie) to sześć kroków, trzy aplikacje i kilkanaście sekund, których nikt Ci nie odda.",
@@ -53,7 +50,6 @@
   "inbox.after": "Ze Snap2Link",
   "inbox.message": "Cześć, przycisk płatności nic nie robi:",
   "inbox.afterCount": "Zapisane pliki: 0",
-
   "features.eyebrow": "Funkcje",
   "features.title": "Liczy się skrót, nie samouczek.",
   "features.ai.title": "Stworzony do pracy z AI",
@@ -83,7 +79,6 @@
   "features.updater.body": "Podpisane archiwa aktualizacji, więc każda aktualizacja sama się weryfikuje. Sprawdź aktualizacje w Ustawieniach, kiedy chcesz.",
   "features.host.title": "Ty wybierasz hosting",
   "features.host.body": "Hosting Snap2Link, gdzie linki same wygasają, albo Twój własny Google Drive z zakresem drive.file: Snap2Link widzi tylko to, co sam utworzył, a stare zrzuty domyślnie znikają po 30 dniach.",
-
   "how.eyebrow": "Jak to działa",
   "how.title": "Trzy kroki. Każdy jednym klawiszem.",
   "how.s1.title": "Naciśnij skrót",
@@ -93,19 +88,16 @@
   "how.s3.title": "Wklej, gdzie chcesz",
   "how.s3.body": "Link jest w schowku. Wklej go do Claude Code, Cursor, czatu, zgłoszenia. Wszędzie, gdzie przyjmą URL obrazu.",
   "how.s3.prompt": "co nie działa:",
-
   "install.eyebrow": "Instalacja",
   "install.title": "Jedna linia. Trzy platformy.",
-  "install.winManual": "Pobierz .exe z wydań na GitHub",
-  "install.macCmd": "Pobierz {file}",
-  "install.macManual": "Pobierz .dmg z wydań na GitHub",
+  "install.winCommand": "Wolisz terminal? Zainstaluj przez winget:",
+  "install.releases": "Zobacz wydania na GitHub",
   "install.linManual": "Pobierz .AppImage, .deb lub .rpm",
   "install.copy": "Kopiuj",
   "install.copied": "Skopiowano",
   "install.copyLabel": "Skopiuj polecenie",
   "install.signing": "Instalatory dla Windows nie są jeszcze podpisane cyfrowo, więc SmartScreen może poprosić o potwierdzenie.",
   "install.signingLink": "Zasady podpisywania kodu",
-
   "open.eyebrow": "Open source",
   "open.title": "Darmowy, open source, licencja MIT.",
   "open.lead": "Przeczytaj kod, zgłoś problem, wyślij PR. To dopiero początek: każda gwiazdka pomaga.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "Dołącz",
   "open.contribute.body": "Czekamy na PR-y od nowych osób. Każdy PR uruchamia Vitest, cargo test i testy hostingu. Recenzje są życzliwe.",
   "open.builtWith": "Zbudowane z",
-
   "footer.tag": "Zrzut ekranu, publiczny link, schowek. Jeden klawisz.",
   "footer.product": "Produkt",
   "footer.download": "Pobierz",

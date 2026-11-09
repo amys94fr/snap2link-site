@@ -1,7 +1,6 @@
 {
   "meta.title": "Snap2Link · tempel tangkapan layar ke Claude Code, Cursor, atau AI terminal apa pun",
   "meta.description": "Tekan pintasan, seret area, dan tautan publik langsung ada di papan klip Anda. Satu tombol, di Windows, macOS, dan Linux. Gratis, open source, berlisensi MIT.",
-
   "nav.features": "Fitur",
   "nav.how": "Cara kerja",
   "nav.download": "Unduh",
@@ -12,12 +11,11 @@
   "nav.account": "Akun saya",
   "nav.cta": "Dapatkan Snap2Link",
   "nav.language": "Bahasa",
-
   "hero.pill": "sudah rilis",
   "hero.title": "Tempel tangkapan layar ke <span class=\"accent\">Claude Code</span>, Cursor, atau AI terminal apa pun.",
   "hero.lead": "Tekan pintasan, seret area, dan tautan publik langsung ada di papan klip Anda. Satu tombol, di Windows, macOS, dan Linux.",
-  "hero.dmg": "Unduh .dmg",
-
+  "hero.win": "Unduh untuk Windows",
+  "hero.mac": "Unduh untuk macOS",
   "demo.url": "snap2link · menangkap area",
   "demo.idle": "1. siaga",
   "demo.hotkey": "2. pintasan",
@@ -31,7 +29,6 @@
   "demo.copied": "Tautan disalin",
   "demo.prompt": "lihat ini",
   "demo.reply": "Saya melihat TypeError di baris 142: user.profile dibaca sebelum fetch selesai",
-
   "why.eyebrow": "Dibuat untuk alur kerja AI",
   "why.title": "Tak perlu lagi tangkap, unggah, salin, tempel.",
   "why.p1": "Anda bekerja dengan Claude Code di VPS jarak jauh. Anda perlu menunjukkan bug UI, mockup desain, atau stack trace ke model. Cara biasanya (tangkap layar, buka browser, unggah ke suatu tempat, salin URL, tempel) butuh enam langkah, tiga aplikasi, dan belasan detik yang tak akan kembali.",
@@ -53,7 +50,6 @@
   "inbox.after": "Dengan Snap2Link",
   "inbox.message": "Halo, tombol checkout-nya tidak berfungsi:",
   "inbox.afterCount": "0 file tersimpan",
-
   "features.eyebrow": "Fitur",
   "features.title": "Cukup satu tombol, tanpa tur panjang.",
   "features.ai.title": "Dibuat untuk alur kerja AI",
@@ -83,7 +79,6 @@
   "features.updater.body": "Arsip pembaruan bertanda tangan, jadi setiap pembaruan memverifikasi dirinya sendiri. Periksa pembaruan di Pengaturan kapan saja.",
   "features.host.title": "Pilih hosting Anda",
   "features.host.body": "Hosting Snap2Link, tempat tautan berakhir dengan sendirinya, atau Google Drive Anda sendiri dengan cakupan drive.file: Snap2Link hanya melihat apa yang dibuatnya, dan tangkapan lama dihapus setelah 30 hari secara default.",
-
   "how.eyebrow": "Cara kerja",
   "how.title": "Tiga langkah. Masing-masing satu tombol.",
   "how.s1.title": "Tekan pintasan",
@@ -93,19 +88,16 @@
   "how.s3.title": "Tempel di mana saja",
   "how.s3.body": "Tautan ada di papan klip Anda. Tempel ke Claude Code, Cursor, chat, issue. Apa pun yang menerima URL gambar.",
   "how.s3.prompt": "apa yang rusak:",
-
   "install.eyebrow": "Instal",
   "install.title": "Satu baris. Tiga platform.",
-  "install.winManual": "Unduh .exe dari rilis GitHub",
-  "install.macCmd": "Unduh {file}",
-  "install.macManual": "Unduh .dmg dari rilis GitHub",
+  "install.winCommand": "Lebih suka terminal? Pasang dengan winget:",
+  "install.releases": "Lihat rilis di GitHub",
   "install.linManual": "Unduh .AppImage, .deb, atau .rpm",
   "install.copy": "Salin",
   "install.copied": "Tersalin",
   "install.copyLabel": "Salin perintah",
   "install.signing": "Penginstal Windows belum ditandatangani kode, jadi SmartScreen mungkin meminta konfirmasi.",
   "install.signingLink": "Kebijakan penandatanganan kode",
-
   "open.eyebrow": "Open source",
   "open.title": "Gratis, open source, berlisensi MIT.",
   "open.lead": "Baca kodenya, laporkan issue, kirim PR. Masih tahap awal: setiap bintang membantu.",
@@ -117,7 +109,6 @@
   "open.contribute.title": "Berkontribusi",
   "open.contribute.body": "PR dari kontributor pemula sangat diterima. Setiap PR menjalankan Vitest, cargo test, dan tes hosting. Review-nya ramah.",
   "open.builtWith": "Dibuat dengan",
-
   "footer.tag": "Tangkapan layar, tautan publik, papan klip. Satu tombol.",
   "footer.product": "Produk",
   "footer.download": "Unduh",
