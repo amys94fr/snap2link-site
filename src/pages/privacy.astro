@@ -7,13 +7,13 @@ import { LEGAL, PAGES } from "../legal";
   lang="en"
   page="privacy"
   title="Privacy policy"
-  description="What Snap2Link does with your data: the website, the app, Google Drive and Snap2Link hosting."
+  description="What Snap2Link does with your data: the website, the apps, Google Drive and Snap2Link hosting."
 >
   <h2>The short version</h2>
   <ul>
     <li>Snap2Link has no tracking, no analytics and no advertising.</li>
     <li>An account is optional, and only asks for your email address.</li>
-    <li>The app runs on your computer. Your settings stay there.</li>
+    <li>The app runs on your computer or your Android phone. Your settings stay there.</li>
     <li>With Google Drive, captures go to your own Drive and never pass through us.</li>
     <li>With Snap2Link hosting, a capture is kept for 24 hours at most, or 48 hours with a free account.</li>
     <li>We never store your IP address, and we collect nothing about your device.</li>
@@ -40,6 +40,15 @@ import { LEGAL, PAGES } from "../legal";
     Settings, shortcuts and tokens are stored on your computer. The app sends us no telemetry. It
     checks GitHub for updates, so GitHub sees your IP address. Captures are temporary files,
     removed after they are sent or the next time the app starts.
+  </p>
+
+  <h2>The Android app</h2>
+  <p>
+    The Android app only reads the image you share with it or pick in it. It keeps its tokens and
+    your email address on your phone, outside Android's backups, and sends us no telemetry. It
+    sends captures to Snap2Link hosting only, not to Google Drive. If you ask it to delete a
+    screenshot from your gallery, Android asks you to confirm first. The app doesn't check for
+    updates: you download new versions from GitHub, which then sees your IP address.
   </p>
 
   <h2>Google Drive</h2>
@@ -80,7 +89,7 @@ import { LEGAL, PAGES } from "../legal";
         <tr>
           <td>A random guest token, stored as a hash</td>
           <td>To apply daily limits and stop abuse (legitimate interest)</td>
-          <td>90 days. Your copy stays on your computer.</td>
+          <td>90 days. Your copy stays on your computer or phone.</td>
         </tr>
         <tr>
           <td>Which guest sent a capture</td>

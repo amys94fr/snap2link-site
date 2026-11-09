@@ -7,13 +7,13 @@ import { LEGAL, PAGES } from "../../legal";
   lang="fr"
   page="privacy"
   title="Politique de confidentialité"
-  description="Ce que Snap2Link fait de vos données : le site, l’application, Google Drive et l’hébergement Snap2Link."
+  description="Ce que Snap2Link fait de vos données : le site, les applications, Google Drive et l’hébergement Snap2Link."
 >
   <h2>L’essentiel</h2>
   <ul>
     <li>Snap2Link n’a ni suivi, ni mesure d’audience, ni publicité.</li>
     <li>Un compte est facultatif, et il ne demande que votre adresse e-mail.</li>
-    <li>L’application tourne sur votre ordinateur. Vos réglages y restent.</li>
+    <li>L’application tourne sur votre ordinateur ou votre téléphone Android. Vos réglages y restent.</li>
     <li>Avec Google Drive, les captures vont sur votre propre Drive et ne passent jamais par nous.</li>
     <li>Avec l’hébergement Snap2Link, une capture est conservée 24 heures au maximum, ou 48 heures avec un compte gratuit.</li>
     <li>Nous ne stockons jamais votre adresse IP, et nous ne collectons rien sur votre appareil.</li>
@@ -42,6 +42,16 @@ import { LEGAL, PAGES } from "../../legal";
     nous envoie aucune télémétrie. Elle cherche les mises à jour sur GitHub, qui voit donc votre
     adresse IP. Les captures sont des fichiers temporaires, supprimés après l’envoi ou au prochain
     démarrage de l’application.
+  </p>
+
+  <h2>L’application Android</h2>
+  <p>
+    L’application Android lit seulement l’image que vous lui partagez ou que vous y choisissez. Elle
+    garde ses jetons et votre adresse e-mail sur votre téléphone, hors des sauvegardes d’Android, et
+    ne nous envoie aucune télémétrie. Elle envoie les captures uniquement vers l’hébergement
+    Snap2Link, pas vers Google Drive. Si vous lui demandez de supprimer une capture de votre galerie,
+    Android vous demande d’abord de confirmer. L’application ne cherche pas les mises à jour : vous
+    téléchargez les nouvelles versions sur GitHub, qui voit alors votre adresse IP.
   </p>
 
   <h2>Google Drive</h2>
@@ -83,7 +93,7 @@ import { LEGAL, PAGES } from "../../legal";
         <tr>
           <td>Un jeton invité aléatoire, stocké sous forme d’empreinte</td>
           <td>Pour appliquer les limites quotidiennes et stopper les abus (intérêt légitime)</td>
-          <td>90 jours. Votre copie reste sur votre ordinateur.</td>
+          <td>90 jours. Votre copie reste sur votre ordinateur ou votre téléphone.</td>
         </tr>
         <tr>
           <td>L’invité qui a envoyé une capture</td>
