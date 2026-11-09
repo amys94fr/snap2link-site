@@ -272,7 +272,7 @@ function drawGoogleButton() {
   if (!google) return;
   $("#google-button").replaceChildren();
   google.accounts.id.renderButton($("#google-button"), {
-    theme: "filled_black",
+    theme: "outline",
     size: "large",
     text: "continue_with",
     shape: "rectangular",
