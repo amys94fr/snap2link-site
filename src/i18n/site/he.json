@@ -94,6 +94,7 @@
   "install.title": "במחשב וב-Android.",
   "install.winCommand": "מעדיפים את הטרמינל? התקינו עם winget:",
   "install.androidNote": "ב-Android, צלמו מסך, הקישו על שיתוף ואז על Snap2Link: הקישור מועתק. פתחו את הקובץ שהורד בטלפון ואשרו את ההתקנה כש-Android מבקש. האפליקציה עדיין לא נמצאת ב-Play Store.",
+  "install.macNote": "האפליקציה עדיין לא עברה אישור (notarization) של Apple, ולכן macOS חוסם את ההפעלה הראשונה. פתחו אותה פעם אחת וסגרו את האזהרה, ואז עברו אל הגדרות המערכת, פרטיות ואבטחה, ולחצו על ״פתח בכל זאת״ ליד Snap2Link.",
   "install.releases": "לדף הגרסאות ב-GitHub",
   "install.linManual": "הורדת קובץ .AppImage, .deb או .rpm",
   "install.copy": "העתקה",

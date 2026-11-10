@@ -94,6 +94,7 @@
   "install.title": "على حاسوبك وعلى Android.",
   "install.winCommand": "تفضّل الطرفية؟ ثبّته باستخدام winget:",
   "install.androidNote": "على Android، التقط لقطة شاشة ثم اضغط مشاركة ثم Snap2Link: يُنسخ الرابط. افتح الملف الذي نزّلته على هاتفك واسمح بالتثبيت عندما يطلب Android ذلك. التطبيق ليس على Play Store بعد.",
+  "install.macNote": "التطبيق غير موثّق من Apple بعد، لذا يمنع macOS التشغيل الأول. افتحه مرة واحدة وأغلق التحذير، ثم انتقل إلى إعدادات النظام، الخصوصية والأمن، وانقر على فتح على أي حال بجانب Snap2Link.",
   "install.releases": "عرض الإصدارات على GitHub",
   "install.linManual": "نزّل ملف .AppImage أو .deb أو .rpm",
   "install.copy": "نسخ",

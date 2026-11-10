@@ -94,6 +94,7 @@
   "install.title": "パソコンでも、Android でも。",
   "install.winCommand": "ターミナル派なら winget でインストール:",
   "install.androidNote": "Android ではスクリーンショットを撮り、共有から Snap2Link をタップするとリンクがコピーされます。ダウンロードしたファイルをスマートフォンで開き、Android に聞かれたらインストールを許可してください。アプリはまだ Play ストアにはありません。",
+  "install.macNote": "このアプリはまだ Apple の公証を受けていないため、macOS は最初の起動をブロックします。一度開いて警告を閉じたら、システム設定の「プライバシーとセキュリティ」で Snap2Link の横にある「このまま開く」をクリックしてください。",
   "install.releases": "GitHub のリリースを見る",
   "install.linManual": ".AppImage、.deb、.rpm をダウンロード",
   "install.copy": "コピー",

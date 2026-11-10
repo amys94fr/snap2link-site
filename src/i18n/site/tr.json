@@ -94,6 +94,7 @@
   "install.title": "Bilgisayarında ve Android'de.",
   "install.winCommand": "Terminali mi tercih edersin? winget ile kur:",
   "install.androidNote": "Android'de ekran görüntüsü al, Paylaş'a ve ardından Snap2Link'e dokun: bağlantı kopyalanır. İndirilen dosyayı telefonunda aç ve Android sorduğunda yüklemeye izin ver. Uygulama henüz Play Store'da değil.",
+  "install.macNote": "Uygulama henüz Apple tarafından onaylanmadı (notarize edilmedi), bu yüzden macOS ilk açılışı engelliyor. Uygulamayı bir kez aç ve uyarıyı kapat, ardından Sistem Ayarları, Gizlilik ve Güvenlik bölümüne git ve Snap2Link'in yanındaki Yine de Aç düğmesine tıkla.",
   "install.releases": "GitHub sürümlerini gör",
   "install.linManual": ".AppImage, .deb veya .rpm indir",
   "install.copy": "Kopyala",

@@ -94,6 +94,7 @@
   "install.title": "En tu ordenador y en Android.",
   "install.winCommand": "¿Prefieres la terminal? Instala con winget:",
   "install.androidNote": "En Android, haz una captura, toca Compartir y luego Snap2Link: el enlace se copia. Abre el archivo descargado en tu teléfono y permite la instalación cuando Android te lo pida. La app aún no está en Play Store.",
+  "install.macNote": "La app aún no está notarizada por Apple, así que macOS bloquea el primer inicio. Ábrela una vez y cierra el aviso; luego ve a Ajustes del Sistema, Privacidad y seguridad, y haz clic en Abrir igualmente junto a Snap2Link.",
   "install.releases": "Ver las releases en GitHub",
   "install.linManual": "Descarga el .AppImage, .deb o .rpm",
   "install.copy": "Copiar",
