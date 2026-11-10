@@ -94,6 +94,7 @@
   "install.title": "روی رایانه و روی Android.",
   "install.winCommand": "ترمینال را ترجیح می‌دهید؟ با winget نصب کنید:",
   "install.androidNote": "در Android، اسکرین‌شات بگیرید، روی اشتراک‌گذاری و سپس Snap2Link بزنید: پیوند کپی می‌شود. فایل دانلودشده را روی گوشی باز کنید و وقتی Android پرسید، اجازهٔ نصب بدهید. برنامه هنوز در Play Store نیست.",
+  "install.macNote": "برنامه هنوز توسط Apple تأیید (notarize) نشده است، پس macOS اولین اجرا را مسدود می‌کند. برنامه را یک بار باز کنید و هشدار را ببندید، سپس به تنظیمات سیستم، حریم خصوصی و امنیت بروید و کنار Snap2Link روی «در هر صورت باز شود» کلیک کنید.",
   "install.releases": "دیدن انتشارها در GitHub",
   "install.linManual": "فایل .AppImage، .deb یا .rpm را دانلود کنید",
   "install.copy": "کپی",

@@ -94,6 +94,7 @@
   "install.title": "आपके कंप्यूटर पर और Android पर।",
   "install.winCommand": "टर्मिनल पसंद है? winget से इंस्टॉल करें:",
   "install.androidNote": "Android पर स्क्रीनशॉट लें, शेयर पर टैप करें, फिर Snap2Link पर: लिंक कॉपी हो जाता है। डाउनलोड की गई फ़ाइल को अपने फ़ोन पर खोलें और Android के पूछने पर इंस्टॉल करने की अनुमति दें। ऐप अभी Play Store पर नहीं है।",
+  "install.macNote": "ऐप अभी Apple से notarise नहीं हुआ है, इसलिए macOS पहली बार खुलने से रोकता है। ऐप को एक बार खोलें और चेतावनी बंद करें, फिर सिस्टम सेटिंग्स में गोपनीयता और सुरक्षा पर जाएँ और Snap2Link के पास फिर भी खोलें पर क्लिक करें।",
   "install.releases": "GitHub रिलीज़ देखें",
   "install.linManual": ".AppImage, .deb या .rpm डाउनलोड करें",
   "install.copy": "कॉपी करें",

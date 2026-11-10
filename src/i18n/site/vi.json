@@ -94,6 +94,7 @@
   "install.title": "Trên máy tính và trên Android.",
   "install.winCommand": "Thích dùng terminal? Cài bằng winget:",
   "install.androidNote": "Trên Android, chụp màn hình, nhấn Chia sẻ rồi chọn Snap2Link: liên kết được sao chép. Mở tệp đã tải trên điện thoại và cho phép cài đặt khi Android hỏi. Ứng dụng chưa có trên Play Store.",
+  "install.macNote": "Ứng dụng chưa được Apple công chứng, nên macOS chặn lần mở đầu tiên. Mở ứng dụng một lần rồi đóng cảnh báo, sau đó vào Cài đặt hệ thống, Quyền riêng tư & Bảo mật, và bấm Vẫn mở bên cạnh Snap2Link.",
   "install.releases": "Xem các bản phát hành trên GitHub",
   "install.linManual": "Tải file .AppImage, .deb hoặc .rpm",
   "install.copy": "Sao chép",

@@ -94,6 +94,7 @@
   "install.title": "電腦和 Android 都能用。",
   "install.winCommand": "習慣用終端機？用 winget 安裝：",
   "install.androidNote": "在 Android 上截圖後，點按「分享」，再選 Snap2Link，連結就會被複製。請在手機上開啟下載的檔案，Android 詢問時允許安裝。應用程式尚未上架 Play 商店。",
+  "install.macNote": "應用程式尚未通過 Apple 公證，所以 macOS 會阻擋第一次開啟。請先開啟一次並關閉警告，然後前往「系統設定」中的「隱私權與安全性」，點按 Snap2Link 旁的「強制打開」。",
   "install.releases": "查看 GitHub 發行版本",
   "install.linManual": "下載 .AppImage、.deb 或 .rpm",
   "install.copy": "複製",
